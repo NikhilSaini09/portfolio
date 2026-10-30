@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Terminal, Download, Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 
 interface NavbarProps {
-  onOpenCommandPalette: () => void;
+  onOpenCommandPalette?: () => void;
 }
 
 export function Navbar({ onOpenCommandPalette }: NavbarProps) {
@@ -76,19 +76,6 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
 
         {/* Right Action Buttons */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Quick Cmd+K Button */}
-          <button
-            onClick={onOpenCommandPalette}
-            className="flex items-center gap-2 px-2.5 py-1.5 text-xs font-mono text-zinc-400 bg-zinc-900/80 hover:bg-zinc-800 border border-white/[0.08] hover:border-emerald-500/30 rounded-lg transition-all"
-            title="Open Command Palette (Cmd + K)"
-          >
-            <Terminal className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="hidden sm:inline">Commands</span>
-            <kbd className="text-[10px] bg-zinc-800 px-1.5 py-0.5 rounded text-zinc-400 border border-white/5">
-              ⌘K
-            </kbd>
-          </button>
-
           {/* Resume Download */}
           <a
             href={PORTFOLIO_DATA.personal.resumeUrl}

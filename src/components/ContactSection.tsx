@@ -13,7 +13,6 @@ import {
   MessageSquare,
   Sparkles,
 } from "lucide-react";
-import confetti from "canvas-confetti";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
 
@@ -32,12 +31,6 @@ export function ContactSection() {
     if (!formData.name || !formData.email || !formData.message) return;
 
     setSubmitted(true);
-    confetti({
-      particleCount: 60,
-      spread: 70,
-      origin: { y: 0.8 },
-      colors: ["#10b981", "#06b6d4", "#a855f7"],
-    });
 
     // Optionally construct a mailto link so the user can send it straight from their mail client
     const subject = encodeURIComponent(`[${formData.roleType}] Outreach from ${formData.name}`);
@@ -50,13 +43,7 @@ export function ContactSection() {
   const copyEmail = () => {
     navigator.clipboard.writeText(PORTFOLIO_DATA.personal.email);
     setCopied(true);
-    confetti({
-      particleCount: 40,
-      spread: 50,
-      origin: { y: 0.85 },
-      colors: ["#10b981", "#ffffff"],
-    });
-    setTimeout(() => setCopied(false), 2500);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (

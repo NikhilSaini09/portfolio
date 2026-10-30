@@ -16,7 +16,6 @@ import {
   X,
   Copy,
 } from "lucide-react";
-import confetti from "canvas-confetti";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
 
@@ -108,7 +107,6 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       icon: Copy,
       action: () => {
         navigator.clipboard.writeText(PORTFOLIO_DATA.personal.email);
-        confetti({ particleCount: 30, spread: 60, origin: { y: 0.5 } });
         onClose();
       },
     },

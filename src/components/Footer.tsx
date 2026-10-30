@@ -5,26 +5,10 @@ import { Terminal, Shield, Heart, ArrowUp } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 
 export function Footer() {
-  const [mumbaiTime, setMumbaiTime] = useState<string>("");
   const [currentYear, setCurrentYear] = useState<number>(2026);
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setMumbaiTime(
-        now.toLocaleTimeString("en-US", {
-          timeZone: "Asia/Kolkata",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: true,
-        })
-      );
-      setCurrentYear(now.getFullYear());
-    };
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
+    setCurrentYear(new Date().getFullYear());
   }, []);
 
   const scrollToTop = () => {
@@ -45,16 +29,16 @@ export function Footer() {
             <div>
               <div className="text-sm font-semibold text-white">Nikhil Saini</div>
               <div className="text-xs text-zinc-400 font-mono">
-                IIT Bombay &apos;25 • Systems & High Performance
+                IIT Bombay &apos;25 • Software Engineer
               </div>
             </div>
           </div>
 
-          {/* Live Telemetry Time */}
+          {/* Location & Relocation Status */}
           <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-zinc-900 border border-white/[0.06]">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Mumbai (IST): {mumbaiTime || "19:45:00 PM"}</span>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900/80 border border-white/[0.06] text-zinc-300">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span>Based in Mumbai, India • Open to Relocation & Remote</span>
             </div>
             <button
               onClick={scrollToTop}

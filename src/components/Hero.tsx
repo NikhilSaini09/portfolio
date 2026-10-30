@@ -11,7 +11,6 @@ import {
   MapPin,
   GraduationCap,
 } from "lucide-react";
-import confetti from "canvas-confetti";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import { GithubIcon, LinkedinIcon, LeetCodeIcon, CodeforcesIcon } from "@/components/icons/BrandIcons";
 
@@ -21,12 +20,6 @@ export function Hero() {
   const copyEmail = () => {
     navigator.clipboard.writeText(PORTFOLIO_DATA.personal.email);
     setCopied(true);
-    confetti({
-      particleCount: 35,
-      spread: 50,
-      origin: { y: 0.8 },
-      colors: ["#10b981", "#ffffff"],
-    });
     setTimeout(() => setCopied(false), 2000);
   };
 
