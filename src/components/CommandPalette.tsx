@@ -72,8 +72,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     },
     {
       id: "demo",
-      title: "Try 0.6ms Backtracking Demo",
-      subtitle: "Interactive in-browser constraint solver",
+      title: "Launch WebRTC P2P Mesh Simulator",
+      subtitle: "Simulate sub-18ms packets & Host Migration failover",
       icon: Zap,
       action: () => {
         window.location.hash = "#interactive-demo";

@@ -3,9 +3,9 @@
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { TelemetryGrid } from "@/components/TelemetryGrid";
+import { CPTelemetryDashboard } from "@/components/CPTelemetryDashboard";
 import { ProjectsSection } from "@/components/ProjectsSection";
-import { InteractiveSudoku } from "@/components/InteractiveSudoku";
+import { DistributedMeshSimulator } from "@/components/DistributedMeshSimulator";
 import { SkillsMatrix } from "@/components/SkillsMatrix";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ContactSection } from "@/components/ContactSection";
@@ -32,9 +32,9 @@ export default function Home() {
 
         <main className="flex-1">
           <Hero />
-          <TelemetryGrid />
+          <CPTelemetryDashboard />
           <ProjectsSection />
-          <InteractiveSudoku />
+          <DistributedMeshSimulator />
           <SkillsMatrix />
           <ExperienceTimeline />
           <ContactSection />

@@ -89,6 +89,70 @@ export function ProjectsSection() {
                   </span>
                 </div>
 
+                {/* Architectural Visual Preview Banner */}
+                <div className="mb-4 rounded-xl bg-gradient-to-r from-zinc-900/90 via-zinc-900/60 to-black/80 border border-white/[0.06] p-3 flex items-center justify-between text-[11px] font-mono">
+                  {project.id === "kaali-tirri" && (
+                    <>
+                      <span className="text-emerald-400 flex items-center gap-1.5 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        P2P WebRTC Mesh
+                      </span>
+                      <span className="text-zinc-400">STUN/TURN • 14ms RTT</span>
+                      <span className="text-cyan-400 font-bold">♠ ♥ ♣ ♦</span>
+                    </>
+                  )}
+                  {project.id === "discord-platform" && (
+                    <>
+                      <span className="text-blue-400 flex items-center gap-1.5 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                        LiveKit SFU Audio/Video
+                      </span>
+                      <span className="text-zinc-400">Socket.io • Prisma SQL</span>
+                      <span className="text-emerald-400 font-bold">HD Streaming</span>
+                    </>
+                  )}
+                  {project.id === "ai-crm" && (
+                    <>
+                      <span className="text-purple-400 flex items-center gap-1.5 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+                        LangGraph Autonomous Agent
+                      </span>
+                      <span className="text-zinc-400">Groq Llama 3.3 70B</span>
+                      <span className="text-amber-400 font-bold">6 Tools</span>
+                    </>
+                  )}
+                  {project.id === "3d-scene-sync" && (
+                    <>
+                      <span className="text-cyan-400 flex items-center gap-1.5 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                        WebGL Screen Frustum
+                      </span>
+                      <span className="text-zinc-400">BroadcastChannel API</span>
+                      <span className="text-purple-400 font-bold">Three.js 60fps</span>
+                    </>
+                  )}
+                  {project.id === "sudoku-solver" && (
+                    <>
+                      <span className="text-amber-400 flex items-center gap-1.5 font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-amber-400" />
+                        OpenCV Vision Pipeline
+                      </span>
+                      <span className="text-zinc-400">MNIST CNN 98%</span>
+                      <span className="text-emerald-400 font-bold">0.6ms Solver</span>
+                    </>
+                  )}
+                  {project.id !== "kaali-tirri" &&
+                    project.id !== "discord-platform" &&
+                    project.id !== "ai-crm" &&
+                    project.id !== "3d-scene-sync" &&
+                    project.id !== "sudoku-solver" && (
+                      <>
+                        <span className="text-zinc-300 font-semibold">{project.title}</span>
+                        <span className="text-emerald-400">Production Build</span>
+                      </>
+                    )}
+                </div>
+
                 {/* Title & Tagline */}
                 <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-emerald-300 transition-colors">
                   {project.title}

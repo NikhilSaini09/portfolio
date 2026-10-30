@@ -23,7 +23,7 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
   const navLinks = [
     { name: "Systems & Projects", href: "#systems" },
     { name: "CP Telemetry", href: "#telemetry" },
-    { name: "0.6ms Solver Demo", href: "#interactive-demo" },
+    { name: "P2P Mesh Lab", href: "#interactive-demo" },
     { name: "Skills Matrix", href: "#skills" },
     { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   ArrowRight,
   Copy,
@@ -194,22 +195,26 @@ export function Hero() {
                 </div>
 
                 {/* Passport Photo Box (Standard 7:9 passport proportion) */}
-                <div className="relative mt-5 w-44 h-56 rounded-xl overflow-hidden border-2 border-emerald-500/40 bg-gradient-to-b from-zinc-800 via-zinc-900 to-zinc-950 flex flex-col items-center justify-center shadow-inner group/photo">
-                  {/* Subtle portrait gradient background */}
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/30 via-zinc-900 to-black pointer-events-none" />
+                <div className="relative mt-5 w-44 h-56 rounded-xl overflow-hidden border-2 border-emerald-500/40 bg-zinc-900 shadow-2xl group/photo">
+                  <Image
+                    src="/profile.jpeg"
+                    alt="Nikhil Saini - IIT Bombay"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 176px, 176px"
+                    className="object-cover object-top filter brightness-105 group-hover/photo:scale-105 transition-transform duration-500"
+                  />
+                  {/* Subtle glass reflection overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
                   
-                  {/* Avatar / Portrait Display */}
-                  <div className="relative z-10 flex flex-col items-center justify-center p-4 text-center">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-emerald-600 to-cyan-500 flex items-center justify-center shadow-lg border-2 border-white/20 mb-3">
-                      <span className="text-2xl font-black text-white tracking-wider">NS</span>
-                    </div>
-                    <span className="text-xs font-semibold text-zinc-100">Nikhil Saini</span>
-                    <span className="text-[10px] font-mono text-zinc-400 mt-0.5">Dual Degree Graduate</span>
+                  {/* Verified badge pill overlay */}
+                  <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between px-2 py-1 rounded bg-black/75 backdrop-blur-md border border-white/10 text-[10px] font-mono text-zinc-300">
+                    <span className="text-emerald-400 flex items-center gap-1 font-semibold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      IIT Bombay
+                    </span>
+                    <span className="text-zinc-400">&apos;25</span>
                   </div>
-
-                  {/* Passport corner watermarks */}
-                  <div className="absolute top-1.5 left-1.5 text-[8px] font-mono text-white/30 tracking-widest">IITB</div>
-                  <div className="absolute bottom-1.5 right-1.5 text-[8px] font-mono text-emerald-400/40 font-bold">2020-25</div>
                 </div>
 
                 {/* Credentials Strip under photo */}

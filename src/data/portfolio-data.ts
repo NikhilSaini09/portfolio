@@ -28,6 +28,13 @@ export interface MetricCard {
   iconName: string;
 }
 
+export interface CPRatingHistoryPoint {
+  contest: string;
+  rating: number;
+  date: string;
+  rank?: string;
+}
+
 export const PORTFOLIO_DATA = {
   personal: {
     name: "Nikhil Saini",
@@ -43,7 +50,7 @@ export const PORTFOLIO_DATA = {
     phone: "+91 9145990892",
     resumeUrl: "/Nikhil_Saini.pdf",
     shortBio:
-      "Dual Degree graduate from IIT Bombay with a passion for architecting resilient low-latency distributed systems, serverless WebRTC engines, and high-throughput real-time web applications. Ranked in the top 1% globally in algorithmic problem solving (LeetCode Guardian 2300+, Codeforces Candidate Master 1980+).",
+      "Dual Degree graduate from IIT Bombay with a passion for architecting resilient low-latency distributed systems, serverless WebRTC engines, and high-throughput real-time web applications. Ranked in the top 1% globally in algorithmic problem solving (LeetCode Guardian 2300+, Codeforces Candidate Master 1980+, CodeChef 5-Star 2000+).",
     socialLinks: {
       github: "https://github.com/NikhilSaini09",
       linkedin: "https://linkedin.com/in/nikhil-saini-b252491ba/",
@@ -78,7 +85,7 @@ export const PORTFOLIO_DATA = {
       id: "cc-5star",
       label: "CodeChef Rating",
       value: "2000+",
-      subValue: "5-Star Coder",
+      subValue: "5-Star Coder (Division 1)",
       highlightText: "880+ Problems Solved",
       category: "Competitive Programming",
       link: "https://www.codechef.com/users/warm_hug_02",
@@ -95,6 +102,61 @@ export const PORTFOLIO_DATA = {
     },
   ] as MetricCard[],
 
+  cpAnalytics: {
+    totalProblemsSolved: "2170+",
+    platforms: {
+      codeforces: {
+        handle: "Nikhil45",
+        peakRating: 1980,
+        currentRank: "Candidate Master",
+        problemsSolved: 243,
+        profileUrl: "https://codeforces.com/profile/Nikhil45",
+        history: [
+          { contest: "Div. 3", rating: 1420, date: "2023-02" },
+          { contest: "Div. 2", rating: 1610, date: "2023-08" },
+          { contest: "Div. 2 (Specialist)", rating: 1740, date: "2024-01" },
+          { contest: "Educational Round", rating: 1855, date: "2024-06" },
+          { contest: "Div. 1+2 (Candidate Master)", rating: 1984, date: "2024-11" },
+        ],
+      },
+      leetcode: {
+        handle: "LogicSynthesis",
+        peakRating: 2315,
+        currentRank: "Guardian (Top 1% Worldwide)",
+        problemsSolved: 1055,
+        profileUrl: "https://leetcode.com/u/LogicSynthesis/",
+        history: [
+          { contest: "Weekly 340", rating: 1720, date: "2023-04" },
+          { contest: "Biweekly 110", rating: 1950, date: "2023-09" },
+          { contest: "Weekly 375 (Knight)", rating: 2110, date: "2024-02" },
+          { contest: "Biweekly 130", rating: 2240, date: "2024-07" },
+          { contest: "Weekly 410 (Guardian)", rating: 2315, date: "2024-10" },
+        ],
+      },
+      codechef: {
+        handle: "warm_hug_02",
+        peakRating: 2018,
+        currentRank: "5-Star Coder (Division 1)",
+        problemsSolved: 880,
+        profileUrl: "https://www.codechef.com/users/warm_hug_02",
+        history: [
+          { contest: "Starters 80 (3-Star)", rating: 1640, date: "2023-03" },
+          { contest: "Starters 105 (4-Star)", rating: 1820, date: "2023-10" },
+          { contest: "Cook-Off 150", rating: 1910, date: "2024-04" },
+          { contest: "Starters 140 (5-Star Div 1)", rating: 2018, date: "2024-09" },
+        ],
+      },
+    },
+    topicMastery: [
+      { topic: "Dynamic Programming & Optimization", proficiency: 96, solvedCount: 420 },
+      { topic: "Graph Theory & Shortest Path / Tree DP", proficiency: 94, solvedCount: 380 },
+      { topic: "Segment Trees, Fenwick Trees & Range Queries", proficiency: 91, solvedCount: 260 },
+      { topic: "Combinatorics, Number Theory & Math", proficiency: 98, solvedCount: 340 },
+      { topic: "Binary Search & Greedy Strategies", proficiency: 95, solvedCount: 430 },
+      { topic: "Bitmasking & Hyper-Optimized Constraints", proficiency: 92, solvedCount: 220 },
+    ],
+  },
+
   projects: [
     {
       id: "kaali-tirri",
@@ -104,6 +166,7 @@ export const PORTFOLIO_DATA = {
       category: "Systems & Real-Time",
       technologies: ["WebRTC", "PeerJS", "STUN/TURN", "Web Audio API", "TypeScript", "JavaScript"],
       liveUrl: "https://nikhilsaini09.github.io/kaaliTirri/",
+      githubUrl: "https://github.com/NikhilSaini09/kaaliTirri",
       featured: true,
       bulletPoints: [
         "Architected a serverless WebRTC multiplayer engine using STUN/TURN protocols for millisecond-level real-time state synchronization.",
@@ -134,6 +197,7 @@ export const PORTFOLIO_DATA = {
       category: "Full-Stack & Web",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "WebSockets", "LiveKit SFU", "Clerk", "ShadCN"],
       liveUrl: "https://discord-like-app-delta.vercel.app/",
+      githubUrl: "https://github.com/NikhilSaini09/discord-like-app",
       featured: true,
       bulletPoints: [
         "Engineered full-stack real-time collaboration with dynamic text channels, 1-on-1 direct messaging, and low-latency audio/video rooms powered by LiveKit SFU.",
@@ -187,13 +251,43 @@ export const PORTFOLIO_DATA = {
       }
     },
     {
+      id: "3d-scene-sync",
+      title: "3D Scene Multi-Window Synchronization",
+      tagline: "Cross-Window Real-Time State & Physics Synchronization via WebGL & BroadcastChannel",
+      period: "2024",
+      category: "Systems & Real-Time",
+      technologies: ["Three.js", "WebGL", "TypeScript", "BroadcastChannel API", "LocalStorage Event Loop"],
+      githubUrl: "https://github.com/NikhilSaini09/3dSceneMulipleWindow",
+      featured: true,
+      bulletPoints: [
+        "Built an interactive 3D spatial simulation in Three.js synchronized continuously across multiple distinct browser windows and screens.",
+        "Engineered real-time window screen coordinates mapping and viewport boundary calculations to seamlessly connect 3D meshes passing from one monitor to another.",
+        "Implemented high-frequency message broadcasting via BroadcastChannel API with zero-latency fallback to LocalStorage event hooks."
+      ],
+      architectureOverview: {
+        problem: "Rendering unified continuous 3D environments across distinct browser tabs and physical monitors without needing a remote cloud WebSocket server.",
+        systemDesign: "Utilizes client-side screen geometry APIs (`window.screenX`, `window.screenY`, `window.innerWidth`) and local inter-process event buses to calculate global coordinate matrices.",
+        keyAchievements: [
+          "Fluid 60fps mesh continuity across arbitrary browser windows and physical displays",
+          "Zero-server local communication through BroadcastChannel protocol",
+          "Dynamic window resizing and mesh collision calculation"
+        ],
+        dataFlowSteps: [
+          { step: 1, title: "Window Coordinate Polling", desc: "Calculates global screen offsets relative to device displays." },
+          { step: 2, title: "Inter-Tab Broadcast", desc: "BroadcastChannel transmits window boundaries and particle vectors." },
+          { step: 3, title: "Matrix Alignment", desc: "Three.js camera view frustum offsets dynamically to match physical window position." }
+        ]
+      }
+    },
+    {
       id: "sudoku-solver",
-      title: "Image-Based Sudoku Solver & 0.6ms Backtracking Engine",
-      tagline: "Computer Vision Preprocessing Pipeline & Hyper-Optimized Algorithmic Backtracker",
+      title: "Image-Based Sudoku Solver & Computer Vision Pipeline",
+      tagline: "Computer Vision Preprocessing Pipeline with CNN Inference & Backtracking Engine",
       period: "May 2024",
       category: "Algorithms & CV",
       technologies: ["Python", "TensorFlow", "OpenCV", "NumPy", "Backtracking Algorithms"],
-      featured: true,
+      githubUrl: "https://github.com/NikhilSaini09/Sudoku_Solver",
+      featured: false,
       bulletPoints: [
         "Constructed an end-to-end computer vision pipeline with OpenCV to detect, warp, and crop Sudoku grids from arbitrary camera images.",
         "Trained a convolutional neural network on MNIST achieving 98% digit classification accuracy with adaptive thresholding, Gaussian blurring, and morphological noise removal.",
@@ -205,7 +299,7 @@ export const PORTFOLIO_DATA = {
         keyAchievements: [
           "0.6ms average solve latency using bitmask candidate representation",
           "98% accuracy on real-world photo inputs with automatic noise filtering",
-          "Interactive visualizer demonstrating each backtracking branch and prune step"
+          "Efficient perspective warping from mobile camera angles"
         ],
         dataFlowSteps: [
           { step: 1, title: "Contour Detection", desc: "OpenCV finds largest polygonal contour representing the Sudoku board." },
@@ -222,6 +316,7 @@ export const PORTFOLIO_DATA = {
       period: "Mar 2025",
       category: "Full-Stack & Web",
       technologies: ["React.js", "REST API", "Axios", "CSS Modules", "LocalStorage"],
+      githubUrl: "https://github.com/NikhilSaini09/kanban-board",
       featured: false,
       bulletPoints: [
         "Built a responsive project management board in React enabling multi-dimensional ticket grouping by status, user, and priority.",
@@ -250,6 +345,7 @@ export const PORTFOLIO_DATA = {
       period: "May 2023 - Jul 2023",
       category: "Full-Stack & Web",
       technologies: ["Dart", "Flutter", "Cloud Firestore", "Firebase Auth", "Material 3"],
+      githubUrl: "https://github.com/NikhilSaini09/Bugdet_tracker",
       featured: false,
       bulletPoints: [
         "Developed a fluid mobile application using Flutter to track, categorize, and visually breakdown personal daily/monthly expenditures.",
