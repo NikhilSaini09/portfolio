@@ -160,7 +160,10 @@ export function Hero() {
             <div className="w-full max-w-xs rounded-2xl bg-zinc-950 border border-white/[0.1] p-5 shadow-xl flex flex-col items-center">
               
               {/* Photo Box without gimmicky badges */}
-              <div className="relative w-48 h-60 rounded-xl overflow-hidden bg-zinc-900 border border-white/[0.08] shadow-md">
+              <div
+                style={{ width: "192px", height: "240px" }}
+                className="relative w-48 h-60 rounded-xl overflow-hidden bg-zinc-900 border border-white/[0.08] shadow-md"
+              >
                 <Image
                   src="/profile.jpeg"
                   alt="Nikhil Saini"
