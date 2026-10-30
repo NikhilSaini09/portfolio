@@ -70,16 +70,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         onClose();
       },
     },
-    {
-      id: "demo",
-      title: "Launch WebRTC P2P Mesh Simulator",
-      subtitle: "Simulate sub-18ms packets & Host Migration failover",
-      icon: Zap,
-      action: () => {
-        window.location.hash = "#interactive-demo";
-        onClose();
-      },
-    },
+
     {
       id: "skills",
       title: "Explore Skills & Tooling Matrix",

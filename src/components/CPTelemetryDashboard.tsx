@@ -198,37 +198,18 @@ export function CPTelemetryDashboard() {
 
             </div>
 
-            {/* Algorithmic Proficiency Breakdown */}
-            <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/[0.08]">
-              <div className="flex items-center justify-between mb-6 pb-3 border-b border-white/[0.06]">
-                <div className="flex items-center gap-2">
-                  <BarChart3 className="w-4 h-4 text-emerald-400" />
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-white">
-                    Core Algorithmic Competency Matrix
-                  </h3>
-                </div>
-                <span className="text-xs font-mono text-zinc-400">
-                  100 Percentile JEE Main Math Foundation
-                </span>
+            {/* Clean Editorial Summary Strip */}
+            <div className="p-5 rounded-2xl bg-zinc-950/80 border border-white/[0.08] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <span>2,170+ algorithmic problems solved across platforms</span>
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {cp.topicMastery.map((item, idx) => (
-                  <div key={idx} className="space-y-2">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="font-semibold text-zinc-200">{item.topic}</span>
-                      <span className="font-mono text-emerald-400 font-bold">
-                        {item.solvedCount}+ solved ({item.proficiency}%)
-                      </span>
-                    </div>
-                    <div className="w-full h-2 rounded-full bg-zinc-900 border border-white/[0.06] overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-cyan-400"
-                        style={{ width: `${item.proficiency}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
+              <div className="flex items-center gap-4 text-zinc-300">
+                <span>JEE Main Math: <strong className="text-white">100%ile</strong></span>
+                <span>•</span>
+                <span>JEE Advanced: <strong className="text-white">Top 3%</strong></span>
+                <span>•</span>
+                <span>IIT Bombay Courses: <strong className="text-emerald-400">11 AA Grades</strong></span>
               </div>
             </div>
 

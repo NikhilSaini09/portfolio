@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ExternalLink,
   Layers,
@@ -20,6 +20,18 @@ import { GithubIcon } from "@/components/icons/BrandIcons";
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedProject(null);
+      }
+    };
+    if (selectedProject) {
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [selectedProject]);
 
   const categories = [
     "All",
@@ -80,77 +92,14 @@ export function ProjectsSection() {
             >
               <div>
                 {/* Header with category and period */}
-                <div className="flex items-center justify-between gap-2 mb-3">
+                {/* Header with category and period */}
+                <div className="flex items-center justify-between gap-2 mb-4">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-900 border border-white/10 text-emerald-400">
                     {project.category}
                   </span>
                   <span className="text-xs font-mono text-zinc-400">
                     {project.period}
                   </span>
-                </div>
-
-                {/* Architectural Visual Preview Banner */}
-                <div className="mb-4 rounded-xl bg-gradient-to-r from-zinc-900/90 via-zinc-900/60 to-black/80 border border-white/[0.06] p-3 flex items-center justify-between text-[11px] font-mono">
-                  {project.id === "kaali-tirri" && (
-                    <>
-                      <span className="text-emerald-400 flex items-center gap-1.5 font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                        P2P WebRTC Mesh
-                      </span>
-                      <span className="text-zinc-400">STUN/TURN • 14ms RTT</span>
-                      <span className="text-cyan-400 font-bold">♠ ♥ ♣ ♦</span>
-                    </>
-                  )}
-                  {project.id === "discord-platform" && (
-                    <>
-                      <span className="text-blue-400 flex items-center gap-1.5 font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                        LiveKit SFU Audio/Video
-                      </span>
-                      <span className="text-zinc-400">Socket.io • Prisma SQL</span>
-                      <span className="text-emerald-400 font-bold">HD Streaming</span>
-                    </>
-                  )}
-                  {project.id === "ai-crm" && (
-                    <>
-                      <span className="text-purple-400 flex items-center gap-1.5 font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-                        LangGraph Autonomous Agent
-                      </span>
-                      <span className="text-zinc-400">Groq Llama 3.3 70B</span>
-                      <span className="text-amber-400 font-bold">6 Tools</span>
-                    </>
-                  )}
-                  {project.id === "3d-scene-sync" && (
-                    <>
-                      <span className="text-cyan-400 flex items-center gap-1.5 font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                        WebGL Screen Frustum
-                      </span>
-                      <span className="text-zinc-400">BroadcastChannel API</span>
-                      <span className="text-purple-400 font-bold">Three.js 60fps</span>
-                    </>
-                  )}
-                  {project.id === "sudoku-solver" && (
-                    <>
-                      <span className="text-amber-400 flex items-center gap-1.5 font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-amber-400" />
-                        OpenCV Vision Pipeline
-                      </span>
-                      <span className="text-zinc-400">MNIST CNN 98%</span>
-                      <span className="text-emerald-400 font-bold">0.6ms Solver</span>
-                    </>
-                  )}
-                  {project.id !== "kaali-tirri" &&
-                    project.id !== "discord-platform" &&
-                    project.id !== "ai-crm" &&
-                    project.id !== "3d-scene-sync" &&
-                    project.id !== "sudoku-solver" && (
-                      <>
-                        <span className="text-zinc-300 font-semibold">{project.title}</span>
-                        <span className="text-emerald-400">Production Build</span>
-                      </>
-                    )}
                 </div>
 
                 {/* Title & Tagline */}
@@ -230,8 +179,14 @@ export function ProjectsSection() {
 
       {/* Architecture Blueprint Modal Drawer */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-zinc-950 border border-white/20 p-6 sm:p-8 shadow-2xl">
+        <div
+          onClick={() => setSelectedProject(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-pointer"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-zinc-950 border border-white/20 p-6 sm:p-8 shadow-2xl cursor-default"
+          >
             
             {/* Modal Header */}
             <div className="flex items-start justify-between pb-4 border-b border-white/10">

@@ -5,7 +5,6 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { CPTelemetryDashboard } from "@/components/CPTelemetryDashboard";
 import { ProjectsSection } from "@/components/ProjectsSection";
-import { DistributedMeshSimulator } from "@/components/DistributedMeshSimulator";
 import { SkillsMatrix } from "@/components/SkillsMatrix";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { ContactSection } from "@/components/ContactSection";
@@ -34,7 +33,6 @@ export default function Home() {
           <Hero />
           <CPTelemetryDashboard />
           <ProjectsSection />
-          <DistributedMeshSimulator />
           <SkillsMatrix />
           <ExperienceTimeline />
           <ContactSection />
