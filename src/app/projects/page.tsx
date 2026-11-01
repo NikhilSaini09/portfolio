@@ -60,20 +60,20 @@ export default function ProjectsDirectoryPage() {
               Home
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-zinc-600" />
-            <span className="text-zinc-200">Projects Directory</span>
+            <span className="text-zinc-200">Projects</span>
           </div>
 
           {/* Section Header */}
           <div className="max-w-3xl mb-12">
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-3">
               <Layers className="w-4 h-4" />
-              Engineered Deployments & Systems Archive
+              Engineering Portfolio
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-              Projects & Production Systems
+              All Projects
             </h1>
             <p className="text-base text-zinc-300 leading-relaxed">
-              Explore in-depth case studies featuring serverless WebRTC mesh topologies, LiveKit SFU media pipelines, LangGraph autonomous AI agents, and computer vision algorithms.
+              A comprehensive catalog of real-time systems, distributed architectures, applied AI workflows, and software engineering projects.
             </p>
           </div>
 
@@ -197,7 +197,7 @@ export default function ProjectsDirectoryPage() {
                       href={`/projects/${project.slug}`}
                       className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors group/link"
                     >
-                      Read Full Case Study
+                      View Project Details
                       <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
 

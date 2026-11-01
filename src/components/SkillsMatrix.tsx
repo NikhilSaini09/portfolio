@@ -23,14 +23,14 @@ export function SkillsMatrix() {
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
               <Code2 className="w-4 h-4" />
-              Technical Stack & Production Competencies
+              Technical Toolkit
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              Skills & Engineering Tooling
+              Skills & Technologies
             </h2>
           </div>
           <p className="mt-3 md:mt-0 text-sm text-zinc-400 max-w-md">
-            Production-grade competencies spanning low-latency network protocols, core languages, full-stack frameworks, and automated CI/CD pipelines.
+            Core competencies across low-latency network protocols, systems programming, modern web frameworks, and algorithmic design.
           </p>
         </div>
 

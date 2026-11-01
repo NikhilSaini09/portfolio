@@ -25,10 +25,10 @@ export function CPTelemetryDashboard() {
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
               <Brain className="w-4 h-4" />
-              Algorithmic Telemetry & Contest Metrics
+              Algorithmic Problem Solving
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              Competitive Programming Mastery
+              Competitive Programming
             </h2>
           </div>
           <div className="mt-3 md:mt-0 flex items-center gap-3">

@@ -111,8 +111,8 @@ async function CaseStudyContent({
             {project.period}
           </span>
           {project.featured && (
-            <span className="text-xs font-mono text-cyan-400 bg-cyan-950/50 border border-cyan-500/20 px-2 py-0.5 rounded">
-              Featured Case Study
+            <span className="text-xs font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-500/20 px-2 py-0.5 rounded">
+              Featured Project
             </span>
           )}
         </div>

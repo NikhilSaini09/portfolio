@@ -37,7 +37,7 @@ export function Footer() {
           {/* Location & Relocation Status */}
           <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900/80 border border-white/[0.06] text-zinc-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <span>Based in Mumbai, India • Open to Relocation & Remote</span>
             </div>
             <button
@@ -59,7 +59,7 @@ export function Footer() {
               href="/projects"
               className="hover:text-emerald-400 transition-colors font-mono hidden md:inline"
             >
-              Projects Directory
+              All Projects
             </Link>
           </div>
 
@@ -93,7 +93,7 @@ export function Footer() {
               rel="noreferrer"
               className="hover:text-amber-400 transition-colors"
             >
-              LeetCode (2300+)
+              LeetCode (2315)
             </a>
             <a
               href={PORTFOLIO_DATA.personal.socialLinks.codeforces}
@@ -101,7 +101,15 @@ export function Footer() {
               rel="noreferrer"
               className="hover:text-purple-400 transition-colors"
             >
-              Codeforces (1980+)
+              Codeforces (2043)
+            </a>
+            <a
+              href={PORTFOLIO_DATA.personal.socialLinks.codechef}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-emerald-400 transition-colors"
+            >
+              CodeChef (2047)
             </a>
           </div>
         </div>

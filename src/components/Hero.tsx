@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import {
   ArrowRight,
   Copy,
@@ -31,68 +30,61 @@ export function Hero() {
           <div className="lg:col-span-7 flex flex-col items-start space-y-6">
             
             {/* Status indicator */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/[0.08] text-zinc-300 text-xs font-mono">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-white/[0.08] text-zinc-300 text-xs font-mono">
               <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <span>Available for Backend, Systems & SWE Roles</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
               Software Engineer building low-latency distributed systems & real-time protocols.
             </h1>
 
             {/* Natural prose bio */}
-            <p className="text-base text-zinc-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl">
               I’m <span className="text-white font-semibold">Nikhil Saini</span>, an{" "}
               <span className="text-zinc-100 font-medium">IIT Bombay Dual Degree &apos;25</span>{" "}
               graduate. Ranked in the <span className="text-white font-medium">top 1% globally</span> in competitive programming (
-              <span className="text-zinc-100 font-semibold">LeetCode Guardian 2300+</span>,{" "}
-              <span className="text-zinc-100 font-semibold">Codeforces Candidate Master 1980+</span>, and{" "}
-              <span className="text-zinc-100 font-semibold">CodeChef 5-Star 2000+</span>
+              <span className="text-zinc-100 font-semibold">LeetCode Guardian 2315</span>,{" "}
+              <span className="text-zinc-100 font-semibold">Codeforces Candidate Master 2043</span>, and{" "}
+              <span className="text-zinc-100 font-semibold">CodeChef 5-Star 2047</span>
               ).
             </p>
 
-            <p className="text-sm text-zinc-400 leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
               My engineering work focuses on resilient distributed architectures: serverless WebRTC peer-to-peer multiplayer engines with automatic host migration, low-latency LiveKit streaming with WebSockets, and autonomous multi-tool agent pipelines.
             </p>
 
-            {/* Action Buttons */}
+            {/* Action Buttons - Clean, intentional, no competing duplicate links */}
             <div className="pt-2 flex flex-wrap items-center gap-3 w-full sm:w-auto">
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-zinc-950 font-semibold text-xs transition-colors shadow-lg shadow-emerald-950/40"
-              >
-                <span>Explore Case Studies</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-
               <a
-                href="#systems"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-medium text-xs border border-white/10 transition-colors"
+                href="#projects"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-zinc-950 font-semibold text-sm transition-all shadow-lg shadow-emerald-950/40 active:scale-95"
               >
-                Featured Systems
+                <span>View Projects</span>
+                <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 font-medium text-xs border border-white/[0.06] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 font-medium text-sm border border-white/10 transition-colors"
               >
-                Get In Touch
+                Contact
               </a>
 
               <button
                 onClick={copyEmail}
-                className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono border border-white/[0.06] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 text-sm font-mono border border-white/[0.08] transition-colors"
                 title="Copy email to clipboard"
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400">Copied</span>
+                    <Check className="w-4 h-4 text-emerald-400" />
+                    <span className="text-emerald-400 font-medium">Copied</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-3.5 h-3.5" />
+                    <Copy className="w-4 h-4 text-zinc-400" />
                     <span>nikhil1010saini@gmail.com</span>
                   </>
                 )}
@@ -100,14 +92,14 @@ export function Hero() {
             </div>
 
             {/* Verified Profile Links */}
-            <div className="pt-2 flex flex-wrap items-center gap-2.5 text-xs text-zinc-400">
+            <div className="pt-2 flex flex-wrap items-center gap-2.5 text-xs sm:text-sm text-zinc-300">
               <a
                 href={PORTFOLIO_DATA.personal.socialLinks.github}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
               >
-                <GithubIcon className="w-3.5 h-3.5" />
+                <GithubIcon className="w-4 h-4" />
                 <span>GitHub</span>
               </a>
 
@@ -117,7 +109,7 @@ export function Hero() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
               >
-                <LinkedinIcon className="w-3.5 h-3.5 text-blue-400" />
+                <LinkedinIcon className="w-4 h-4 text-blue-400" />
                 <span>LinkedIn</span>
               </a>
 
@@ -128,7 +120,7 @@ export function Hero() {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
               >
                 <span className="w-2 h-2 rounded-full bg-amber-400" />
-                <span>LeetCode 2300+</span>
+                <span>LeetCode 2315</span>
               </a>
 
               <a
@@ -138,7 +130,7 @@ export function Hero() {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
               >
                 <span className="w-2 h-2 rounded-full bg-purple-400" />
-                <span>Codeforces 1980+</span>
+                <span>Codeforces 2043</span>
               </a>
 
               <a
@@ -148,43 +140,44 @@ export function Hero() {
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>CodeChef 2000+</span>
+                <span>CodeChef 2047</span>
               </a>
             </div>
 
           </div>
 
-          {/* Right Column: Clean, Tasteful Photo Presentation */}
+          {/* Right Column: Confident, Generously Sized Photo Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="w-full max-w-xs rounded-2xl bg-zinc-950 border border-white/[0.1] p-5 shadow-xl flex flex-col items-center">
+            <div className="w-full max-w-sm rounded-3xl bg-zinc-950/90 border border-white/[0.1] p-6 sm:p-7 shadow-2xl flex flex-col items-center">
               
-              {/* Photo Box without gimmicky badges */}
+              {/* Photo Box with comfortable, generous aspect ratio */}
               <div
-                style={{ width: "192px", height: "240px" }}
-                className="relative w-48 h-60 rounded-xl overflow-hidden bg-zinc-900 border border-white/[0.08] shadow-md"
+                className="relative w-full max-w-[280px] aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.1] shadow-xl"
               >
                 <Image
                   src="/profile.jpeg"
                   alt="Nikhil Saini"
                   fill
                   priority
-                  sizes="(max-width: 768px) 192px, 192px"
+                  sizes="(max-width: 640px) 280px, 320px"
                   className="object-cover object-top"
                 />
               </div>
 
-              {/* Natural info details */}
-              <div className="w-full mt-4 text-center">
-                <h3 className="text-base font-semibold text-white">Nikhil Saini</h3>
-                <p className="text-xs text-zinc-400 mt-0.5">IIT Bombay &apos;20–25</p>
-                <p className="text-xs text-zinc-500 font-mono mt-0.5">
+              {/* Natural identity and education details */}
+              <div className="w-full mt-5 text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">Nikhil Saini</h3>
+                <p className="text-sm sm:text-base text-zinc-300 font-medium mt-1">
+                  IIT Bombay &apos;20–25
+                </p>
+                <p className="text-xs sm:text-sm text-zinc-400 mt-1">
                   Dual Degree (B.Tech + M.Tech) • Electrical Minor
                 </p>
               </div>
 
-              <div className="w-full mt-4 pt-3 border-t border-white/[0.08] flex items-center justify-center text-xs font-mono text-zinc-400">
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-zinc-500" />
+              <div className="w-full mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-center text-sm font-medium text-zinc-300">
+                <span className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-emerald-400" />
                   Mumbai, India
                 </span>
               </div>
@@ -193,10 +186,10 @@ export function Hero() {
               <a
                 href={PORTFOLIO_DATA.personal.resumeUrl}
                 download="Nikhil_Saini_Resume.pdf"
-                className="w-full mt-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-xs font-medium text-zinc-200 hover:text-white text-center transition-colors flex items-center justify-center gap-1.5"
+                className="w-full mt-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-sm font-semibold text-zinc-100 hover:text-white text-center transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
               >
                 <span>Download Resume (PDF)</span>
-                <ExternalLink className="w-3 h-3 text-zinc-400" />
+                <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
               </a>
 
             </div>

@@ -246,7 +246,7 @@ export const PORTFOLIO_DATA = {
       title: "Discord-Style Real-Time Platform",
       tagline: "Full-Stack Text, Voice & Video Communication Suite with LiveKit SFU & WebSockets",
       period: "Aug 2025 - Sep 2025",
-      category: "Full-Stack & Web",
+      category: "Systems & Real-Time",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "WebSockets", "LiveKit SFU", "Clerk", "ShadCN"],
       liveUrl: "https://discord-like-app-delta.vercel.app/",
       githubUrl: "https://github.com/NikhilSaini09/discord-like-app",

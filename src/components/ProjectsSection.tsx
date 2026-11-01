@@ -43,7 +43,7 @@ export function ProjectsSection() {
       : PORTFOLIO_DATA.projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="systems" className="py-20 relative">
+    <section id="projects" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
@@ -51,10 +51,10 @@ export function ProjectsSection() {
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
               <Layers className="w-4 h-4" />
-              Engineered Deployments & Systems
+              Selected Engineering Work
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-              Featured Systems & Architecture
+              Featured Projects
             </h2>
           </div>
           
@@ -63,7 +63,7 @@ export function ProjectsSection() {
               href="/projects"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-xs font-mono text-emerald-400 border border-emerald-500/30 transition-all hover:border-emerald-400"
             >
-              <span>Explore All Case Studies ({PORTFOLIO_DATA.projects.length})</span>
+              <span>View All Projects ({PORTFOLIO_DATA.projects.length})</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -163,7 +163,7 @@ export function ProjectsSection() {
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 group/link"
                 >
                   <Cpu className="w-3.5 h-3.5" />
-                  <span>Case Study & Media</span>
+                  <span>Project Details & Media</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
                 </Link>
 

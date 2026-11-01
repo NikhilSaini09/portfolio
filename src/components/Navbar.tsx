@@ -18,8 +18,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Projects", href: "/#systems" },
-    { name: "All Work", href: "/projects" },
+    { name: "Projects", href: "/#projects" },
     { name: "Competitive Programming", href: "/#telemetry" },
     { name: "Skills", href: "/#skills" },
     { name: "Experience", href: "/#experience" },
