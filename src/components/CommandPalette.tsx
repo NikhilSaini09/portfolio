@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
   Search,
   Layers,
@@ -10,11 +11,11 @@ import {
   Briefcase,
   Mail,
   Download,
-  Flame,
-  Trophy,
   ExternalLink,
   X,
   Copy,
+  Cpu,
+  Check,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
@@ -26,6 +27,8 @@ interface CommandPaletteProps {
 
 export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const [query, setQuery] = useState("");
+  const [copiedPitch, setCopiedPitch] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -33,8 +36,6 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         e.preventDefault();
         if (isOpen) {
           onClose();
-        } else {
-          // Trigger open handled by parent or state
         }
       }
       if (e.key === "Escape" && isOpen) {
@@ -48,35 +49,81 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
 
   if (!isOpen) return null;
 
+  const copyRecruiterPitch = () => {
+    const pitch = `Nikhil Saini — IIT Bombay Dual Degree '25 graduate. Ranked in top 1% globally in CP (LeetCode Guardian 2300+, Codeforces Candidate Master 1980+, CodeChef 5-Star 2000+). Architect of low-latency distributed systems, serverless WebRTC multiplayer engines with host migration, and LiveKit SFU real-time applications. Contact: nikhil1010saini@gmail.com | Portfolio: https://github.com/NikhilSaini09`;
+    navigator.clipboard.writeText(pitch);
+    setCopiedPitch(true);
+    setTimeout(() => {
+      setCopiedPitch(false);
+      onClose();
+    }, 1200);
+  };
+
   const actions = [
     {
-      id: "systems",
-      title: "Jump to Systems & Projects",
-      subtitle: "WebRTC P2P game, LiveKit chat, AI CRM, Sudoku",
+      id: "projects-dir",
+      title: "Open Projects Directory (/projects)",
+      subtitle: "Full archive of 7 systems with media showcase & case studies",
       icon: Layers,
       action: () => {
-        window.location.hash = "#systems";
+        router.push("/projects");
         onClose();
       },
+    },
+    {
+      id: "case-study-kaali-tirri",
+      title: "Case Study: Kaali Tirri WebRTC P2P",
+      subtitle: "Serverless multiplayer engine, host migration & anti-exploit",
+      icon: Cpu,
+      action: () => {
+        router.push("/projects/kaali-tirri");
+        onClose();
+      },
+    },
+    {
+      id: "case-study-discord",
+      title: "Case Study: Discord LiveKit Platform",
+      subtitle: "SFU media streams, WebSockets, Prisma relational schema",
+      icon: Cpu,
+      action: () => {
+        router.push("/projects/discord-platform");
+        onClose();
+      },
+    },
+    {
+      id: "case-study-ai-crm",
+      title: "Case Study: AI-First CRM LangGraph",
+      subtitle: "Autonomous multi-tool agent with Groq Llama 3.3 70B & FastAPI",
+      icon: Zap,
+      action: () => {
+        router.push("/projects/ai-crm");
+        onClose();
+      },
+    },
+    {
+      id: "copy-pitch",
+      title: copiedPitch ? "Copied Elevator Pitch!" : "Copy 30-Sec Recruiter Pitch",
+      subtitle: "Pre-formatted candidate summary for ATS / hiring managers",
+      icon: copiedPitch ? Check : Copy,
+      action: copyRecruiterPitch,
     },
     {
       id: "telemetry",
       title: "Jump to CP Telemetry & Ratings",
-      subtitle: "LeetCode Guardian, Codeforces CM, CodeChef 5-Star",
+      subtitle: "LeetCode Guardian 2300+, Codeforces CM 1980+, 2170+ Solved",
       icon: Activity,
       action: () => {
-        window.location.hash = "#telemetry";
+        router.push("/#telemetry");
         onClose();
       },
     },
-
     {
       id: "skills",
       title: "Explore Skills & Tooling Matrix",
-      subtitle: "Languages, Distributed Protocols, Cloud",
+      subtitle: "Distributed systems, core algorithms, full-stack frameworks",
       icon: Code2,
       action: () => {
-        window.location.hash = "#skills";
+        router.push("/#skills");
         onClose();
       },
     },
@@ -86,7 +133,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       subtitle: "TA ML/Data Mining & Enactus PM",
       icon: Briefcase,
       action: () => {
-        window.location.hash = "#experience";
+        router.push("/#experience");
         onClose();
       },
     },
@@ -96,7 +143,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       subtitle: "Direct communication channel",
       icon: Mail,
       action: () => {
-        window.location.hash = "#contact";
+        router.push("/#contact");
         onClose();
       },
     },
@@ -140,26 +187,6 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         onClose();
       },
     },
-    {
-      id: "leetcode",
-      title: "View LeetCode Profile",
-      subtitle: "Guardian (2300+ Rating, 1055+ Solved)",
-      icon: Trophy,
-      action: () => {
-        window.open(PORTFOLIO_DATA.personal.socialLinks.leetcode, "_blank");
-        onClose();
-      },
-    },
-    {
-      id: "codeforces",
-      title: "View Codeforces Profile",
-      subtitle: "Candidate Master (1980+ Rating)",
-      icon: Flame,
-      action: () => {
-        window.open(PORTFOLIO_DATA.personal.socialLinks.codeforces, "_blank");
-        onClose();
-      },
-    },
   ];
 
   const filtered = actions.filter(
@@ -180,7 +207,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
             autoFocus
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Type a command or jump to section..."
+            placeholder="Type a command or jump to case study..."
             className="w-full bg-transparent text-xs text-white placeholder-zinc-500 focus:outline-none font-mono"
           />
           <button

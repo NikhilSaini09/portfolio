@@ -1,15 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Terminal, Shield, Heart, ArrowUp } from "lucide-react";
+import React from "react";
+import Link from "next/link";
+import { ArrowUp } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 
 export function Footer() {
-  const [currentYear, setCurrentYear] = useState<number>(2026);
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
+  const currentYear = 2026;
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -23,9 +20,12 @@ export function Footer() {
           
           {/* Brand & Status */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-zinc-900 border border-white/10 text-white font-bold text-xs">
+            <Link
+              href="/"
+              className="flex items-center justify-center w-9 h-9 rounded-xl bg-zinc-900 border border-white/10 text-white font-bold text-xs hover:border-emerald-500/40 transition-colors font-mono"
+            >
               NS
-            </div>
+            </Link>
             <div>
               <div className="text-sm font-semibold text-white">Nikhil Saini</div>
               <div className="text-xs text-zinc-400 font-mono">
@@ -37,7 +37,7 @@ export function Footer() {
           {/* Location & Relocation Status */}
           <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-zinc-900/80 border border-white/[0.06] text-zinc-300">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Based in Mumbai, India • Open to Relocation & Remote</span>
             </div>
             <button
@@ -53,12 +53,24 @@ export function Footer() {
 
         {/* Bottom Strip */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
-          <div>
-            © {currentYear} Nikhil Saini. Built with Next.js 15, TypeScript & Tailwind CSS.
+          <div className="flex items-center gap-4">
+            <span>© {currentYear} Nikhil Saini. Built with Next.js 16, TypeScript & Tailwind CSS.</span>
+            <Link
+              href="/projects"
+              className="hover:text-emerald-400 transition-colors font-mono hidden md:inline"
+            >
+              Projects Directory
+            </Link>
           </div>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
+            <Link
+              href="/projects"
+              className="hover:text-emerald-400 transition-colors md:hidden"
+            >
+              Projects
+            </Link>
             <a
               href={PORTFOLIO_DATA.personal.socialLinks.github}
               target="_blank"

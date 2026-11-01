@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { Briefcase, GraduationCap, Calendar, MapPin, Award } from "lucide-react";
+import { Briefcase, GraduationCap, Calendar, Award } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 
 export function ExperienceTimeline() {

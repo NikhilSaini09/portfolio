@@ -1,21 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   ExternalLink,
   Layers,
   Cpu,
-  Radio,
-  Sparkles,
-  ChevronRight,
-  ShieldAlert,
-  Server,
   ArrowRight,
   CheckCircle2,
   X,
 } from "lucide-react";
 import { PORTFOLIO_DATA, Project } from "@/data/portfolio-data";
 import { GithubIcon } from "@/components/icons/BrandIcons";
+import { ProjectMediaShowcase } from "@/components/ProjectMediaShowcase";
 
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -61,9 +58,16 @@ export function ProjectsSection() {
               Featured Systems & Architecture
             </h2>
           </div>
-          <p className="mt-3 md:mt-0 text-sm text-zinc-400 max-w-md">
-            Click on any project to inspect its end-to-end distributed architecture, data flow pipelines, and technical trade-offs.
-          </p>
+          
+          <div className="mt-4 md:mt-0 flex items-center gap-3">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-xs font-mono text-emerald-400 border border-emerald-500/30 transition-all hover:border-emerald-400"
+            >
+              <span>Explore All Case Studies ({PORTFOLIO_DATA.projects.length})</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
 
         {/* Filter Tabs */}
@@ -84,16 +88,18 @@ export function ProjectsSection() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project) => (
             <div
               key={project.id}
               className="group relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-emerald-500/40 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-950/20"
             >
-              <div>
+              <div className="space-y-4">
+                {/* Media Showcase Preview Window */}
+                <ProjectMediaShowcase project={project} variant="preview" />
+
                 {/* Header with category and period */}
-                {/* Header with category and period */}
-                <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="flex items-center justify-between gap-2 pt-1">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-900 border border-white/10 text-emerald-400">
                     {project.category}
                   </span>
@@ -103,15 +109,36 @@ export function ProjectsSection() {
                 </div>
 
                 {/* Title & Tagline */}
-                <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-emerald-300 transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-300 mt-2 font-mono leading-relaxed">
-                  {project.tagline}
-                </p>
+                <div>
+                  <Link href={`/projects/${project.slug}`}>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                      {project.title}
+                    </h3>
+                  </Link>
+                  <p className="text-xs sm:text-sm text-zinc-300 mt-2 font-mono leading-relaxed">
+                    {project.tagline}
+                  </p>
+                </div>
+
+                {/* Key Metrics Strip */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+                  {project.keyMetrics.map((m, idx) => (
+                    <div
+                      key={idx}
+                      className="p-2 rounded-lg bg-zinc-900/60 border border-white/[0.06]"
+                    >
+                      <div className="text-[10px] font-mono text-zinc-400 truncate">
+                        {m.label}
+                      </div>
+                      <div className="text-xs font-bold font-mono text-emerald-300">
+                        {m.value}
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
                 {/* Key Bullet Points */}
-                <ul className="mt-5 space-y-2.5">
+                <ul className="space-y-2 pt-2">
                   {project.bulletPoints.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300 leading-relaxed">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-1.5 shrink-0" />
@@ -121,7 +148,7 @@ export function ProjectsSection() {
                 </ul>
 
                 {/* Tech Pills */}
-                <div className="mt-6 flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 pt-2">
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
@@ -135,16 +162,23 @@ export function ProjectsSection() {
 
               {/* Bottom Actions */}
               <div className="mt-8 pt-5 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 group/btn"
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 group/link"
                 >
                   <Cpu className="w-3.5 h-3.5" />
-                  <span>Inspect Architecture Blueprint</span>
-                  <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
-                </button>
+                  <span>Case Study & Media</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                </Link>
 
                 <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-medium border border-white/[0.06] transition-colors"
+                  >
+                    <span>Quick Specs</span>
+                  </button>
+
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
@@ -162,95 +196,89 @@ export function ProjectsSection() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-white text-xs font-medium transition-colors"
+                      className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/[0.08] transition-colors"
+                      title="GitHub Source"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
-                      <span>GitHub</span>
                     </a>
                   )}
                 </div>
               </div>
-
             </div>
           ))}
         </div>
 
-      </div>
-
-      {/* Architecture Blueprint Modal Drawer */}
-      {selectedProject && (
-        <div
-          onClick={() => setSelectedProject(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md cursor-pointer"
-        >
+        {/* Quick Specs Architecture Modal */}
+        {selectedProject && (
           <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-zinc-950 border border-white/20 p-6 sm:p-8 shadow-2xl cursor-default"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200"
+            onClick={() => setSelectedProject(null)}
           >
-            
-            {/* Modal Header */}
-            <div className="flex items-start justify-between pb-4 border-b border-white/10">
-              <div>
-                <span className="text-xs font-mono text-emerald-400">
-                  SYSTEM ARCHITECTURE BLUEPRINT
+            <div
+              className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-zinc-950 border border-white/10 p-6 sm:p-8 shadow-2xl space-y-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Close Button */}
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-5 right-5 p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-white/10 transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              {/* Modal Header */}
+              <div className="pr-10">
+                <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider">
+                  {selectedProject.category} • Architecture Blueprint
                 </span>
                 <h3 className="text-2xl font-bold text-white mt-1">
                   {selectedProject.title}
                 </h3>
-              </div>
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white border border-white/10"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Architecture Details */}
-            <div className="mt-6 space-y-6">
-              
-              {/* Problem & System Design */}
-              <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.08] space-y-3">
-                <div className="text-xs font-mono text-amber-400 flex items-center gap-2">
-                  <ShieldAlert className="w-4 h-4" />
-                  CORE ENGINEERING PROBLEM
-                </div>
-                <p className="text-sm text-zinc-300 leading-relaxed">
-                  {selectedProject.architectureOverview.problem}
+                <p className="text-xs sm:text-sm text-zinc-400 font-mono mt-1">
+                  {selectedProject.tagline}
                 </p>
               </div>
 
-              <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.08] space-y-3">
-                <div className="text-xs font-mono text-cyan-400 flex items-center gap-2">
-                  <Server className="w-4 h-4" />
-                  SYSTEM DESIGN & TOPOLOGY
+              {/* Problem vs System Design */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] space-y-2">
+                  <div className="text-xs font-mono text-rose-400 uppercase">
+                    The Problem
+                  </div>
+                  <p className="text-xs text-zinc-300 leading-relaxed">
+                    {selectedProject.architectureOverview.problem}
+                  </p>
                 </div>
-                <p className="text-sm text-zinc-300 leading-relaxed">
-                  {selectedProject.architectureOverview.systemDesign}
-                </p>
+                <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] space-y-2">
+                  <div className="text-xs font-mono text-emerald-400 uppercase">
+                    System Design
+                  </div>
+                  <p className="text-xs text-zinc-300 leading-relaxed">
+                    {selectedProject.architectureOverview.systemDesign}
+                  </p>
+                </div>
               </div>
 
-              {/* Data Flow Pipeline */}
-              <div>
-                <div className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-3 flex items-center gap-2">
-                  <Radio className="w-4 h-4" />
-                  State Propagation & Execution Pipeline
+              {/* Data Flow Steps */}
+              <div className="space-y-3">
+                <div className="text-xs font-mono text-zinc-400 uppercase">
+                  Data Flow & Protocol Pipeline
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {selectedProject.architectureOverview.dataFlowSteps.map((step) => (
                     <div
                       key={step.step}
-                      className="p-3.5 rounded-xl bg-zinc-900/80 border border-white/[0.06] flex flex-col justify-between"
+                      className="p-3 rounded-lg bg-zinc-900/40 border border-white/[0.04] space-y-1"
                     >
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <span className="flex items-center justify-center w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 font-mono text-xs font-bold">
+                      <div className="flex items-center gap-2">
+                        <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold flex items-center justify-center">
                           {step.step}
                         </span>
-                        <span className="text-xs font-semibold text-zinc-200">
+                        <h4 className="text-xs font-semibold text-white">
                           {step.title}
-                        </span>
+                        </h4>
                       </div>
-                      <p className="text-xs text-zinc-400 leading-relaxed">
+                      <p className="text-[11px] text-zinc-400 pl-7 leading-relaxed">
                         {step.desc}
                       </p>
                     </div>
@@ -258,61 +286,66 @@ export function ProjectsSection() {
                 </div>
               </div>
 
-              {/* Key Technical Feats */}
-              <div>
-                <div className="text-xs font-mono uppercase tracking-wider text-zinc-400 mb-3 flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  Key Technical Feats & Guarantees
+              {/* Key Achievements */}
+              <div className="space-y-2 pt-2 border-t border-white/[0.06]">
+                <div className="text-xs font-mono text-zinc-400 uppercase">
+                  Verified Engineering Achievements
                 </div>
-                <div className="space-y-2">
-                  {selectedProject.architectureOverview.keyAchievements.map((ach, idx) => (
-                    <div
-                      key={idx}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-zinc-900/40 border border-white/[0.04] text-xs text-zinc-300"
+                <ul className="space-y-1.5">
+                  {selectedProject.architectureOverview.keyAchievements.map(
+                    (ach, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-center gap-2 text-xs text-zinc-300"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <span>{ach}</span>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+                <Link
+                  href={`/projects/${selectedProject.slug}`}
+                  onClick={() => setSelectedProject(null)}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-xs transition-colors shadow-lg shadow-emerald-950/40"
+                >
+                  <span>Open Full-Screen Case Study & Media</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+
+                <div className="flex items-center gap-2">
+                  {selectedProject.liveUrl && (
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs border border-white/10 transition-colors"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-                      <span>{ach}</span>
-                    </div>
-                  ))}
+                      <span>Live App</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                  {selectedProject.githubUrl && (
+                    <a
+                      href={selectedProject.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 transition-colors"
+                      title="GitHub Source"
+                    >
+                      <GithubIcon className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
               </div>
-
             </div>
-
-            {/* Modal Footer Links */}
-            <div className="mt-8 pt-5 border-t border-white/10 flex items-center justify-between">
-              <span className="text-xs font-mono text-zinc-400">
-                Architected by Nikhil Saini
-              </span>
-              <div className="flex items-center gap-3">
-                {selectedProject.liveUrl && (
-                  <a
-                    href={selectedProject.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-medium transition-colors"
-                  >
-                    <span>Launch Live System</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                )}
-                {selectedProject.githubUrl && (
-                  <a
-                    href={selectedProject.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-medium transition-colors"
-                  >
-                    <GithubIcon className="w-3.5 h-3.5" />
-                    <span>View Source Code</span>
-                  </a>
-                )}
-              </div>
-            </div>
-
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   );
 }

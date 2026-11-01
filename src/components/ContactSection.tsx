@@ -11,7 +11,6 @@ import {
   Check,
   ExternalLink,
   MessageSquare,
-  Sparkles,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";

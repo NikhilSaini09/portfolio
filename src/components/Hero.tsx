@@ -2,17 +2,16 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Copy,
   Check,
-  Mail,
   ExternalLink,
   MapPin,
-  GraduationCap,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
-import { GithubIcon, LinkedinIcon, LeetCodeIcon, CodeforcesIcon } from "@/components/icons/BrandIcons";
+import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -32,8 +31,8 @@ export function Hero() {
           <div className="lg:col-span-7 flex flex-col items-start space-y-6">
             
             {/* Status indicator */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/[0.08] text-zinc-300 text-xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/[0.08] text-zinc-300 text-xs font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Available for Backend, Systems & SWE Roles</span>
             </div>
 
@@ -59,24 +58,31 @@ export function Hero() {
 
             {/* Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3 w-full sm:w-auto">
+              <Link
+                href="/projects"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-zinc-950 font-semibold text-xs transition-colors shadow-lg shadow-emerald-950/40"
+              >
+                <span>Explore Case Studies</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+
               <a
                 href="#systems"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-zinc-100 hover:bg-white text-zinc-900 font-medium text-xs transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-medium text-xs border border-white/10 transition-colors"
               >
-                View Systems & Projects
-                <ArrowRight className="w-3.5 h-3.5" />
+                Featured Systems
               </a>
 
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white font-medium text-xs border border-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 font-medium text-xs border border-white/[0.06] transition-colors"
               >
                 Get In Touch
               </a>
 
               <button
                 onClick={copyEmail}
-                className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono border border-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono border border-white/[0.06] transition-colors"
                 title="Copy email to clipboard"
               >
                 {copied ? (

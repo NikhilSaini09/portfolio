@@ -5,13 +5,8 @@ import {
   Flame,
   Trophy,
   Award,
-  TrendingUp,
   Brain,
-  CheckCircle2,
   ExternalLink,
-  BarChart3,
-  Code,
-  Zap,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import { LeetCodeIcon, CodeforcesIcon } from "@/components/icons/BrandIcons";
