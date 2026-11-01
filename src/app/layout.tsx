@@ -35,6 +35,7 @@ export default function RootLayout({
     <html
       lang="en"
       className="h-full antialiased dark"
+      data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col bg-[#09090b] text-zinc-100 selection:bg-emerald-500/20 selection:text-emerald-200">
         {children}
