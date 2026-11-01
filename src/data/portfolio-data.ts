@@ -61,6 +61,13 @@ export interface MetricCard {
   iconName: string;
 }
 
+export interface SkillItem {
+  name: string;
+  level: string;
+  tags: string[];
+  proof?: string;
+}
+
 export interface CPRatingHistoryPoint {
   contest: string;
   rating: number;
@@ -559,50 +566,43 @@ export const PORTFOLIO_DATA = {
 
   skills: {
     languages: [
-      { name: "C++", level: "Expert (CP / Candidate Master)", tags: ["STL", "Data Structures", "Algorithms", "Optimization"], proof: "Codeforces Candidate Master (1980+)" },
-      { name: "Python", level: "Advanced", tags: ["FastAPI", "TensorFlow", "OpenCV", "LangGraph", "NumPy"], proof: "AI CRM & Sudoku CV" },
-      { name: "TypeScript / JavaScript", level: "Advanced", tags: ["Next.js 15", "React 19", "Node.js", "WebRTC", "WebSockets"], proof: "Kaali Tirri & Discord Clone" },
-      { name: "SQL", level: "Proficient", tags: ["PostgreSQL", "SQLite", "Prisma ORM", "Relational Modeling"], proof: "Discord Schema & CRM DB" },
-      { name: "Java", level: "Proficient", tags: ["OOP", "Design Patterns", "Core Java"], proof: "System Modeling" },
-      { name: "Dart", level: "Intermediate", tags: ["Flutter", "Cross-Platform", "Mobile"], proof: "Budget Tracker" },
+      { name: "C++", level: "Expert (CM Peak 2043)", tags: ["STL", "Data Structures", "Algorithms", "Optimization", "Bitmasks"], proof: "Codeforces Candidate Master (2043) & CodeChef 5-Star (2047)" },
+      { name: "Python", level: "Advanced", tags: ["FastAPI", "LangGraph", "TensorFlow", "OpenCV", "NumPy", "Pydantic"], proof: "AI CRM & Sudoku CV Pipeline" },
+      { name: "TypeScript / JavaScript", level: "Advanced", tags: ["Next.js 16", "React 19", "Node.js", "WebRTC", "WebSockets", "ES6+"], proof: "Kaali Tirri & Discord Clone" },
+      { name: "SQL", level: "Proficient", tags: ["PostgreSQL", "SQLite", "Prisma ORM", "Relational Modeling", "Indexing"], proof: "Discord Schema & CRM DB" },
+      { name: "Java", level: "Proficient", tags: ["OOP", "Design Patterns", "Core Java", "Collections Framework"], proof: "System Modeling" },
+      { name: "Dart", level: "Proficient", tags: ["Flutter", "State Management", "Mobile Architecture", "Reactive UI"], proof: "Budget Tracker" },
     ],
     systemsAndRealtime: [
-      { name: "WebRTC & PeerJS", highlight: "Serverless P2P state sync, STUN/TURN ICE NAT traversal", proofProject: "Kaali Tirri" },
-      { name: "WebSockets & Socket.io", highlight: "Bidirectional sub-50ms chat, presence & pub/sub events", proofProject: "Discord Platform" },
-      { name: "LiveKit SFU", highlight: "Selective Forwarding Unit audio/video routing & dynamic tracks", proofProject: "Discord Platform" },
-      { name: "Host Migration & Failover", highlight: "Leader election, heartbeat pinging & state snapshot recovery", proofProject: "Kaali Tirri" },
-      { name: "Concurrency & Memory Safety", highlight: "Anti-exploit state sanitization, sliding-window rate limiting", proofProject: "Kaali Tirri" },
+      { name: "WebRTC & PeerJS", level: "Advanced", tags: ["DataChannels", "STUN/TURN", "ICE NAT Traversal", "Mesh Topology"], proof: "Kaali Tirri P2P Engine" },
+      { name: "WebSockets & LiveKit SFU", level: "Advanced", tags: ["Selective Forwarding", "Adaptive Bitrate", "Presence Pub/Sub", "Socket.io"], proof: "Discord Real-Time Platform" },
+      { name: "Host Migration & Failover", level: "Advanced", tags: ["Leader Election", "Heartbeat Ping", "JSON Snapshot Recovery", "Zero Downtime"], proof: "Kaali Tirri Lobby Architecture" },
+      { name: "Inter-Process Comm (IPC)", level: "Proficient", tags: ["BroadcastChannel API", "Window Screen Mapping", "LocalStorage Bus", "Matrix Math"], proof: "3D Scene Multi-Window" },
+      { name: "Network Security & Concurrency", level: "Proficient", tags: ["Sliding-Window Rate Limiting", "State Checksums", "Packet Sanitization", "Memory Safety"], proof: "Anti-Exploit Invariant Engine" },
     ],
-    frameworksAndTools: [
-      "Next.js 15",
-      "React 19",
-      "Tailwind CSS v4",
-      "FastAPI",
-      "Redux Toolkit",
-      "Prisma ORM",
-      "ShadCN UI",
-      "Framer Motion",
-      "Docker / Containers",
-      "Git & GitHub",
-      "Postman",
-      "LangGraph / LangChain",
-      "Groq & Llama 3.3",
-      "AWS (GFG Certified Solutions Architect & Cloud Practitioner)",
+    web: [
+      { name: "Next.js & React 19", level: "Advanced", tags: ["App Router", "Server Components", "Turbopack", "Partial Prefetching", "Hooks"], proof: "Discord Platform & Portfolio" },
+      { name: "Tailwind CSS & Modern UI", level: "Advanced", tags: ["Tailwind v4", "ShadCN UI", "CSS Modules", "Accessible Radix Primitives"], proof: "Enterprise Responsive UIs" },
+      { name: "State Management & Caching", level: "Advanced", tags: ["Redux Toolkit", "Context API", "Optimistic Updates", "LocalStorage Cache"], proof: "AI CRM & Kanban Board" },
+      { name: "Three.js & WebGL", level: "Proficient", tags: ["Three.js", "WebGL Shaders", "Camera Frustum Math", "HTML5 Canvas", "60 FPS"], proof: "3D Multi-Window Spatial Engine" },
+      { name: "Web Audio & Media Streams", level: "Proficient", tags: ["Web Audio API", "Low-Latency Buffers", "AudioContext", "MediaStreams"], proof: "Kaali Tirri & Discord App" },
     ],
-    testingAndDevOps: [
-      "Selenium",
-      "TestNG",
-      "Cucumber BDD",
-      "Maven",
-      "Jenkins CI/CD",
-      "REST Assured",
+    backendAndCloud: [
+      { name: "FastAPI & Python Async", level: "Advanced", tags: ["Async Event Loop", "Streaming Responses", "Pydantic Schemas", "Uvicorn"], proof: "AI-First CRM Service" },
+      { name: "PostgreSQL & SQLite", level: "Advanced", tags: ["Prisma ORM", "Cascade Deletes", "ACID Transactions", "Foreign Keys"], proof: "Discord Relational Store & CRM DB" },
+      { name: "AWS Cloud Infrastructure", level: "Certified", tags: ["EC2", "S3", "CloudFront", "IAM Policies", "VPC & Security Groups"], proof: "GFG AWS Solutions Architect Certified" },
+      { name: "Cloud Firestore & Firebase", level: "Proficient", tags: ["Reactive Stream Listeners", "Offline Persistence", "Firebase Auth JWT"], proof: "Cross-Platform Mobile App" },
+      { name: "Docker & Containerization", level: "Proficient", tags: ["Docker Compose", "Multi-Stage Dockerfiles", "Container Isolation"], proof: "Isolated Deployment Workflows" },
     ],
-    certifications: [
-      "GFG AWS Cloud Practitioner & Solutions Architect",
-      "GFG Full Stack Development Bootcamp",
-      "GFG Next.js Development Certification",
-      "GFG React.js Development Certification",
-      "CS Core (Operating Systems, DBMS, Computer Networks)",
+    devopsAndTesting: [
+      { name: "Automation QA & Testing", level: "Proficient", tags: ["Selenium WebDriver", "TestNG", "Cucumber BDD", "REST Assured"], proof: "GFG Full Stack Bootcamp" },
+      { name: "Build Pipelines & CI/CD", level: "Proficient", tags: ["Maven", "Jenkins CI/CD", "GitHub Actions", "Vercel Deployments"], proof: "Automated Build Workflows" },
+      { name: "Developer Tooling & Linux", level: "Advanced", tags: ["Git & GitHub Flow", "Postman", "Linux / Bash", "cURL", "VS Code"], proof: "Daily Development Environment" },
+    ],
+    csCore: [
+      { name: "Data Structures & Algorithms", level: "Top 1% Global", tags: ["Dynamic Programming", "Graph Algorithms", "Segment Trees", "Bit Manipulation"], proof: "LeetCode 2315, Codeforces 2043, CodeChef 2047" },
+      { name: "Systems & Networking", level: "Dual Degree Core", tags: ["Operating Systems", "Computer Networks", "DBMS Internals", "Computer Architecture"], proof: "11 AA Grades at IIT Bombay" },
+      { name: "Applied AI & Computer Vision", level: "Advanced", tags: ["LangGraph", "Groq Llama 3.3", "TensorFlow", "OpenCV", "Scikit-Learn"], proof: "IIT Bombay TA (Statistical ML) & LangGraph" },
     ],
   },
 
