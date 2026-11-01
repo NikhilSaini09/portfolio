@@ -68,12 +68,6 @@ export interface SkillItem {
   proof?: string;
 }
 
-export interface CertificationItem {
-  title: string;
-  issuer: string;
-  detail: string;
-}
-
 export interface CPRatingHistoryPoint {
   contest: string;
   rating: number;
@@ -606,27 +600,11 @@ export const PORTFOLIO_DATA = {
       { name: "Developer Tooling & Linux", level: "Advanced", tags: ["Git & GitHub Flow", "Postman", "Linux / Bash", "cURL", "VS Code"], proof: "Daily Development Environment" },
     ],
     certifications: [
-      {
-        title: "AWS Cloud Practitioner & Solutions Architect",
-        issuer: "GeeksforGeeks",
-        detail: "Cloud Infrastructure, EC2, S3, VPC & IAM Security Architecture",
-      },
-      {
-        title: "Full Stack Development & Automation QA Bootcamp",
-        issuer: "GeeksforGeeks",
-        detail: "Full-Stack Web, Java, Selenium WebDriver, TestNG & Cucumber BDD",
-      },
-      {
-        title: "Next.js Production Application Development",
-        issuer: "GeeksforGeeks",
-        detail: "Next.js App Router, Server Components, SSR & Full-Stack Deployment",
-      },
-      {
-        title: "React.js Frontend Engineering",
-        issuer: "GeeksforGeeks",
-        detail: "Modern React, Custom Hooks, Context State & Performance Optimization",
-      },
-    ] as CertificationItem[],
+      "GFG AWS Cloud Practitioner & Solutions Architect",
+      "GFG Full Stack Development Bootcamp",
+      "GFG Next.js Development Certification",
+      "GFG React.js Development Certification",
+    ],
   },
 
   experience: [

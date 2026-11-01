@@ -12,11 +12,7 @@ import {
   Search,
   X,
 } from "lucide-react";
-import {
-  PORTFOLIO_DATA,
-  SkillItem,
-  CertificationItem,
-} from "@/data/portfolio-data";
+import { PORTFOLIO_DATA, SkillItem } from "@/data/portfolio-data";
 
 interface SkillDomain {
   id: "languages" | "systems" | "web" | "backend" | "devops";
@@ -84,7 +80,7 @@ export function SkillsMatrix() {
     []
   );
 
-  const certifications = PORTFOLIO_DATA.skills.certifications;
+  const certifications: string[] = PORTFOLIO_DATA.skills.certifications;
 
   const totalSkillsCount = useMemo(
     () =>
@@ -112,11 +108,8 @@ export function SkillsMatrix() {
       });
     });
 
-    const matchedCerts: CertificationItem[] = certifications.filter(
-      (c) =>
-        c.title.toLowerCase().includes(q) ||
-        c.issuer.toLowerCase().includes(q) ||
-        c.detail.toLowerCase().includes(q)
+    const matchedCerts: string[] = certifications.filter((c) =>
+      c.toLowerCase().includes(q)
     );
 
     return { matchedSkills, matchedCerts };
@@ -260,7 +253,13 @@ export function SkillsMatrix() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {searchResults.matchedCerts.map((cert, idx) => (
-                      <CertificationCard key={idx} cert={cert} />
+                      <div
+                        key={idx}
+                        className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] flex items-center gap-3 hover:border-emerald-500/30 transition-all"
+                      >
+                        <Award className="w-5 h-5 text-emerald-400 shrink-0" />
+                        <span className="text-xs font-mono text-zinc-200">{cert}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -306,24 +305,25 @@ export function SkillsMatrix() {
 
               {/* Certifications in All View */}
               <div className="space-y-4 pt-4 border-t border-white/[0.06]">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-white/[0.06]">
-                  <div className="flex items-center gap-2.5">
-                    <Award className="w-4 h-4 text-emerald-400" />
-                    <h3 className="text-sm sm:text-base font-semibold text-white">
-                      Certifications & Accreditations
-                    </h3>
-                    <span className="text-xs font-mono text-zinc-500">
-                      ({certifications.length})
-                    </span>
-                  </div>
-                  <p className="text-xs text-zinc-400">
-                    Professional credentials in cloud infrastructure and full-stack automation engineering.
-                  </p>
+                <div className="flex items-center gap-2.5 pb-2 border-b border-white/[0.06]">
+                  <Award className="w-4 h-4 text-emerald-400" />
+                  <h3 className="text-sm sm:text-base font-semibold text-white">
+                    Certifications
+                  </h3>
+                  <span className="text-xs font-mono text-zinc-500">
+                    ({certifications.length})
+                  </span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {certifications.map((cert, cIdx) => (
-                    <CertificationCard key={cIdx} cert={cert} />
+                    <div
+                      key={cIdx}
+                      className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] flex items-center gap-3 hover:border-emerald-500/30 transition-all"
+                    >
+                      <Award className="w-5 h-5 text-emerald-400 shrink-0" />
+                      <span className="text-xs font-mono text-zinc-200">{cert}</span>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -331,24 +331,27 @@ export function SkillsMatrix() {
           ) : activeTab === "certifications" ? (
             /* Certifications Tab */
             <div className="space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-white/[0.06]">
+              <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                 <div className="flex items-center gap-2.5">
                   <Award className="w-4 h-4 text-emerald-400" />
                   <h3 className="text-base font-semibold text-white">
-                    Certifications & Accreditations
+                    Certifications
                   </h3>
                   <span className="text-xs font-mono text-zinc-500">
-                    ({certifications.length} credentials)
+                    ({certifications.length})
                   </span>
                 </div>
-                <p className="text-xs text-zinc-400">
-                  Industry-recognized certifications in cloud infrastructure and automated testing.
-                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {certifications.map((cert, idx) => (
-                  <CertificationCard key={idx} cert={cert} />
+                  <div
+                    key={idx}
+                    className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] flex items-center gap-3 hover:border-emerald-500/30 transition-all"
+                  >
+                    <Award className="w-5 h-5 text-emerald-400 shrink-0" />
+                    <span className="text-xs font-mono text-zinc-200">{cert}</span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -422,32 +425,6 @@ function SkillCard({
           </span>
         ))}
       </div>
-    </div>
-  );
-}
-
-function CertificationCard({ cert }: { cert: CertificationItem }) {
-  return (
-    <div className="p-5 rounded-xl bg-zinc-900/60 border border-white/[0.06] hover:border-emerald-500/30 transition-all flex items-start justify-between gap-4 group">
-      <div className="flex items-start gap-3.5">
-        <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
-          <Award className="w-5 h-5 text-emerald-400" />
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold text-white group-hover:text-emerald-300 transition-colors">
-            {cert.title}
-          </h4>
-          <p className="text-xs font-mono text-zinc-400 mt-1">
-            Issuer: <span className="text-zinc-200">{cert.issuer}</span>
-          </p>
-          <p className="text-[11px] font-mono text-zinc-500 mt-1.5 leading-relaxed">
-            {cert.detail}
-          </p>
-        </div>
-      </div>
-      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-emerald-400 shrink-0 border border-white/[0.04]">
-        Certified
-      </span>
     </div>
   );
 }
