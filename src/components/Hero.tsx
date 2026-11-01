@@ -32,7 +32,7 @@ export function Hero() {
             
             {/* Status indicator */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-white/[0.08] text-zinc-300 text-xs font-mono">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <span>Available for Backend, Systems & SWE Roles</span>
             </div>
 
@@ -182,12 +182,11 @@ export function Hero() {
                 </p>
               </div>
 
-              <div className="w-full mt-4 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs font-mono text-zinc-400">
+              <div className="w-full mt-4 pt-3 border-t border-white/[0.08] flex items-center justify-center text-xs font-mono text-zinc-400">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-zinc-500" />
                   Mumbai, India
                 </span>
-                <span className="text-emerald-400 font-semibold">11 AA Grades</span>
               </div>
 
               {/* Download CV */}

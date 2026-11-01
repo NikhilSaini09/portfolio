@@ -63,21 +63,20 @@ export function ProjectMediaShowcase({
           isHero ? "aspect-[16/10] sm:aspect-[16/9]" : "aspect-[16/10]"
         }`}
       >
-        {/* Top Terminal Bar */}
-        <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-3.5 py-2.5 bg-zinc-950/80 backdrop-blur-md border-b border-white/[0.06]">
+        {/* Top Window Bar */}
+        <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-4 py-2.5 bg-zinc-950/85 backdrop-blur-md border-b border-white/[0.06]">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
-            <span className="ml-2 text-[11px] font-mono text-zinc-400 truncate max-w-[200px] sm:max-w-none">
-              system://{project.slug}/media_stream
+            <span className="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block" />
+            <span className="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block" />
+            <span className="ml-2 text-xs font-mono text-zinc-400 truncate max-w-[200px] sm:max-w-none">
+              showcase / {project.slug}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              LIVE TELEMETRY
+            <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-zinc-900 text-zinc-400 border border-white/[0.06]">
+              Project Media & Architecture
             </span>
           </div>
         </div>
@@ -144,14 +143,8 @@ export function ProjectMediaShowcase({
 
               {/* Central Architectural Blueprint Visualization */}
               <div className="relative z-10 py-6 my-auto flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="relative">
-                  <div className="w-16 h-16 rounded-2xl bg-zinc-900/90 border border-white/15 flex items-center justify-center shadow-2xl">
-                    <Cpu className="w-8 h-8 text-emerald-400" />
-                  </div>
-                  <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                  </span>
+                <div className="w-14 h-14 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center shadow-xl">
+                  <Cpu className="w-7 h-7 text-emerald-400" />
                 </div>
 
                 <div className="max-w-md space-y-1.5 px-4">

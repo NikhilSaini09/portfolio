@@ -59,7 +59,7 @@ export function CPTelemetryDashboard() {
             }`}
           >
             <CodeforcesIcon className="w-3.5 h-3.5 text-purple-400" />
-            Codeforces (CM 1980+)
+            Codeforces (CM {cp.platforms.codeforces.peakRating})
           </button>
           <button
             onClick={() => setActiveTab("leetcode")}
@@ -70,7 +70,7 @@ export function CPTelemetryDashboard() {
             }`}
           >
             <LeetCodeIcon className="w-3.5 h-3.5 text-amber-400" />
-            LeetCode (Guardian 2300+)
+            LeetCode (Guardian {cp.platforms.leetcode.peakRating})
           </button>
           <button
             onClick={() => setActiveTab("codechef")}
@@ -81,7 +81,7 @@ export function CPTelemetryDashboard() {
             }`}
           >
             <Award className="w-3.5 h-3.5 text-emerald-400" />
-            CodeChef (5-Star 2000+)
+            CodeChef (5-Star {cp.platforms.codechef.peakRating})
           </button>
         </div>
 
@@ -197,7 +197,7 @@ export function CPTelemetryDashboard() {
             <div className="p-5 rounded-2xl bg-zinc-950/80 border border-white/[0.08] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>2,170+ algorithmic problems solved across platforms</span>
+                <span>{cp.totalProblemsSolved} algorithmic problems solved across platforms</span>
               </div>
               <div className="flex items-center gap-4 text-zinc-300">
                 <span>JEE Main Math: <strong className="text-white">100%ile</strong></span>
@@ -222,10 +222,10 @@ export function CPTelemetryDashboard() {
                       Codeforces Contest Progression
                     </span>
                     <h3 className="text-2xl font-bold text-white mt-1">
-                      Candidate Master — Peak 1984
+                      Candidate Master — Peak {cp.platforms.codeforces.peakRating}
                     </h3>
                     <p className="text-xs text-zinc-400 font-mono mt-1">
-                      Handle: <span className="text-purple-300">@{cp.platforms.codeforces.handle}</span> • 243+ problems solved
+                      Handle: <span className="text-purple-300">@{cp.platforms.codeforces.handle}</span> • {cp.platforms.codeforces.problemsSolved}+ problems solved
                     </p>
                   </div>
                   <a
@@ -240,12 +240,15 @@ export function CPTelemetryDashboard() {
                 </div>
 
                 {/* Milestones */}
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-5 gap-3">
+                <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                   {cp.platforms.codeforces.history.map((h, i) => (
                     <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/[0.06] flex flex-col justify-between">
-                      <span className="text-[11px] font-mono text-zinc-500">{h.date}</span>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-1">
+                        <span>{h.date}</span>
+                        {h.rank && <span className="text-purple-400 font-medium">#{h.rank}</span>}
+                      </div>
                       <div className="text-xl font-mono font-bold text-purple-300 my-1">{h.rating}</div>
-                      <span className="text-[11px] font-semibold text-zinc-300">{h.contest}</span>
+                      <span className="text-[11px] font-semibold text-zinc-300 truncate" title={h.contest}>{h.contest}</span>
                     </div>
                   ))}
                 </div>
@@ -260,10 +263,10 @@ export function CPTelemetryDashboard() {
                       LeetCode Contest Progression
                     </span>
                     <h3 className="text-2xl font-bold text-white mt-1">
-                      Guardian (Top 1% Worldwide) — Peak 2315
+                      Guardian (Top 1% Worldwide) — Peak {cp.platforms.leetcode.peakRating}
                     </h3>
                     <p className="text-xs text-zinc-400 font-mono mt-1">
-                      Handle: <span className="text-amber-300">@{cp.platforms.leetcode.handle}</span> • 1055+ problems solved
+                      Handle: <span className="text-amber-300">@{cp.platforms.leetcode.handle}</span> • {cp.platforms.leetcode.problemsSolved}+ problems solved
                     </p>
                   </div>
                   <a
@@ -278,12 +281,12 @@ export function CPTelemetryDashboard() {
                 </div>
 
                 {/* Milestones */}
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-5 gap-3">
+                <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {cp.platforms.leetcode.history.map((h, i) => (
                     <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/[0.06] flex flex-col justify-between">
-                      <span className="text-[11px] font-mono text-zinc-500">{h.date}</span>
+                      <span className="text-[11px] font-mono text-zinc-500 mb-1">{h.date}</span>
                       <div className="text-xl font-mono font-bold text-amber-300 my-1">{h.rating}</div>
-                      <span className="text-[11px] font-semibold text-zinc-300">{h.contest}</span>
+                      <span className="text-[11px] font-semibold text-zinc-300 truncate" title={h.contest}>{h.contest}</span>
                     </div>
                   ))}
                 </div>
@@ -298,10 +301,10 @@ export function CPTelemetryDashboard() {
                       CodeChef Contest Progression
                     </span>
                     <h3 className="text-2xl font-bold text-white mt-1">
-                      5-Star Coder (Division 1) — Peak 2018
+                      5-Star Coder (Division 1) — Peak {cp.platforms.codechef.peakRating}
                     </h3>
                     <p className="text-xs text-zinc-400 font-mono mt-1">
-                      Handle: <span className="text-emerald-300">@{cp.platforms.codechef.handle}</span> • 880+ problems solved
+                      Handle: <span className="text-emerald-300">@{cp.platforms.codechef.handle}</span> • {cp.platforms.codechef.problemsSolved}+ problems solved
                     </p>
                   </div>
                   <a
@@ -316,12 +319,15 @@ export function CPTelemetryDashboard() {
                 </div>
 
                 {/* Milestones */}
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-4 gap-3">
+                <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                   {cp.platforms.codechef.history.map((h, i) => (
                     <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/[0.06] flex flex-col justify-between">
-                      <span className="text-[11px] font-mono text-zinc-500">{h.date}</span>
+                      <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-1">
+                        <span>{h.date}</span>
+                        {h.rank && <span className="text-emerald-400 font-medium">#{h.rank}</span>}
+                      </div>
                       <div className="text-xl font-mono font-bold text-emerald-300 my-1">{h.rating}</div>
-                      <span className="text-[11px] font-semibold text-zinc-300">{h.contest}</span>
+                      <span className="text-[11px] font-semibold text-zinc-300 truncate" title={h.contest}>{h.contest}</span>
                     </div>
                   ))}
                 </div>

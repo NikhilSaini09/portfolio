@@ -11,6 +11,7 @@ import {
   Check,
   ExternalLink,
   MessageSquare,
+  ChevronDown,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
@@ -155,15 +156,25 @@ export function ContactSection() {
               <ExternalLink className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
             </a>
 
-            {/* Location & Phone Strip */}
-            <div className="p-5 rounded-2xl bg-zinc-950/80 border border-white/[0.08] space-y-3">
-              <div className="flex items-center gap-3 text-xs text-zinc-300">
-                <Phone className="w-4 h-4 text-emerald-400" />
-                <span>{PORTFOLIO_DATA.personal.phone}</span>
+            {/* Location & Phone Details */}
+            <div className="p-5 rounded-2xl bg-zinc-950/90 border border-white/[0.08] space-y-4">
+              <div className="flex items-center gap-3.5 text-sm text-zinc-200">
+                <div className="p-2.5 rounded-xl bg-zinc-900 border border-white/10 text-emerald-400 shrink-0">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-[11px] font-mono text-zinc-400">Direct Phone / WhatsApp</div>
+                  <div className="text-sm font-semibold text-white tracking-wide">{PORTFOLIO_DATA.personal.phone}</div>
+                </div>
               </div>
-              <div className="flex items-center gap-3 text-xs text-zinc-300">
-                <MapPin className="w-4 h-4 text-emerald-400" />
-                <span>{PORTFOLIO_DATA.personal.location}</span>
+              <div className="flex items-center gap-3.5 text-sm text-zinc-200 pt-2.5 border-t border-white/[0.06]">
+                <div className="p-2.5 rounded-xl bg-zinc-900 border border-white/10 text-emerald-400 shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-[11px] font-mono text-zinc-400">Current Location</div>
+                  <div className="text-sm font-semibold text-white">{PORTFOLIO_DATA.personal.location} <span className="text-xs font-normal text-zinc-400">(Open to Relocation & Remote)</span></div>
+                </div>
               </div>
             </div>
 
@@ -219,7 +230,7 @@ export function ContactSection() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Sundar Pichai"
+                        placeholder="Alex Morgan"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition-colors"
                       />
                     </div>
@@ -245,27 +256,30 @@ export function ContactSection() {
                     <label className="text-xs font-medium text-zinc-300">
                       Inquiry / Role Focus
                     </label>
-                    <select
-                      value={formData.roleType}
-                      onChange={(e) => setFormData({ ...formData, roleType: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-white/10 text-white text-xs focus:outline-none focus:border-emerald-500/60 transition-colors"
-                    >
-                      <option value="Distributed Systems / Backend Role">
-                        Distributed Systems / Backend Real-Time Role
-                      </option>
-                      <option value="Full-Stack Product Engineering">
-                        Full-Stack Product Engineering (Next.js / FastAPI)
-                      </option>
-                      <option value="Quant / Algorithmic Engineering">
-                        Quant / Algorithmic Engineering (C++, DSA)
-                      </option>
-                      <option value="Freelance / Consulting Project">
-                        Project Consultation / Engineering Advice
-                      </option>
-                      <option value="General Conversation / Coffee">
-                        General Engineering Chat
-                      </option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        value={formData.roleType}
+                        onChange={(e) => setFormData({ ...formData, roleType: e.target.value })}
+                        className="w-full appearance-none px-3.5 py-2.5 pr-10 rounded-xl bg-zinc-900/90 border border-white/10 text-white text-xs focus:outline-none focus:border-emerald-500/60 transition-colors cursor-pointer"
+                      >
+                        <option value="Distributed Systems / Backend Role">
+                          Distributed Systems / Backend Real-Time Role
+                        </option>
+                        <option value="Full-Stack Product Engineering">
+                          Full-Stack Product Engineering (Next.js / FastAPI)
+                        </option>
+                        <option value="Quant / Algorithmic Engineering">
+                          Quant / Algorithmic Engineering (C++, DSA)
+                        </option>
+                        <option value="Freelance / Consulting Project">
+                          Project Consultation / Engineering Advice
+                        </option>
+                        <option value="General Conversation / Coffee">
+                          General Engineering Chat
+                        </option>
+                      </select>
+                      <ChevronDown className="w-4 h-4 text-zinc-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                    </div>
                   </div>
 
                   {/* Message */}

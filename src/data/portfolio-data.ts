@@ -76,7 +76,7 @@ export const PORTFOLIO_DATA = {
     phone: "+91 9145990892",
     resumeUrl: "/Nikhil_Saini.pdf",
     shortBio:
-      "Dual Degree graduate from IIT Bombay with a passion for architecting resilient low-latency distributed systems, serverless WebRTC engines, and high-throughput real-time web applications. Ranked in the top 1% globally in algorithmic problem solving (LeetCode Guardian 2300+, Codeforces Candidate Master 1980+, CodeChef 5-Star 2000+).",
+      "Dual Degree graduate from IIT Bombay with a passion for architecting resilient low-latency distributed systems, serverless WebRTC engines, and high-throughput real-time web applications. Ranked in the top 1% globally in algorithmic problem solving (LeetCode Guardian 2300+, Codeforces Candidate Master 2043, CodeChef 5-Star 2047).",
     socialLinks: {
       github: "https://github.com/NikhilSaini09",
       linkedin: "https://linkedin.com/in/nikhil-saini-b252491ba/",
@@ -90,7 +90,7 @@ export const PORTFOLIO_DATA = {
     {
       id: "cf-cm",
       label: "Codeforces Rating",
-      value: "1980+",
+      value: "2043",
       subValue: "Candidate Master",
       highlightText: "243+ Problems Solved",
       category: "Competitive Programming",
@@ -100,7 +100,7 @@ export const PORTFOLIO_DATA = {
     {
       id: "lc-guardian",
       label: "LeetCode Rating",
-      value: "2300+",
+      value: "2315",
       subValue: "Guardian (Top 1% Global)",
       highlightText: "1055+ Problems Solved",
       category: "Competitive Programming",
@@ -110,7 +110,7 @@ export const PORTFOLIO_DATA = {
     {
       id: "cc-5star",
       label: "CodeChef Rating",
-      value: "2000+",
+      value: "2047",
       subValue: "5-Star Coder (Division 1)",
       highlightText: "880+ Problems Solved",
       category: "Competitive Programming",
@@ -129,20 +129,21 @@ export const PORTFOLIO_DATA = {
   ] as MetricCard[],
 
   cpAnalytics: {
-    totalProblemsSolved: "2170+",
+    totalProblemsSolved: "2178+",
     platforms: {
       codeforces: {
         handle: "Nikhil45",
-        peakRating: 1980,
+        peakRating: 2043,
         currentRank: "Candidate Master",
         problemsSolved: 243,
         profileUrl: "https://codeforces.com/profile/Nikhil45",
         history: [
-          { contest: "Div. 3", rating: 1420, date: "2023-02" },
-          { contest: "Div. 2", rating: 1610, date: "2023-08" },
-          { contest: "Div. 2 (Specialist)", rating: 1740, date: "2024-01" },
-          { contest: "Educational Round", rating: 1855, date: "2024-06" },
-          { contest: "Div. 1+2 (Candidate Master)", rating: 1984, date: "2024-11" },
+          { contest: "Round 1101 (Div. 2)", rating: 515, date: "2026-05", rank: "3913" },
+          { contest: "Round 1103 (Div. 3)", rating: 1555, date: "2026-06", rank: "265" },
+          { contest: "Round 1111 (Div. 2)", rating: 1848, date: "2026-07", rank: "578" },
+          { contest: "Round 1112 (Div. 2)", rating: 1941, date: "2026-07", rank: "96" },
+          { contest: "Round 1120 (Div. 1)", rating: 2041, date: "2026-09", rank: "184" },
+          { contest: "Round 1121 (Div. 2)", rating: 2043, date: "2026-09", rank: "221" },
         ],
       },
       leetcode: {
@@ -152,35 +153,28 @@ export const PORTFOLIO_DATA = {
         problemsSolved: 1055,
         profileUrl: "https://leetcode.com/u/LogicSynthesis/",
         history: [
-          { contest: "Weekly 340", rating: 1720, date: "2023-04" },
-          { contest: "Biweekly 110", rating: 1950, date: "2023-09" },
-          { contest: "Weekly 375 (Knight)", rating: 2110, date: "2024-02" },
-          { contest: "Biweekly 130", rating: 2240, date: "2024-07" },
-          { contest: "Weekly 410 (Guardian)", rating: 2315, date: "2024-10" },
+          { contest: "Weekly 398", rating: 1850, date: "2026-05" },
+          { contest: "Biweekly 133 (Knight)", rating: 2010, date: "2026-06" },
+          { contest: "Weekly 410", rating: 2190, date: "2026-08" },
+          { contest: "Weekly 416 (Guardian)", rating: 2315, date: "2026-09" },
         ],
       },
       codechef: {
         handle: "warm_hug_02",
-        peakRating: 2018,
+        peakRating: 2047,
         currentRank: "5-Star Coder (Division 1)",
         problemsSolved: 880,
         profileUrl: "https://www.codechef.com/users/warm_hug_02",
         history: [
-          { contest: "Starters 80 (3-Star)", rating: 1640, date: "2023-03" },
-          { contest: "Starters 105 (4-Star)", rating: 1820, date: "2023-10" },
-          { contest: "Cook-Off 150", rating: 1910, date: "2024-04" },
-          { contest: "Starters 140 (5-Star Div 1)", rating: 2018, date: "2024-09" },
+          { contest: "Starters 240", rating: 1432, date: "2026-05", rank: "307" },
+          { contest: "Starters 242", rating: 1730, date: "2026-06", rank: "79" },
+          { contest: "Starters 244 (4-Star)", rating: 1800, date: "2026-06", rank: "194" },
+          { contest: "Starters 253 (5-Star)", rating: 2035, date: "2026-08", rank: "46" },
+          { contest: "Starters 254 (Peak 2047)", rating: 2047, date: "2026-09", rank: "44" },
+          { contest: "Starters 261", rating: 2000, date: "2026-10", rank: "28" },
         ],
       },
     },
-    topicMastery: [
-      { topic: "Dynamic Programming & Optimization", proficiency: 96, solvedCount: 420 },
-      { topic: "Graph Theory & Shortest Path / Tree DP", proficiency: 94, solvedCount: 380 },
-      { topic: "Segment Trees, Fenwick Trees & Range Queries", proficiency: 91, solvedCount: 260 },
-      { topic: "Combinatorics, Number Theory & Math", proficiency: 98, solvedCount: 340 },
-      { topic: "Binary Search & Greedy Strategies", proficiency: 95, solvedCount: 430 },
-      { topic: "Bitmasking & Hyper-Optimized Constraints", proficiency: 92, solvedCount: 220 },
-    ],
   },
 
   projects: [

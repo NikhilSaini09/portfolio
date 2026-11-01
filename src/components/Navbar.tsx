@@ -2,14 +2,10 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Download, Menu, X, Command } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 
-interface NavbarProps {
-  onOpenCommandPalette?: () => void;
-}
-
-export function Navbar({ onOpenCommandPalette }: NavbarProps) {
+export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -22,10 +18,10 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { name: "Systems & Architecture", href: "/#systems" },
-    { name: "Projects Directory", href: "/projects" },
-    { name: "CP Telemetry", href: "/#telemetry" },
-    { name: "Skills Matrix", href: "/#skills" },
+    { name: "Projects", href: "/#systems" },
+    { name: "All Work", href: "/projects" },
+    { name: "Competitive Programming", href: "/#telemetry" },
+    { name: "Skills", href: "/#skills" },
     { name: "Experience", href: "/#experience" },
     { name: "Contact", href: "/#contact" },
   ];
@@ -34,7 +30,7 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "py-3 bg-zinc-950/85 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl shadow-black/50"
+          ? "py-3 bg-zinc-950/90 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl shadow-black/50"
           : "py-5 bg-transparent"
       }`}
     >
@@ -44,21 +40,18 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
           href="/"
           className="group flex items-center gap-3 focus:outline-none"
         >
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-zinc-800 to-zinc-900 border border-white/10 group-hover:border-emerald-500/50 transition-colors shadow-inner">
+          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-zinc-900 border border-white/10 group-hover:border-emerald-500/50 transition-colors shadow-inner">
             <span className="text-sm font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors font-mono">
               NS
             </span>
-            <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-zinc-950" />
           </div>
           <div className="hidden sm:flex flex-col">
             <span className="text-sm font-semibold text-zinc-100 group-hover:text-emerald-400 transition-colors">
               Nikhil Saini
             </span>
             <span className="text-[11px] font-mono text-zinc-400">
-              IIT Bombay &apos;25 • Systems & SWE
+              IIT Bombay &apos;25 • Software Engineer
             </span>
           </div>
         </Link>
@@ -78,18 +71,6 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
 
         {/* Right Action Buttons */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Command Palette Trigger */}
-          {onOpenCommandPalette && (
-            <button
-              onClick={onOpenCommandPalette}
-              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-zinc-900/80 border border-white/[0.08] text-xs font-mono text-zinc-400 hover:text-zinc-200 hover:border-white/20 transition-all"
-              title="Open Command Palette (⌘K)"
-            >
-              <Command className="w-3.5 h-3.5 text-emerald-400" />
-              <span>⌘K</span>
-            </button>
-          )}
-
           {/* Resume Download */}
           <a
             href={PORTFOLIO_DATA.personal.resumeUrl}
@@ -124,18 +105,16 @@ export function Navbar({ onOpenCommandPalette }: NavbarProps) {
               {link.name}
             </Link>
           ))}
-          {onOpenCommandPalette && (
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenCommandPalette();
-              }}
-              className="w-full text-left px-3 py-2 text-sm text-emerald-400 hover:bg-zinc-900 rounded-lg transition-colors font-mono flex items-center justify-between"
+          <div className="pt-2">
+            <a
+              href={PORTFOLIO_DATA.personal.resumeUrl}
+              download="Nikhil_Saini_Resume.pdf"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-400 text-zinc-950 font-semibold text-xs"
             >
-              <span>Command Palette</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-zinc-900 border border-white/10">⌘K</span>
-            </button>
-          )}
+              <Download className="w-3.5 h-3.5" />
+              <span>Download Resume (PDF)</span>
+            </a>
+          </div>
         </div>
       )}
     </header>

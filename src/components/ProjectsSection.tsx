@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { PORTFOLIO_DATA, Project } from "@/data/portfolio-data";
 import { GithubIcon } from "@/components/icons/BrandIcons";
-import { ProjectMediaShowcase } from "@/components/ProjectMediaShowcase";
 
 export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
@@ -95,11 +94,8 @@ export function ProjectsSection() {
               className="group relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-emerald-500/40 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-950/20"
             >
               <div className="space-y-4">
-                {/* Media Showcase Preview Window */}
-                <ProjectMediaShowcase project={project} variant="preview" />
-
                 {/* Header with category and period */}
-                <div className="flex items-center justify-between gap-2 pt-1">
+                <div className="flex items-center justify-between gap-2">
                   <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-900 border border-white/10 text-emerald-400">
                     {project.category}
                   </span>
