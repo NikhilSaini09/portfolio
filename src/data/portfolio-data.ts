@@ -17,20 +17,27 @@ export interface ProjectChallenge {
   impact: string;
 }
 
+export type ProjectCategory =
+  | "Systems & Real-Time"
+  | "Full-Stack & Web"
+  | "Applied AI"
+  | "Algorithms & CV";
+
 export interface Project {
   id: string;
   slug: string;
   title: string;
   tagline: string;
   period: string;
-  category: "Systems & Real-Time" | "Full-Stack & Web" | "Applied AI" | "Algorithms & CV";
+  category: ProjectCategory;
+  categories?: ProjectCategory[];
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
   featured: boolean;
   bulletPoints: string[];
-  media: {
-    primary: ProjectMedia;
+  media?: {
+    primary?: ProjectMedia;
     gallery?: ProjectMedia[];
   };
   keyMetrics: ProjectMetric[];
@@ -185,6 +192,7 @@ export const PORTFOLIO_DATA = {
       tagline: "Serverless WebRTC P2P Multiplayer Engine with Host Migration & Anti-Exploit Layer",
       period: "Sep 2026 - Oct 2026",
       category: "Systems & Real-Time",
+      categories: ["Systems & Real-Time", "Full-Stack & Web"],
       technologies: ["WebRTC", "PeerJS", "STUN/TURN", "Web Audio API", "TypeScript", "JavaScript"],
       liveUrl: "https://nikhilsaini09.github.io/kaaliTirri/",
       githubUrl: "https://github.com/NikhilSaini09/kaaliTirri",
@@ -247,6 +255,7 @@ export const PORTFOLIO_DATA = {
       tagline: "Full-Stack Text, Voice & Video Communication Suite with LiveKit SFU & WebSockets",
       period: "Aug 2025 - Sep 2025",
       category: "Systems & Real-Time",
+      categories: ["Systems & Real-Time", "Full-Stack & Web"],
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "WebSockets", "LiveKit SFU", "Clerk", "ShadCN"],
       liveUrl: "https://discord-like-app-delta.vercel.app/",
       githubUrl: "https://github.com/NikhilSaini09/discord-like-app",
@@ -309,6 +318,7 @@ export const PORTFOLIO_DATA = {
       tagline: "Autonomous LangGraph Multi-Tool Agent Orchestrating Groq Llama 3.3 70B & FastAPI",
       period: "Jun 2026",
       category: "Applied AI",
+      categories: ["Applied AI", "Full-Stack & Web"],
       technologies: ["FastAPI", "LangGraph", "LangChain", "Groq Llama 3.3 70B", "React", "Redux", "SQLite", "Python"],
       githubUrl: "https://github.com/NikhilSaini09/fullStack_AI_CRM",
       featured: true,
@@ -369,6 +379,7 @@ export const PORTFOLIO_DATA = {
       tagline: "Cross-Window Real-Time State & Physics Synchronization via WebGL & BroadcastChannel",
       period: "2024",
       category: "Systems & Real-Time",
+      categories: ["Systems & Real-Time", "Algorithms & CV"],
       technologies: ["Three.js", "WebGL", "TypeScript", "BroadcastChannel API", "LocalStorage Event Loop"],
       githubUrl: "https://github.com/NikhilSaini09/3dSceneMulipleWindow",
       featured: true,
@@ -426,13 +437,6 @@ export const PORTFOLIO_DATA = {
       technologies: ["Python", "TensorFlow", "OpenCV", "NumPy", "Backtracking Algorithms"],
       githubUrl: "https://github.com/NikhilSaini09/Sudoku_Solver",
       featured: false,
-      media: {
-        primary: {
-          type: "image",
-          url: "/projects/sudoku-solver/demo.png",
-          caption: "OpenCV perspective warp and contour detection pipeline"
-        }
-      },
       keyMetrics: [
         { label: "Solve Latency", value: "0.6 ms", desc: "Bitmask-accelerated constraint propagation engine" },
         { label: "CNN Accuracy", value: "98.2%", desc: "Digit recognition on MNIST with morphological noise reduction" },
@@ -477,13 +481,6 @@ export const PORTFOLIO_DATA = {
       technologies: ["React.js", "REST API", "Axios", "CSS Modules", "LocalStorage"],
       githubUrl: "https://github.com/NikhilSaini09/kanban-board",
       featured: false,
-      media: {
-        primary: {
-          type: "image",
-          url: "/projects/kanban-board/demo.png",
-          caption: "Multi-dimensional ticket grouping by status, user, and priority"
-        }
-      },
       keyMetrics: [
         { label: "Render Overhead", value: "Zero Jitter", desc: "Memoized multi-dimensional bucket selectors" },
         { label: "Persistence", value: "Offline-First", desc: "LocalStorage state synchronization" },
@@ -526,13 +523,6 @@ export const PORTFOLIO_DATA = {
       technologies: ["Dart", "Flutter", "Cloud Firestore", "Firebase Auth", "Material 3"],
       githubUrl: "https://github.com/NikhilSaini09/Bugdet_tracker",
       featured: false,
-      media: {
-        primary: {
-          type: "image",
-          url: "/projects/budget-tracker/demo.png",
-          caption: "Reactive category analytics with real-time cloud sync"
-        }
-      },
       keyMetrics: [
         { label: "Sync Protocol", value: "Real-Time", desc: "Cloud Firestore reactive stream listener" },
         { label: "Platform", value: "Flutter / Dart", desc: "Unified single codebase for iOS and Android" },

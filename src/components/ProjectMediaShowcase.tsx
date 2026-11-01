@@ -210,10 +210,10 @@ export function ProjectMediaShowcase({
       </div>
 
       {/* Gallery Selector (if project has secondary screenshots/videos) */}
-      {isHero && project.media?.gallery && project.media.gallery.length > 0 && (
+      {isHero && project.media?.primary && project.media?.gallery && project.media.gallery.length > 0 && (
         <div className="flex items-center gap-2.5 pt-1 overflow-x-auto pb-1">
           <button
-            onClick={() => setSelectedMedia(project.media.primary)}
+            onClick={() => project.media?.primary && setSelectedMedia(project.media.primary)}
             className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 whitespace-nowrap ${
               selectedMedia.url === project.media.primary.url
                 ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"

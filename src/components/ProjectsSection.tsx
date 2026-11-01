@@ -40,7 +40,11 @@ export function ProjectsSection() {
   const filteredProjects =
     activeCategory === "All"
       ? PORTFOLIO_DATA.projects
-      : PORTFOLIO_DATA.projects.filter((p) => p.category === activeCategory);
+      : PORTFOLIO_DATA.projects.filter(
+          (p) =>
+            p.category === activeCategory ||
+            Boolean(p.categories?.some((c) => c === activeCategory))
+        );
 
   return (
     <section id="projects" className="py-20 relative">
@@ -94,12 +98,24 @@ export function ProjectsSection() {
               className="group relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-emerald-500/40 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-950/20"
             >
               <div className="space-y-4">
-                {/* Header with category and period */}
+                {/* Header with categories and period */}
                 <div className="flex items-center justify-between gap-2">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-900 border border-white/10 text-emerald-400">
-                    {project.category}
-                  </span>
-                  <span className="text-xs font-mono text-zinc-400">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-900 border border-white/10 text-emerald-400">
+                      {project.category}
+                    </span>
+                    {project.categories
+                      ?.filter((c) => c !== project.category)
+                      .map((extraCat) => (
+                        <span
+                          key={extraCat}
+                          className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-900/60 border border-white/[0.06] text-zinc-400"
+                        >
+                          {extraCat}
+                        </span>
+                      ))}
+                  </div>
+                  <span className="text-xs font-mono text-zinc-400 shrink-0">
                     {project.period}
                   </span>
                 </div>

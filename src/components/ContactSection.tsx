@@ -66,10 +66,10 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Column: Direct Outreach Channels & Details */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
             
             {/* Email Card with 1-click copy */}
             <div className="p-5 rounded-2xl bg-zinc-950/90 border border-white/[0.08] hover:border-emerald-500/30 transition-all flex flex-col justify-between space-y-3">
@@ -181,11 +181,11 @@ export function ContactSection() {
           </div>
 
           {/* Right Column: Interactive Contact Form */}
-          <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/[0.08] shadow-2xl relative">
+          <div className="lg:col-span-7 flex flex-col h-full">
+            <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/[0.08] shadow-2xl relative h-full flex flex-col justify-between">
               
               {submitted ? (
-                <div className="py-12 flex flex-col items-center justify-center text-center space-y-4">
+                <div className="py-12 my-auto flex flex-col items-center justify-center text-center space-y-4">
                   <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
@@ -214,9 +214,9 @@ export function ContactSection() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
-                    Send Direct Dispatch
+                <form onSubmit={handleSubmit} className="flex-1 flex flex-col justify-between space-y-4">
+                  <div className="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-1">
+                    Direct Message / Inquiry
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -283,27 +283,26 @@ export function ContactSection() {
                   </div>
 
                   {/* Message */}
-                  <div className="space-y-1.5">
+                  <div className="space-y-1.5 flex-1 flex flex-col">
                     <label className="text-xs font-medium text-zinc-300">
                       Message
                     </label>
                     <textarea
                       required
-                      rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Hi Nikhil, we saw your work on real-time WebRTC engines and competitive programming rank and would love to chat..."
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition-colors resize-none"
+                      className="w-full flex-1 min-h-[130px] px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition-colors resize-none"
                     />
                   </div>
 
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-950 active:scale-98"
+                    className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-emerald-950 active:scale-98"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Send Message & Trigger Dispatch</span>
+                    <span>Send Message</span>
                   </button>
                 </form>
               )}

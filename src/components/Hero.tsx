@@ -23,11 +23,11 @@ export function Hero() {
 
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
           
           {/* Left Column: Natural, Confident Bio & Pitch */}
-          <div className="lg:col-span-7 flex flex-col items-start space-y-6">
+          <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start space-y-6">
             
             {/* Status indicator */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-white/[0.08] text-zinc-300 text-xs font-mono">
@@ -52,7 +52,7 @@ export function Hero() {
             </p>
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
-              My engineering work focuses on resilient distributed architectures: serverless WebRTC peer-to-peer multiplayer engines with automatic host migration, low-latency LiveKit streaming with WebSockets, and autonomous multi-tool agent pipelines.
+              I specialize in distributed systems and real-time communications. Most of my recent work centers on building serverless WebRTC peer-to-peer engines with automatic host failover, interactive LiveKit streaming over WebSockets, and autonomous multi-agent pipelines.
             </p>
 
             {/* Action Buttons - Clean, intentional, no competing duplicate links */}
@@ -147,7 +147,7 @@ export function Hero() {
           </div>
 
           {/* Right Column: Confident, Generously Sized Photo Card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end">
             <div className="w-full max-w-sm rounded-3xl bg-zinc-950/90 border border-white/[0.1] p-6 sm:p-7 shadow-2xl flex flex-col items-center">
               
               {/* Photo Box with comfortable, generous aspect ratio */}

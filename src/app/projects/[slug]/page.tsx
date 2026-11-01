@@ -107,6 +107,16 @@ async function CaseStudyContent({
           <span className="px-3 py-1 rounded-md text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
             {project.category}
           </span>
+          {project.categories
+            ?.filter((c) => c !== project.category)
+            .map((extraCat) => (
+              <span
+                key={extraCat}
+                className="px-2.5 py-1 rounded-md text-xs font-mono bg-zinc-900 border border-white/[0.08] text-zinc-300"
+              >
+                {extraCat}
+              </span>
+            ))}
           <span className="text-xs font-mono text-zinc-400 px-2 py-0.5 rounded bg-zinc-900 border border-white/[0.06]">
             {project.period}
           </span>
@@ -181,16 +191,18 @@ async function CaseStudyContent({
         ))}
       </div>
 
-      {/* Primary Media Showcase (Videos, GIFs, Photos, or Interactive Architecture Fallback) */}
-      <div className="mb-14">
-        <div className="mb-3 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
-            <Layers className="w-4 h-4 text-emerald-400" />
-            <span>Media Showcase & Interactive Telemetry Stream</span>
+      {/* Primary Media Showcase (Videos, GIFs, Photos) - Only rendered when project has media */}
+      {project.media?.primary && (
+        <div className="mb-14">
+          <div className="mb-3 flex items-center justify-between">
+            <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
+              <Layers className="w-4 h-4 text-emerald-400" />
+              <span>Project Media & Architecture Walkthrough</span>
+            </div>
           </div>
+          <ProjectMediaShowcase project={project} variant="hero" />
         </div>
-        <ProjectMediaShowcase project={project} variant="hero" />
-      </div>
+      )}
 
       {/* Architectural Deep-Dive Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
