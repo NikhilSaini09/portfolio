@@ -326,7 +326,7 @@ async function CaseStudyContent({
         </div>
       </div>
 
-      {/* Technology Matrix */}
+      {/* Technologies Stack */}
       <div className="mb-14 p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/[0.08]">
         <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">
           Technologies & Protocol Stack

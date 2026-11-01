@@ -68,6 +68,12 @@ export interface SkillItem {
   proof?: string;
 }
 
+export interface CertificationItem {
+  title: string;
+  issuer: string;
+  detail: string;
+}
+
 export interface CPRatingHistoryPoint {
   contest: string;
   rating: number;
@@ -599,11 +605,28 @@ export const PORTFOLIO_DATA = {
       { name: "Build Pipelines & CI/CD", level: "Proficient", tags: ["Maven", "Jenkins CI/CD", "GitHub Actions", "Vercel Deployments"], proof: "Automated Build Workflows" },
       { name: "Developer Tooling & Linux", level: "Advanced", tags: ["Git & GitHub Flow", "Postman", "Linux / Bash", "cURL", "VS Code"], proof: "Daily Development Environment" },
     ],
-    csCore: [
-      { name: "Data Structures & Algorithms", level: "Top 1% Global", tags: ["Dynamic Programming", "Graph Algorithms", "Segment Trees", "Bit Manipulation"], proof: "LeetCode 2315, Codeforces 2043, CodeChef 2047" },
-      { name: "Systems & Networking", level: "Dual Degree Core", tags: ["Operating Systems", "Computer Networks", "DBMS Internals", "Computer Architecture"], proof: "11 AA Grades at IIT Bombay" },
-      { name: "Applied AI & Computer Vision", level: "Advanced", tags: ["LangGraph", "Groq Llama 3.3", "TensorFlow", "OpenCV", "Scikit-Learn"], proof: "IIT Bombay TA (Statistical ML) & LangGraph" },
-    ],
+    certifications: [
+      {
+        title: "AWS Cloud Practitioner & Solutions Architect",
+        issuer: "GeeksforGeeks",
+        detail: "Cloud Infrastructure, EC2, S3, VPC & IAM Security Architecture",
+      },
+      {
+        title: "Full Stack Development & Automation QA Bootcamp",
+        issuer: "GeeksforGeeks",
+        detail: "Full-Stack Web, Java, Selenium WebDriver, TestNG & Cucumber BDD",
+      },
+      {
+        title: "Next.js Production Application Development",
+        issuer: "GeeksforGeeks",
+        detail: "Next.js App Router, Server Components, SSR & Full-Stack Deployment",
+      },
+      {
+        title: "React.js Frontend Engineering",
+        issuer: "GeeksforGeeks",
+        detail: "Modern React, Custom Hooks, Context State & Performance Optimization",
+      },
+    ] as CertificationItem[],
   },
 
   experience: [
