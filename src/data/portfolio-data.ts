@@ -207,13 +207,18 @@ export const PORTFOLIO_DATA = {
       media: {
         primary: {
           type: "video",
-          url: "/projects/kaali-tirri/demo.mp4",
+          url: "/projects/kaali-tirri/demo-laptop.mp4",
           posterUrl: "/projects/kaali-tirri/poster.png",
-          caption: "Live WebRTC peer mesh with real-time card state sync and zero-server latency"
+          caption: "Desktop P2P WebRTC multiplayer card gameplay with host migration"
         },
         gallery: [
-          { type: "image", url: "/projects/kaali-tirri/screenshot-1.png", caption: "Peer lobby handshake & STUN candidate negotiation" },
-          { type: "image", url: "/projects/kaali-tirri/screenshot-2.png", caption: "In-game deterministic card validation and trick evaluation" },
+          { type: "video", url: "/projects/kaali-tirri/demo-mobile.mp4", posterUrl: "/projects/kaali-tirri/poster-mobile.png", caption: "Mobile Gameplay Demo (Cropped mobile responsive viewport)" },
+          { type: "image", url: "/projects/kaali-tirri/Screenshot1.png", caption: "Lobby Interface — Create Room, Join Room, or Play Offline with Bots" },
+          { type: "image", url: "/projects/kaali-tirri/Screenshot2.png", caption: "P2P Waiting Room — UUID room sharing, host controls, and bot slots" },
+          { type: "image", url: "/projects/kaali-tirri/Screenshot3.png", caption: "In-Game Table Chat — Real-time peer messaging with reaction emojis" },
+          { type: "image", url: "/projects/kaali-tirri/Screenshot4.png", caption: "Bidding Phase — Turn-based contract bidding with hand cards" },
+          { type: "image", url: "/projects/kaali-tirri/Screenshot5.png", caption: "Trick Evaluation — Center table card battle with trump suit indicators" },
+          { type: "image", url: "/projects/kaali-tirri/Screenshot6.png", caption: "Multiplayer Bidding Round — High bid tracking and fold mechanics" },
         ]
       },
       keyMetrics: [
@@ -270,13 +275,16 @@ export const PORTFOLIO_DATA = {
       media: {
         primary: {
           type: "video",
-          url: "/projects/discord-platform/demo.mp4",
+          url: "/projects/discord-platform/demo-laptop.mp4",
           posterUrl: "/projects/discord-platform/poster.png",
-          caption: "LiveKit SFU multi-participant video rooms and WebSocket dynamic messaging"
+          caption: "Desktop Application Demo — Servers, channels, and real-time chat"
         },
         gallery: [
-          { type: "image", url: "/projects/discord-platform/screenshot-1.png", caption: "Server management, channels hierarchy, and dynamic members sidebar" },
-          { type: "image", url: "/projects/discord-platform/screenshot-2.png", caption: "Active speaker detection and low-latency screen sharing" },
+          { type: "video", url: "/projects/discord-platform/demo-mobile.mp4", posterUrl: "/projects/discord-platform/poster-mobile.png", caption: "Mobile App Demo (Cropped mobile responsive viewport)" },
+          { type: "image", url: "/projects/discord-platform/Screenshot1.png", caption: "Server Channels — Real-time text messaging, member roles, and live indicators" },
+          { type: "image", url: "/projects/discord-platform/Screenshot2.png", caption: "Direct Messaging — 1-on-1 conversations with rich media (images, PDFs)" },
+          { type: "image", url: "/projects/discord-platform/Screenshot3.png", caption: "Rich Media Uploads — Video attachment streaming and message deletion" },
+          { type: "image", url: "/projects/discord-platform/Screenshot4.png", caption: "Channel Welcome — Instant WebSocket message dispatch and audit history" },
         ]
       },
       keyMetrics: [
@@ -331,14 +339,10 @@ export const PORTFOLIO_DATA = {
       featured: true,
       media: {
         primary: {
-          type: "video",
-          url: "/projects/ai-crm/demo.mp4",
-          posterUrl: "/projects/ai-crm/poster.png",
-          caption: "Autonomous multi-tool agent logging unstructured voice meetings into CRM pipelines"
-        },
-        gallery: [
-          { type: "image", url: "/projects/ai-crm/screenshot-1.png", caption: "LangGraph tool execution state loop and real-time deal stage updater" },
-        ]
+          type: "image",
+          url: "/projects/ai-crm/Screenshot1.png",
+          caption: "Conversational AI assistant interface logging structured HCP interactions in real time"
+        }
       },
       keyMetrics: [
         { label: "Inference Latency", value: "< 850ms", desc: "Groq LPU hardware acceleration running Llama 3.3 70B" },
@@ -398,7 +402,7 @@ export const PORTFOLIO_DATA = {
           caption: "Continuous 3D spatial simulation spanning physical monitor boundaries"
         },
         gallery: [
-          { type: "image", url: "/projects/3d-scene-sync/screenshot-1.png", caption: "Multi-window viewport coordinate matrix calculation" },
+          { type: "image", url: "/projects/3d-scene-sync/Screenshot1.png", caption: "Multi-window viewport coordinate calculation and spatial camera offset" },
         ]
       },
       keyMetrics: [

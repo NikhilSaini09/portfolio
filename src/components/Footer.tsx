@@ -56,17 +56,17 @@ export function Footer() {
           <div className="flex items-center gap-4">
             <span>© {currentYear} Nikhil Saini. Built with Next.js 16, TypeScript & Tailwind CSS.</span>
             <Link
-              href="/projects"
+              href="/#projects"
               className="hover:text-emerald-400 transition-colors font-mono hidden md:inline"
             >
-              All Projects
+              Projects
             </Link>
           </div>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <Link
-              href="/projects"
+              href="/#projects"
               className="hover:text-emerald-400 transition-colors md:hidden"
             >
               Projects

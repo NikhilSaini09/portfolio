@@ -62,15 +62,9 @@ export function ProjectsSection() {
             </h2>
           </div>
           
-          <div className="mt-4 md:mt-0 flex items-center gap-3">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-xs font-mono text-emerald-400 border border-emerald-500/30 transition-all hover:border-emerald-400"
-            >
-              <span>View All Projects ({PORTFOLIO_DATA.projects.length})</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+          <p className="mt-3 md:mt-0 text-sm text-zinc-400 max-w-md">
+            Production full-stack applications, serverless WebRTC engines, LiveKit SFU streaming, and algorithmic systems.
+          </p>
         </div>
 
         {/* Filter Tabs */}

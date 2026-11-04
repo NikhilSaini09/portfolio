@@ -92,7 +92,7 @@ async function CaseStudyContent({
         </Link>
         <ChevronRight className="w-3.5 h-3.5 text-zinc-600" />
         <Link
-          href="/projects"
+          href="/#projects"
           className="hover:text-emerald-400 transition-colors"
         >
           Projects
@@ -162,11 +162,11 @@ async function CaseStudyContent({
           )}
 
           <Link
-            href="/projects"
+            href="/#projects"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono border border-white/[0.06] transition-colors ml-auto"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            All Projects
+            Back to Projects
           </Link>
         </div>
       </div>
