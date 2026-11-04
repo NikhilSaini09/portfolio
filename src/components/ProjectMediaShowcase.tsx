@@ -372,7 +372,6 @@ export function ProjectMediaShowcase({
       {/* Active Media Caption */}
       {selectedMedia.caption && (
         <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-zinc-900/40 border border-white/[0.04] text-xs font-mono text-zinc-300">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
           <span className="text-zinc-200 font-semibold shrink-0">
             {selectedMedia.type === "video"
               ? isMobileMedia

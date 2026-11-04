@@ -63,7 +63,7 @@ export function ProjectsSection() {
           </div>
           
           <p className="mt-3 md:mt-0 text-sm text-zinc-400 max-w-md">
-            Production full-stack applications, serverless WebRTC engines, LiveKit SFU streaming, and algorithmic systems.
+            Full-stack web applications, peer-to-peer WebRTC games, real-time media streaming, and algorithmic tools.
           </p>
         </div>
 

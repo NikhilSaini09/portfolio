@@ -196,7 +196,6 @@ export function CPTelemetryDashboard() {
             {/* Clean Editorial Summary Strip */}
             <div className="p-5 rounded-2xl bg-zinc-950/80 border border-white/[0.08] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 <span>{cp.totalProblemsSolved} algorithmic problems solved across platforms</span>
               </div>
               <div className="flex items-center gap-4 text-zinc-300">

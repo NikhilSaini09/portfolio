@@ -145,7 +145,7 @@ async function CaseStudyContent({
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-xs transition-colors shadow-lg shadow-emerald-950/40"
             >
               <ExternalLink className="w-3.5 h-3.5" />
-              Launch Live Deployment
+              View Live App
             </a>
           )}
 
@@ -157,7 +157,7 @@ async function CaseStudyContent({
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 hover:text-white font-medium text-xs border border-white/10 transition-colors"
             >
               <GithubIcon className="w-3.5 h-3.5" />
-              Inspect Source Code
+              View Source Code
             </a>
           )}
 
@@ -227,10 +227,10 @@ async function CaseStudyContent({
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-wider mb-3">
               <Cpu className="w-4 h-4" />
-              System Architecture
+              Architecture & System Design
             </div>
             <h3 className="text-lg font-semibold text-white mb-3">
-              Decoupled Topology & Invariants
+              Core Architecture
             </h3>
             <p className="text-sm text-zinc-300 leading-relaxed">
               {project.architectureOverview.systemDesign}
@@ -243,10 +243,10 @@ async function CaseStudyContent({
       <div className="mb-14 p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/[0.08]">
         <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">
           <Zap className="w-4 h-4" />
-          Packet Lifecycle & Data Flow Sequence
+          Execution Flow
         </div>
         <h3 className="text-xl font-bold text-white mb-6">
-          End-to-End Execution Sequence
+          Step-by-Step Data Flow
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
@@ -260,7 +260,7 @@ async function CaseStudyContent({
                   0{step.step}
                 </span>
                 <span className="text-[10px] font-mono text-zinc-400">
-                  Phase {step.step}
+                  Step {step.step}
                 </span>
               </div>
 
@@ -282,13 +282,13 @@ async function CaseStudyContent({
         <div>
           <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">
             <ShieldCheck className="w-4 h-4" />
-            Production Engineering Trade-Offs
+            Engineering Challenges
           </div>
           <h3 className="text-2xl font-bold text-white">
-            Technical Challenges & Hard Choices
+            Challenges & Implementation Decisions
           </h3>
           <p className="mt-1 text-sm text-zinc-400">
-            Production-grade solutions adhering to the OWASP security, rate-limiting, and fault-tolerance standards.
+            Key technical problems encountered and the solutions chosen during implementation.
           </p>
         </div>
 
@@ -317,7 +317,7 @@ async function CaseStudyContent({
                   </p>
                   <div className="text-xs font-mono text-emerald-400/90 flex items-center gap-1.5 pt-1">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>Impact: {item.impact}</span>
+                    <span>Result: {item.impact}</span>
                   </div>
                 </div>
               </div>
@@ -329,7 +329,7 @@ async function CaseStudyContent({
       {/* Technologies Stack */}
       <div className="mb-14 p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/[0.08]">
         <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">
-          Technologies & Protocol Stack
+          Technologies Used
         </div>
         <div className="flex flex-wrap gap-2">
           {project.technologies.map((tech) => (

@@ -80,17 +80,17 @@ export const PORTFOLIO_DATA = {
     name: "Nikhil Saini",
     title: "Software Engineer",
     roles: [
-      "Distributed Systems & Real-Time Engineer",
-      "Full-Stack Product Architect",
-      "Competitive Programmer & Algorithmic Problem Solver"
+      "Full-Stack & Systems Engineer",
+      "Real-Time Web Application Developer",
+      "Competitive Programmer"
     ],
-    availabilityStatus: "Available for Backend, Real-Time & High-Performance Roles",
+    availabilityStatus: "Available for Full-Stack, Backend, Systems & SWE Roles",
     location: "Mumbai, India",
     email: "nikhil1010saini@gmail.com",
     phone: "+91 9145990892",
     resumeUrl: "/Nikhil_Saini.pdf",
     shortBio:
-      "Dual Degree graduate from IIT Bombay with a passion for architecting resilient low-latency distributed systems, serverless WebRTC engines, and high-throughput real-time web applications. Ranked in the top 1% globally in algorithmic problem solving (LeetCode Guardian 2300+, Codeforces Candidate Master 2043, CodeChef 5-Star 2047).",
+      "Dual Degree graduate from IIT Bombay specializing in full-stack web development, real-time communications, and distributed systems. Ranked in the top 1% globally in competitive programming (LeetCode Guardian 2315, Codeforces Candidate Master 2043, CodeChef 5-Star 2047).",
     socialLinks: {
       github: "https://github.com/NikhilSaini09",
       linkedin: "https://linkedin.com/in/nikhil-saini-b252491ba/",
@@ -196,7 +196,7 @@ export const PORTFOLIO_DATA = {
       id: "kaali-tirri",
       slug: "kaali-tirri",
       title: "Kaali Tirri Web Multiplayer Game",
-      tagline: "Serverless WebRTC P2P Multiplayer Engine with Host Migration & Anti-Exploit Layer",
+      tagline: "Peer-to-peer multiplayer card game built with WebRTC DataChannels, local validation, and automatic host migration.",
       period: "Sep 2026 - Oct 2026",
       category: "Systems & Real-Time",
       categories: ["Systems & Real-Time", "Full-Stack & Web"],
@@ -222,41 +222,41 @@ export const PORTFOLIO_DATA = {
         ]
       },
       keyMetrics: [
-        { label: "Sync Latency", value: "< 20ms", desc: "Peer-to-peer state sync across active NAT clients" },
-        { label: "Topology", value: "Full Mesh P2P", desc: "Direct WebRTC DataChannels over STUN/TURN" },
-        { label: "Host Migration", value: "Zero Downtime", desc: "Deterministic coordinator election on heartbeat timeout" },
-        { label: "Infrastructure Cost", value: "$0 Servers", desc: "Fully client-orchestrated state distribution" }
+        { label: "Sync Latency", value: "< 20ms", desc: "Direct browser-to-browser data transfer" },
+        { label: "Topology", value: "Full Mesh P2P", desc: "WebRTC DataChannels with STUN/TURN fallback" },
+        { label: "Host Migration", value: "Automatic", desc: "Elects replacement host on heartbeat timeout" },
+        { label: "Infrastructure", value: "Serverless P2P", desc: "No persistent game servers required" }
       ],
       challengesAndTradeoffs: [
         {
-          challenge: "Preventing client-side memory tampering, hand-peeking, and malicious action packet forging without an authoritative game server.",
-          solution: "Constructed a decentralized state validator where each peer executes an invariant rule engine. Action packets require sequential state checksums, and rate-limiting prevents packet flooding.",
-          impact: "Achieved cheat-resistant gameplay with zero server infrastructure overhead."
+          challenge: "Preventing illegal moves and out-of-turn plays without an authoritative game server.",
+          solution: "Implemented local validation rules on every peer that check turn order and card legality before applying incoming actions to the local state.",
+          impact: "Keeps game state synchronized and consistent across players without a backend server."
         },
         {
-          challenge: "Host disconnection immediately terminates game sessions in standard P2P lobbies.",
-          solution: "Implemented continuous JSON state snapshotting and a heartbeat health-check loop. Upon 3 missed pings, the remaining peers trigger deterministic leader election, re-bind peer IDs, and resume the round seamlessly.",
-          impact: "Guaranteed 100% session survivability without game restarts."
+          challenge: "Handling host disconnections without dropping the game room for remaining players.",
+          solution: "Added heartbeat checks between players. If the host drops after 3 consecutive missed pings, peers run a deterministic election to assign a new host and resume from the latest state snapshot.",
+          impact: "Allows matches to continue uninterrupted when the original host leaves."
         }
       ],
       bulletPoints: [
-        "Architected a serverless WebRTC multiplayer engine using STUN/TURN protocols for millisecond-level real-time state synchronization.",
-        "Secured the P2P data layer with strict state sanitization against memory exploits and client-side tampering, coupled with sliding-window rate-limiting against network spam.",
-        "Engineered zero-downtime host migration and seamless session recovery via JSON state persistence, peer ID remapping, and continuous heartbeat health checks."
+        "Built a peer-to-peer multiplayer card game in TypeScript using WebRTC DataChannels for direct client-to-client communication.",
+        "Implemented a local game rule validator on every client to verify turn order, trick winners, and valid card plays without requiring a backend server.",
+        "Added automatic host migration and state recovery using periodic heartbeats and deterministic peer election when a host disconnects."
       ],
       architectureOverview: {
-        problem: "Traditional multiplayer card and strategy games rely on expensive, centralized game servers which introduce ping latency, cloud costs, and single points of failure.",
-        systemDesign: "Built a fully decentralized Peer-to-Peer mesh topology. When the host peer creates a lobby, peer IDs are registered. Data channels stream state diffs directly between browser instances over WebRTC with STUN/TURN NAT traversal.",
+        problem: "Multiplayer turn-based games usually require backend game servers to maintain state, adding hosting costs and server latency for simple card moves.",
+        systemDesign: "Built on a full-mesh P2P topology using WebRTC DataChannels. A signaling server is only used for initial peer discovery and ICE negotiation. Once connected, all player actions, chat, and state diffs flow directly between browsers.",
         keyAchievements: [
-          "Sub-20ms peer-to-peer state propagation without hosting dedicated WebSocket servers",
-          "Automatic leader election & host migration preserving card hands and round state on disconnect",
-          "Resilient state validation preventing unauthorized hand peeking or client memory modifications"
+          "Low-latency peer-to-peer state synchronization without dedicated game servers",
+          "Automatic host election and state recovery on host disconnection",
+          "Client-side rule verification preventing illegal moves or desynchronized hands"
         ],
         dataFlowSteps: [
-          { step: 1, title: "Lobby Handshake", desc: "PeerJS connects to signaling server; STUN discovers public ICE candidates across NATs." },
-          { step: 2, title: "Mesh Channel Handshake", desc: "Direct WebRTC DataChannels opened with bidirectional JSON serialization." },
-          { step: 3, title: "State Sync & Sanitization", desc: "Action packets verified against game rule invariants before committing to state." },
-          { step: 4, title: "Heartbeat & Failover", desc: "Periodic ping/pong; if host drops, highest-ranked peer assumes coordinator role." }
+          { step: 1, title: "Signaling & ICE Discovery", desc: "PeerJS connects to a signaling server to discover peers and exchange STUN/TURN candidates." },
+          { step: 2, title: "DataChannel Mesh", desc: "Direct WebRTC DataChannels are established between all players in the room." },
+          { step: 3, title: "Action Validation & Sync", desc: "Players broadcast card moves; peers validate the move locally before updating UI state." },
+          { step: 4, title: "Heartbeat & Failover", desc: "Peers exchange heartbeats. If the host drops, the next peer assumes host duties from the last state snapshot." }
         ]
       }
     },
@@ -264,7 +264,7 @@ export const PORTFOLIO_DATA = {
       id: "discord-platform",
       slug: "discord-platform",
       title: "Discord-Style Real-Time Platform",
-      tagline: "Full-Stack Text, Voice & Video Communication Suite with LiveKit SFU & WebSockets",
+      tagline: "Full-stack communication platform with real-time text channels, direct messaging, and audio/video rooms powered by LiveKit and WebSockets.",
       period: "Aug 2025 - Sep 2025",
       category: "Systems & Real-Time",
       categories: ["Systems & Real-Time", "Full-Stack & Web"],
@@ -288,41 +288,41 @@ export const PORTFOLIO_DATA = {
         ]
       },
       keyMetrics: [
-        { label: "Media Plane", value: "LiveKit SFU", desc: "Selective Forwarding Unit minimizing upstream client bandwidth" },
-        { label: "Signaling & Chat", value: "WebSockets", desc: "Sub-50ms message broadcast & typing indicators" },
-        { label: "Database", value: "PostgreSQL + Prisma", desc: "Relational schema with cascade deletes & foreign keys" },
-        { label: "Pagination", value: "Infinite Cursor", desc: "Zero layout shift message streaming" }
+        { label: "Audio & Video", value: "LiveKit SFU", desc: "Multi-user video calling and screen sharing" },
+        { label: "Real-Time Chat", value: "WebSockets", desc: "Instant message delivery and typing indicators" },
+        { label: "Database", value: "PostgreSQL & Prisma", desc: "Relational schema with cascade deletes and indexed keys" },
+        { label: "Message Loading", value: "Cursor Pagination", desc: "Infinite scroll with batched database queries" }
       ],
       challengesAndTradeoffs: [
         {
-          challenge: "Decoupling high-bandwidth audio/video streams from high-frequency text chat without bottle-necking server resources.",
-          solution: "Adopted a decoupled plane architecture: LiveKit SFU handles adaptive bitrate video tracks and active speaker detection, while Next.js route handlers and WebSockets handle state mutations and messaging.",
-          impact: "Fluid multi-user video calls without degrading text message delivery speed."
+          challenge: "Handling high-bandwidth video and audio alongside high-frequency text chat without bottlenecking the application server.",
+          solution: "Separated concerns by routing video and audio streams through LiveKit's Selective Forwarding Unit (SFU), while Next.js and Socket.io handle text messages, notifications, and database writes.",
+          impact: "Smooth multi-user video calls and screen sharing without delaying chat messages."
         },
         {
-          challenge: "Enforcing fine-grained role-based access control across dynamic servers, channels, and direct messages.",
-          solution: "Normalized Prisma relational schema with role hierarchies (Admin, Moderator, Member) enforced via Clerk JWT verification at Edge Middleware.",
-          impact: "Eliminated unauthorized channel reads/writes with OWASP-compliant authorization."
+          challenge: "Enforcing role-based access control cleanly across dynamic servers, channels, and direct messages.",
+          solution: "Defined relational models for Servers, Members, Channels, and Roles in Prisma, validating user permissions on both API routes and Next.js middleware using Clerk session tokens.",
+          impact: "Secure permissions where only admins and moderators can kick members, delete messages, or manage channels."
         }
       ],
       bulletPoints: [
-        "Engineered full-stack real-time collaboration with dynamic text channels, 1-on-1 direct messaging, and low-latency audio/video rooms powered by LiveKit SFU.",
-        "Implemented fine-grained role-based access control (Admin, Moderator, Member) and secure authentication via Clerk backed by a Prisma relational schema.",
-        "Crafted a responsive UI with dark/light themes, infinite scroll message pagination, real-time unread badges, and fast media uploads via UploadThing."
+        "Built a full-stack communication platform with text channels, 1-on-1 direct messages, and group video/audio rooms using Next.js and LiveKit SFU.",
+        "Implemented role-based permissions (Admin, Moderator, Member) and authentication with Clerk backed by a PostgreSQL database via Prisma ORM.",
+        "Created an interactive UI with infinite scroll cursor pagination, unread message indicators, dark mode, and file uploads via UploadThing."
       ],
       architectureOverview: {
-        problem: "Simultaneous voice, video, and high-frequency messaging requires distinct scaling architectures—relational consistency for chat logs, low-latency WebSockets for notifications, and SFU selective forwarding for HD media.",
-        systemDesign: "Decoupled media plane from data plane: LiveKit Selective Forwarding Units (SFU) handle high-bandwidth video/audio streams, while WebSockets broadcast live member status and Prisma manages relational queries.",
+        problem: "Real-time communication platforms need to handle disparate workloads: durable text messages with search and pagination, low-latency notifications, and heavy media streams.",
+        systemDesign: "Next.js App Router handles frontend rendering and REST endpoints. Socket.io handles real-time message delivery and presence updates. LiveKit SFU manages audio/video tracks and active speaker detection, and PostgreSQL stores user data and chat history.",
         keyAchievements: [
-          "Infinite message pagination with cursor-based fetching and zero layout shifts",
-          "Low-latency multi-participant audio/video rooms with screen sharing and active speaker detection",
-          "Comprehensive server moderation tools with role-based member kicking and channel permission overrides"
+          "Cursor-based infinite scroll for message history with minimal database overhead",
+          "Low-latency group video calls and screen sharing via LiveKit SFU",
+          "Role-based moderation tools for managing channels and members"
         ],
         dataFlowSteps: [
-          { step: 1, title: "Authentication & RBAC", desc: "Clerk JWT validated on Next.js Edge Middleware and synced with Prisma database." },
-          { step: 2, title: "WebSocket Pub/Sub", desc: "Socket.io relays chat messages, reactions, and typing indicators in real time." },
-          { step: 3, title: "LiveKit SFU Media Stream", desc: "Media tracks distributed through SFU, minimizing client upstream bandwidth." },
-          { step: 4, title: "Optimistic UI Update", desc: "Local state rendered instantly with background retry on transient network drops." }
+          { step: 1, title: "Auth & Permissions", desc: "Clerk session verified on Next.js middleware and matched against member roles in PostgreSQL." },
+          { step: 2, title: "Chat Broadcast", desc: "Socket.io relays chat messages, reactions, and typing indicators to connected clients." },
+          { step: 3, title: "SFU Media Routing", desc: "Audio, video, and screen-sharing tracks route through LiveKit's SFU to reduce client upload bandwidth." },
+          { step: 4, title: "Optimistic UI", desc: "Messages render immediately in the UI while persisting to PostgreSQL in the background." }
         ]
       }
     },
@@ -330,7 +330,7 @@ export const PORTFOLIO_DATA = {
       id: "ai-crm",
       slug: "ai-crm",
       title: "AI-First CRM – Conversational Logger",
-      tagline: "Autonomous LangGraph Multi-Tool Agent Orchestrating Groq Llama 3.3 70B & FastAPI",
+      tagline: "AI CRM assistant that parses meeting notes and conversation transcripts into structured database records using LangGraph and Llama 3.3.",
       period: "Jun 2026",
       category: "Applied AI",
       categories: ["Applied AI", "Full-Stack & Web"],
@@ -341,45 +341,45 @@ export const PORTFOLIO_DATA = {
         primary: {
           type: "image",
           url: "/projects/ai-crm/Screenshot1.png",
-          caption: "Conversational AI assistant interface logging structured HCP interactions in real time"
+          caption: "AI CRM interface logging structured customer interactions and meeting notes"
         }
       },
       keyMetrics: [
-        { label: "Inference Latency", value: "< 850ms", desc: "Groq LPU hardware acceleration running Llama 3.3 70B" },
-        { label: "Agent Pattern", value: "StateGraph Cyclic", desc: "Deterministic multi-turn tool invocation loop" },
-        { label: "Backend", value: "FastAPI Async", desc: "Non-blocking event loop with SQLite transactional persistence" },
-        { label: "Field Extraction", value: "99.2% Accuracy", desc: "Strict schema guardrails preventing hallucinated writes" }
+        { label: "LLM Provider", value: "Groq (Llama 3.3 70B)", desc: "Fast inference for multi-turn tool calling" },
+        { label: "Agent Pattern", value: "LangGraph StateGraph", desc: "Stateful cyclic workflow with custom tool execution" },
+        { label: "Backend", value: "FastAPI & Python", desc: "Async endpoints with SQLite transactional persistence" },
+        { label: "Frontend", value: "React & Redux", desc: "Real-time UI state sync with optimistic updates" }
       ],
       challengesAndTradeoffs: [
         {
-          challenge: "Unstructured sales audio and casual conversation contains ambiguous entities and erratic topic changes.",
-          solution: "Designed a cyclic LangGraph state machine with 6 discrete tools (entity extractor, deal stage evaluator, follow-up scheduler, CRM database mutator) with guardrails preventing hallucinated writes.",
-          impact: "Allowed sales reps to log deals hands-free in seconds rather than typing for 15+ minutes."
+          challenge: "Free-form conversation transcripts often contain mixed topics, informal phrasing, or missing contact info.",
+          solution: "Structured the LangGraph agent with Pydantic validation schemas and guardrail prompts so the model extracts verified contact details and asks follow-up questions instead of guessing.",
+          impact: "Prevents erroneous writes and ensures clean, structured customer records."
         },
         {
-          challenge: "Synchronizing dynamic agent state mutations to a complex client frontend without flickering or stale state.",
-          solution: "Streamed structured JSON deltas over FastAPI asynchronous endpoints into a normalized Redux Toolkit store, triggering animated DOM updates on target cards only.",
-          impact: "Zero layout shifts with immediate visual confirmation of logged client meetings."
+          challenge: "Reflecting dynamic agent tool executions on the client dashboard without page freezes.",
+          solution: "Streamed structured JSON deltas over FastAPI async endpoints into a Redux Toolkit store, updating individual record cards incrementally as tools finish.",
+          impact: "Smooth UI updates that reflect backend changes in real time."
         }
       ],
       bulletPoints: [
-        "Built an AI-first CRM allowing field sales reps to log unstructured customer interactions via conversational voice/text agents, eliminating tedious manual forms.",
-        "Designed an autonomous LangGraph agent equipped with 6 custom tools to parse customer intent, extract entities, update deal pipelines, and schedule follow-ups using Groq-accelerated Llama 3.3 70B.",
-        "Synchronized dynamic agent-extracted form fields to a React/Redux UI in real time using FastAPI asynchronous endpoints and SQLite persistence."
+        "Built an AI-assisted CRM tool that allows sales reps to log meetings and customer conversations through voice or text transcripts instead of filling out manual forms.",
+        "Designed a LangGraph agent equipped with tools to extract customer information, detect deal stages, schedule follow-ups, and write records to SQLite using Llama 3.3 70B on Groq.",
+        "Built a FastAPI backend with async endpoints that stream extracted fields and state updates to a React/Redux dashboard in real time."
       ],
       architectureOverview: {
-        problem: "Sales representatives spend over 30% of their working hours manually typing CRM entries, leading to outdated deal stages, missed follow-ups, and incomplete customer profiles.",
-        systemDesign: "State machine driven by LangGraph where incoming voice/text is processed by an LLM with structured function calling. The agent validates constraints, calls backend tools, and pushes real-time diffs to the client dashboard.",
+        problem: "Sales representatives spend considerable time manually typing meeting notes into CRM software, leading to delayed follow-ups and incomplete records.",
+        systemDesign: "FastAPI receives unstructured conversation transcripts and routes them to a LangGraph state machine powered by Llama 3.3 70B on Groq. The agent determines required actions, executes database tools, and sends updated pipeline data back to the React UI.",
         keyAchievements: [
-          "Sub-second inference responses powered by Groq LPU acceleration running Llama 3.3 70B",
-          "Robust multi-turn tool calling with guardrails preventing hallucinated CRM record updates",
-          "Bidirectional state reflection: voice inputs instantly highlight and populate form fields on the UI"
+          "Fast response times via Groq hardware-accelerated inference running Llama 3.3 70B",
+          "Structured tool-calling pipeline that creates contacts, updates deal status, and schedules tasks",
+          "Real-time UI updates reflecting database changes immediately"
         ],
         dataFlowSteps: [
-          { step: 1, title: "Conversational Ingestion", desc: "User inputs conversation transcript; FastAPI streams payload to LangGraph worker." },
-          { step: 2, title: "Entity & Intent Extraction", desc: "Llama 3.3 70B extracts contact details, action items, sentiment, and deal stage." },
-          { step: 3, title: "Tool Execution Loop", desc: "Agent cycles through CRM read/write tools, executing SQLite mutations transactionally." },
-          { step: 4, title: "Redux Store Synchronization", desc: "Frontend receives structured delta payload, automatically animating updated cards." }
+          { step: 1, title: "Transcript Ingestion", desc: "User submits meeting notes or audio transcripts; FastAPI routes the payload to the agent." },
+          { step: 2, title: "Intent & Entity Extraction", desc: "Llama 3.3 extracts contact details, action items, sentiment, and deal stages." },
+          { step: 3, title: "Database Tool Execution", desc: "Agent executes SQLite read/write tools to persist customer records transactionally." },
+          { step: 4, title: "Dashboard Update", desc: "Frontend receives the updated record payload and updates the Redux store." }
         ]
       }
     },
@@ -387,7 +387,7 @@ export const PORTFOLIO_DATA = {
       id: "3d-scene-sync",
       slug: "3d-scene-sync",
       title: "3D Scene Multi-Window Synchronization",
-      tagline: "Cross-Window Real-Time State & Physics Synchronization via WebGL & BroadcastChannel",
+      tagline: "Real-time 3D simulation synchronized across multiple browser windows and monitors using Three.js and BroadcastChannel.",
       period: "2024",
       category: "Systems & Real-Time",
       categories: ["Systems & Real-Time", "Algorithms & CV"],
@@ -406,35 +406,35 @@ export const PORTFOLIO_DATA = {
         ]
       },
       keyMetrics: [
-        { label: "Frame Rate", value: "60 FPS Locked", desc: "Hardware-accelerated Three.js WebGL rendering" },
-        { label: "Inter-Process Comm", value: "< 1ms", desc: "Zero-server BroadcastChannel event loop" },
-        { label: "Display Topology", value: "Multi-Monitor", desc: "Continuous coordinate mapping across physical screen boundaries" },
-        { label: "Network Overhead", value: "0 bytes", desc: "Pure client-side inter-tab messaging" }
+        { label: "Rendering", value: "Three.js / WebGL", desc: "Hardware-accelerated 3D graphics locked at 60 FPS" },
+        { label: "Inter-Tab Sync", value: "BroadcastChannel API", desc: "Client-side message passing between browser tabs" },
+        { label: "Display Setup", value: "Multi-Monitor", desc: "Maps physical monitor coordinates to a shared 3D space" },
+        { label: "Network Overhead", value: "Zero (Client-Side)", desc: "Runs entirely in the browser without a backend server" }
       ],
       challengesAndTradeoffs: [
         {
-          challenge: "Calculating true physical monitor offsets across separate operating system windows without browser extensions.",
-          solution: "Polled `window.screenX`, `window.screenY`, and device pixel ratios to establish a shared canvas coordinate space, offsetting the Three.js camera frustum per window in real time.",
-          impact: "Meshes fly seamlessly through one physical monitor into the next with 60fps continuity."
+          challenge: "Aligning the virtual 3D camera across multiple OS windows moving independently across different screens.",
+          solution: "Polled window screen coordinates (`screenX`, `screenY`) and dimensions to calculate a global coordinate frame, adjusting each window's Three.js camera frustum on every animation frame.",
+          impact: "Objects appear to move continuously across physical monitor boundaries at 60 FPS."
         }
       ],
       bulletPoints: [
-        "Built an interactive 3D spatial simulation in Three.js synchronized continuously across multiple distinct browser windows and screens.",
-        "Engineered real-time window screen coordinates mapping and viewport boundary calculations to seamlessly connect 3D meshes passing from one monitor to another.",
-        "Implemented high-frequency message broadcasting via BroadcastChannel API with zero-latency fallback to LocalStorage event hooks."
+        "Created an interactive 3D simulation in Three.js where objects pass smoothly between separate browser windows across multiple monitors.",
+        "Calculated screen positions using window coordinates and pixel ratios to align the 3D camera view dynamically across each open window.",
+        "Synchronized object positions and window bounds across tabs at 60 FPS using the BroadcastChannel API with LocalStorage fallback."
       ],
       architectureOverview: {
-        problem: "Rendering unified continuous 3D environments across distinct browser tabs and physical monitors without needing a remote cloud WebSocket server.",
-        systemDesign: "Utilizes client-side screen geometry APIs (`window.screenX`, `window.screenY`, `window.innerWidth`) and local inter-process event buses to calculate global coordinate matrices.",
+        problem: "Synchronizing 3D visuals across multiple browser windows typically relies on server-side WebSockets, adding network latency and requiring a running server.",
+        systemDesign: "Uses local browser APIs (`screenX`, `screenY`, `innerWidth`, `innerHeight`) and the `BroadcastChannel` API to share window coordinates and object states locally between tabs with zero network roundtrips.",
         keyAchievements: [
-          "Fluid 60fps mesh continuity across arbitrary browser windows and physical displays",
-          "Zero-server local communication through BroadcastChannel protocol",
-          "Dynamic window resizing and mesh collision calculation"
+          "Smooth 60 FPS object movement across distinct browser windows",
+          "Pure client-side communication without needing a server",
+          "Handles real-time window dragging and resizing gracefully"
         ],
         dataFlowSteps: [
-          { step: 1, title: "Window Coordinate Polling", desc: "Calculates global screen offsets relative to device displays." },
-          { step: 2, title: "Inter-Tab Broadcast", desc: "BroadcastChannel transmits window boundaries and particle vectors." },
-          { step: 3, title: "Matrix Alignment", desc: "Three.js camera view frustum offsets dynamically to match physical window position." }
+          { step: 1, title: "Coordinate Polling", desc: "Calculates global screen offsets relative to device displays on each frame." },
+          { step: 2, title: "Inter-Tab Broadcast", desc: "BroadcastChannel transmits window boundaries and object vectors to all tabs." },
+          { step: 3, title: "Camera Alignment", desc: "Three.js camera offset updates dynamically to match each window's physical position." }
         ]
       }
     },
@@ -442,126 +442,126 @@ export const PORTFOLIO_DATA = {
       id: "sudoku-solver",
       slug: "sudoku-solver",
       title: "Image-Based Sudoku Solver & Computer Vision Pipeline",
-      tagline: "Computer Vision Preprocessing Pipeline with CNN Inference & Backtracking Engine",
+      tagline: "Computer vision pipeline that extracts Sudoku grids from photos and solves them with bitmask-optimized backtracking.",
       period: "May 2024",
       category: "Algorithms & CV",
       technologies: ["Python", "TensorFlow", "OpenCV", "NumPy", "Backtracking Algorithms"],
       githubUrl: "https://github.com/NikhilSaini09/Sudoku_Solver",
       featured: false,
       keyMetrics: [
-        { label: "Solve Latency", value: "0.6 ms", desc: "Bitmask-accelerated constraint propagation engine" },
-        { label: "CNN Accuracy", value: "98.2%", desc: "Digit recognition on MNIST with morphological noise reduction" },
-        { label: "Image Warp", value: "4-Point Transform", desc: "OpenCV contour rectification from mobile angles" },
-        { label: "Search Pruning", value: "Naked Singles First", desc: "Early constraint propagation before recursive branching" }
+        { label: "Solver Speed", value: "< 1 ms", desc: "Bitmask-accelerated recursive backtracking" },
+        { label: "Digit Recognition", value: "98% Accuracy", desc: "CNN trained with image preprocessing and thresholding" },
+        { label: "Grid Extraction", value: "4-Point Warp", desc: "OpenCV perspective transform to rectify angles and tilt" },
+        { label: "Search Strategy", value: "Constraint Pruning", desc: "Fills naked singles before exploring candidate branches" }
       ],
       challengesAndTradeoffs: [
         {
-          challenge: "Parsing warped real-world physical puzzle photos under varying lighting conditions and shadows.",
-          solution: "Applied adaptive Gaussian thresholding, contour perimeter approximations to isolate the outer grid quadrilateral, and a four-point perspective transform to rectify into a 450x450 square before cell splitting.",
-          impact: "Reliable digit recognition across varying lighting conditions and angles."
+          challenge: "Photos of newspaper puzzles often have curved paper, uneven lighting, shadows, and perspective tilt.",
+          solution: "Applied Gaussian blur, adaptive thresholding to find the outer puzzle boundary, and a four-point perspective warp to generate a clean, square top-down image before splitting into 81 cells.",
+          impact: "Accurate cell extraction and digit classification even on angled camera photos."
         }
       ],
       bulletPoints: [
-        "Constructed an end-to-end computer vision pipeline with OpenCV to detect, warp, and crop Sudoku grids from arbitrary camera images.",
-        "Trained a convolutional neural network on MNIST achieving 98% digit classification accuracy with adaptive thresholding, Gaussian blurring, and morphological noise removal.",
-        "Implemented a bitmask-accelerated backtracking algorithm that solves arbitrary 9x9 Sudoku puzzles in just 0.6 milliseconds."
+        "Built an OpenCV image processing pipeline that isolates, straightens, and extracts individual cells from photos of Sudoku puzzles.",
+        "Trained a CNN model on digit datasets to recognize cell values, using adaptive thresholding and contour detection to clean up image noise.",
+        "Built an algorithmic solver using constraint propagation and bitmask-accelerated backtracking that solves valid 9x9 puzzles in under 1 millisecond."
       ],
       architectureOverview: {
-        problem: "Parsing warped real-world physical puzzle photos under varying lighting conditions and resolving combinatorial constraint satisfaction problems within interactive time budgets.",
-        systemDesign: "Image processing extracts contours and applies four-point perspective transforms. Digits are classified via CNN. The grid is fed to an algorithm employing constraint propagation (naked singles) before recursive backtracking.",
+        problem: "Extracting structured grid puzzles from everyday camera photos requires handling perspective distortion, shadows, and efficient constraint satisfaction.",
+        systemDesign: "OpenCV detects the puzzle quadrilateral and applies a perspective transform. Individual cells are fed to a CNN to classify digits. The parsed 9x9 matrix is then solved by a bitmask backtracking engine.",
         keyAchievements: [
-          "0.6ms average solve latency using bitmask candidate representation",
-          "98% accuracy on real-world photo inputs with automatic noise filtering",
-          "Efficient perspective warping from mobile camera angles"
+          "Sub-millisecond puzzle solving with bitwise candidate tracking",
+          "Reliable grid detection and perspective correction from mobile photo angles",
+          "Clean separation between image extraction and algorithmic solving"
         ],
         dataFlowSteps: [
-          { step: 1, title: "Contour Detection", desc: "OpenCV finds largest polygonal contour representing the Sudoku board." },
-          { step: 2, title: "Perspective Rectification", desc: "Four-point transform warps the board into a normalized 450x450 pixel square." },
-          { step: 3, title: "CNN Digit Inference", desc: "Each 50x50 cell evaluated by TensorFlow model to identify initial clue values." },
-          { step: 4, title: "Backtracking Search", desc: "Bitwise candidate tracking searches and prunes decision tree in 0.6ms." }
+          { step: 1, title: "Contour Detection", desc: "OpenCV identifies the largest polygonal contour representing the Sudoku board." },
+          { step: 2, title: "Perspective Rectification", desc: "Four-point transform warps the board into a normalized 450x450 square image." },
+          { step: 3, title: "Digit Recognition", desc: "Each 50x50 cell is evaluated by the TensorFlow CNN model to identify starting numbers." },
+          { step: 4, title: "Backtracking Search", desc: "Bitwise candidate tracking searches and prunes the solution tree in under 1ms." }
         ]
       }
     },
     {
       id: "kanban-board",
       slug: "kanban-board",
-      title: "Kanban Board Enterprise Workflow App",
-      tagline: "Dynamic Task Orchestration with Multi-Dimensional Grouping & Persistent State",
+      title: "Kanban Board Task Manager",
+      tagline: "Interactive task board in React with dynamic grouping by status, user, or priority, and persistent view preferences.",
       period: "Mar 2025",
       category: "Full-Stack & Web",
       technologies: ["React.js", "REST API", "Axios", "CSS Modules", "LocalStorage"],
       githubUrl: "https://github.com/NikhilSaini09/kanban-board",
       featured: false,
       keyMetrics: [
-        { label: "Render Overhead", value: "Zero Jitter", desc: "Memoized multi-dimensional bucket selectors" },
-        { label: "Persistence", value: "Offline-First", desc: "LocalStorage state synchronization" },
-        { label: "Sorting Engine", value: "O(N log N)", desc: "Dynamic multi-key comparator (priority + title)" }
+        { label: "Task Grouping", value: "3 Dimensions", desc: "Group tickets by status, assigned user, or priority" },
+        { label: "Persistence", value: "LocalStorage", desc: "Saves grouping and sorting preferences across visits" },
+        { label: "Sorting", value: "Dual-Key Comparator", desc: "Sort by priority level or alphabetical title" }
       ],
       challengesAndTradeoffs: [
         {
-          challenge: "Switching between grouping dimensions (by Status, by User, by Priority) caused re-render lag and lost filter state.",
-          solution: "Utilized memoized selectors and stable array keys to prevent DOM thrashing, preserving filter states in LocalStorage.",
-          impact: "Instant tab switching with smooth layout transitions."
+          challenge: "Switching between grouping dimensions (by Status, by User, by Priority) can cause re-render lag and lost filter settings.",
+          solution: "Structured state with memoized grouping reducers and saved view preferences in LocalStorage so column layouts persist across reloads.",
+          impact: "Fast tab switching with smooth column transitions."
         }
       ],
       bulletPoints: [
-        "Built a responsive project management board in React enabling multi-dimensional ticket grouping by status, user, and priority.",
-        "Engineered client-side sorting algorithms (by priority descending, title ascending) with persistent LocalStorage state retention.",
-        "Integrated RESTful API data using Axios with graceful error boundaries and optimistic state updates."
+        "Built a responsive project task board in React that allows grouping tickets by status, assigned user, or priority level.",
+        "Implemented client-side sorting by priority and title, saving view preferences in LocalStorage so layout settings persist across reloads.",
+        "Fetched ticket data from REST APIs using Axios with loading states and graceful error handling."
       ],
       architectureOverview: {
-        problem: "Users need fluid, customizable views across diverse project dimensions without sluggish re-renders or losing their filter state on page reload.",
-        systemDesign: "Built with functional React components utilizing memoized selectors to partition tasks into columns dynamically based on user preferences.",
+        problem: "Users need flexible ways to visualize team tasks (by assignee, by progress, or by urgency) without losing their preferred view setup on page reload.",
+        systemDesign: "React state drives dynamic column bucketing. When the user changes view settings, a reducer partitions the dataset and sorts each column, while syncing preferences to LocalStorage.",
         keyAchievements: [
-          "Zero layout flicker across sorting and grouping transitions",
-          "Fully offline-first preference persistence via LocalStorage",
-          "Semantic color-coded priority and status indicator system"
+          "Instant switching between status, user, and priority views",
+          "Persistent display preferences stored in LocalStorage",
+          "Clean, responsive column layout for desktop and mobile screens"
         ],
         dataFlowSteps: [
-          { step: 1, title: "API Fetch", desc: "Axios fetches tickets and users from endpoint." },
-          { step: 2, title: "Grouping Matrix", desc: "Memoized reducer buckets tickets by active dimension (status, user, or priority)." },
-          { step: 3, title: "Sort Pass", desc: "Sorting comparator applies user preference (priority rating or lexical order)." }
+          { step: 1, title: "API Fetch", desc: "Axios fetches tickets and users from the REST endpoint." },
+          { step: 2, title: "Grouping Reducer", desc: "Memoized reducer buckets tickets by active dimension (status, user, or priority)." },
+          { step: 3, title: "Sorting Pass", desc: "Comparator applies user sorting preference (priority rating or alphabetical order)." }
         ]
       }
     },
     {
       id: "budget-tracker",
       slug: "budget-tracker",
-      title: "Cross-Platform Personal Budget Tracker",
-      tagline: "Mobile Financial Analytics with Real-Time Firestore Sync & Firebase Auth",
+      title: "Personal Budget & Expense Tracker",
+      tagline: "Mobile expense tracking app built with Flutter and Firebase with offline support and spending breakdowns.",
       period: "May 2023 - Jul 2023",
       category: "Full-Stack & Web",
       technologies: ["Dart", "Flutter", "Cloud Firestore", "Firebase Auth", "Material 3"],
       githubUrl: "https://github.com/NikhilSaini09/Bugdet_tracker",
       featured: false,
       keyMetrics: [
-        { label: "Sync Protocol", value: "Real-Time", desc: "Cloud Firestore reactive stream listener" },
-        { label: "Platform", value: "Flutter / Dart", desc: "Unified single codebase for iOS and Android" },
-        { label: "Offline Resilience", value: "Local Queue", desc: "Automatic background write reconciliation on network reconnect" }
+        { label: "Database", value: "Cloud Firestore", desc: "Real-time synchronization across devices with local cache" },
+        { label: "Framework", value: "Flutter & Dart", desc: "Single cross-platform codebase for iOS and Android" },
+        { label: "Offline Mode", value: "Automatic Sync", desc: "Queues transactions locally when offline and commits on reconnect" }
       ],
       challengesAndTradeoffs: [
         {
-          challenge: "User expense entry drops when mobile connectivity is intermittent.",
-          solution: "Architected an offline-first caching layer where writes commit immediately to local cache and sync upstream asynchronously with conflict resolution.",
-          impact: "Zero lost transactions and sub-second UI response time."
+          challenge: "Preventing data loss when users log expenses while traveling with poor or no cellular connectivity.",
+          solution: "Enabled Firestore's offline persistence so new entries write immediately to local device cache and sync to the cloud when internet connection resumes.",
+          impact: "Fast expense logging with zero lost transactions when offline."
         }
       ],
       bulletPoints: [
-        "Developed a fluid mobile application using Flutter to track, categorize, and visually breakdown personal daily/monthly expenditures.",
-        "Integrated Cloud Firestore for instant real-time data sync across devices and Firebase Auth for secure multi-factor authentication.",
-        "Implemented interactive charts and budget warnings when approaching category thresholds."
+        "Built a cross-platform mobile app in Flutter to record, categorize, and track daily and monthly personal expenses.",
+        "Integrated Cloud Firestore for real-time cloud backup across devices and Firebase Auth for email/password authentication.",
+        "Added category spending charts and warning indicators when monthly expenses approach user-set budget limits."
       ],
       architectureOverview: {
-        problem: "Users often abandon budgeting apps when transaction entry is slow or offline connectivity causes lost entries.",
-        systemDesign: "Flutter reactive UI bound to Firestore offline cache streams, ensuring immediate responsiveness even with zero cellular signal.",
+        problem: "Expense trackers need to be fast to open and work reliably even in places where internet connection is spotty.",
+        systemDesign: "Flutter front-end connected to Firebase Authentication and Cloud Firestore. Local state responds immediately to user actions, while Firestore handles background cloud sync.",
         keyAchievements: [
-          "Instant offline-to-online reconciliation using Firestore local cache",
-          "Interactive spending category breakdowns with visual analytics",
-          "Smooth 60fps animations across iOS and Android"
+          "Offline-first transaction logging with automatic cloud sync on reconnect",
+          "Visual category breakdowns and spending summaries",
+          "Responsive mobile UI following Material Design guidelines"
         ],
         dataFlowSteps: [
           { step: 1, title: "User Action", desc: "User logs expense with amount, category, and date." },
-          { step: 2, title: "Local Cache Write", desc: "Transaction immediately appears in local state." },
+          { step: 2, title: "Local Cache Write", desc: "Transaction immediately appears in local state via offline cache." },
           { step: 3, title: "Cloud Synchronization", desc: "Background thread commits record to Firestore when connection is live." }
         ]
       }

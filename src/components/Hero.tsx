@@ -36,14 +36,13 @@ export function Hero() {
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start space-y-6">
             
             {/* Status indicator */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-white/[0.08] text-zinc-300 text-xs font-mono">
-              <span className="w-2 h-2 rounded-full bg-emerald-400" />
-              <span>Available for Backend, Systems & SWE Roles</span>
+            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-white/[0.08] text-zinc-300 text-xs font-mono">
+              <span>Available for Full-Stack, Backend, Systems & SWE Roles</span>
             </div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
-              Software Engineer building low-latency distributed systems & real-time protocols.
+              Software Engineer building real-time distributed systems & full-stack web applications.
             </h1>
 
             {/* Natural prose bio */}
@@ -58,7 +57,7 @@ export function Hero() {
             </p>
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
-              I specialize in distributed systems and real-time communications. Most of my recent work centers on building serverless WebRTC peer-to-peer engines with automatic host failover, interactive LiveKit streaming over WebSockets, and autonomous multi-agent pipelines.
+              I build full-stack web applications, real-time communication systems, and low-latency backends. My recent projects include a peer-to-peer WebRTC card game with automatic host migration, a Discord-style streaming platform with LiveKit and WebSockets, and AI agent workflows using LangGraph and FastAPI.
             </p>
 
             {/* Action Buttons - Clean, intentional, no competing duplicate links */}
