@@ -57,7 +57,7 @@ export function Hero() {
             </p>
 
             <p className="text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
-              I build full-stack web applications, real-time communication systems, and low-latency backends. My recent projects include a peer-to-peer WebRTC card game with automatic host migration, a Discord-style streaming platform with LiveKit and WebSockets, and AI agent workflows using LangGraph and FastAPI.
+              I build full-stack web applications, real-time communication systems, and low-latency backends. My recent projects include a peer-to-peer WebRTC card game with graceful host migration, a Discord-style streaming platform with LiveKit and WebSockets, and AI agent workflows using LangGraph and FastAPI.
             </p>
 
             {/* Action Buttons - Clean, intentional, no competing duplicate links */}

@@ -196,7 +196,7 @@ export const PORTFOLIO_DATA = {
       id: "kaali-tirri",
       slug: "kaali-tirri",
       title: "Kaali Tirri Web Multiplayer Game",
-      tagline: "Peer-to-peer multiplayer card game built with WebRTC DataChannels, local validation, and automatic host migration.",
+      tagline: "Peer-to-peer multiplayer card game built with WebRTC DataChannels, local validation, and graceful host migration.",
       period: "Sep 2026 - Oct 2026",
       category: "Systems & Real-Time",
       categories: ["Systems & Real-Time", "Full-Stack & Web"],
@@ -224,7 +224,7 @@ export const PORTFOLIO_DATA = {
       keyMetrics: [
         { label: "Sync Latency", value: "< 20ms", desc: "Direct browser-to-browser data transfer" },
         { label: "Topology", value: "Full Mesh P2P", desc: "WebRTC DataChannels with STUN/TURN fallback" },
-        { label: "Host Migration", value: "Automatic", desc: "Elects replacement host on heartbeat timeout" },
+        { label: "Host Migration", value: "Graceful Handover", desc: "Triggered manually or on tab close (network drop acts like server down)" },
         { label: "Infrastructure", value: "Serverless P2P", desc: "No persistent game servers required" }
       ],
       challengesAndTradeoffs: [
@@ -234,29 +234,29 @@ export const PORTFOLIO_DATA = {
           impact: "Keeps game state synchronized and consistent across players without a backend server."
         },
         {
-          challenge: "Handling host disconnections without dropping the game room for remaining players.",
-          solution: "Added heartbeat checks between players. If the host drops after 3 consecutive missed pings, peers run a deterministic election to assign a new host and resume from the latest state snapshot.",
-          impact: "Allows matches to continue uninterrupted when the original host leaves."
+          challenge: "Allowing a game room to persist when the host leaves or wants to pass coordination duties.",
+          solution: "Implemented graceful host migration: when the host manually transfers the room or closes their tab (intercepted via beforeunload), the latest game state snapshot is bundled and host authority is handed over to the next peer in the room. (If the host's network abruptly drops, it functions like a server crash where communication is lost).",
+          impact: "Enables smooth handoffs when hosts intentionally leave without resetting active player hands."
         }
       ],
       bulletPoints: [
         "Built a peer-to-peer multiplayer card game in TypeScript using WebRTC DataChannels for direct client-to-client communication.",
         "Implemented a local game rule validator on every client to verify turn order, trick winners, and valid card plays without requiring a backend server.",
-        "Added automatic host migration and state recovery using periodic heartbeats and deterministic peer election when a host disconnects."
+        "Engineered host migration that triggers when the host manually transfers authority or closes their tab, handing off the serialized game state to the next peer."
       ],
       architectureOverview: {
         problem: "Multiplayer turn-based games usually require backend game servers to maintain state, adding hosting costs and server latency for simple card moves.",
         systemDesign: "Built on a full-mesh P2P topology using WebRTC DataChannels. A signaling server is only used for initial peer discovery and ICE negotiation. Once connected, all player actions, chat, and state diffs flow directly between browsers.",
         keyAchievements: [
           "Low-latency peer-to-peer state synchronization without dedicated game servers",
-          "Automatic host election and state recovery on host disconnection",
+          "Graceful host migration preserving round state when the host transfers duties or closes their browser tab",
           "Client-side rule verification preventing illegal moves or desynchronized hands"
         ],
         dataFlowSteps: [
           { step: 1, title: "Signaling & ICE Discovery", desc: "PeerJS connects to a signaling server to discover peers and exchange STUN/TURN candidates." },
           { step: 2, title: "DataChannel Mesh", desc: "Direct WebRTC DataChannels are established between all players in the room." },
           { step: 3, title: "Action Validation & Sync", desc: "Players broadcast card moves; peers validate the move locally before updating UI state." },
-          { step: 4, title: "Heartbeat & Failover", desc: "Peers exchange heartbeats. If the host drops, the next peer assumes host duties from the last state snapshot." }
+          { step: 4, title: "Host Migration Handover", desc: "When the host triggers migration or closes their tab, current game state and coordinator role transfer to the next peer." }
         ]
       }
     },
@@ -464,21 +464,24 @@ export const PORTFOLIO_DATA = {
       bulletPoints: [
         "Built an OpenCV image processing pipeline that isolates, straightens, and extracts individual cells from photos of Sudoku puzzles.",
         "Trained a CNN model on digit datasets to recognize cell values, using adaptive thresholding and contour detection to clean up image noise.",
-        "Built an algorithmic solver using constraint propagation and bitmask-accelerated backtracking that solves valid 9x9 puzzles in under 1 millisecond."
+        "Built an algorithmic solver using constraint propagation and bitmask-accelerated backtracking that solves valid 9x9 puzzles in under 1 millisecond.",
+        "Overlaid the solved digits directly into empty puzzle spaces using OpenCV drawing functions and inverse perspective transformation to display the completed visual board."
       ],
       architectureOverview: {
         problem: "Extracting structured grid puzzles from everyday camera photos requires handling perspective distortion, shadows, and efficient constraint satisfaction.",
-        systemDesign: "OpenCV detects the puzzle quadrilateral and applies a perspective transform. Individual cells are fed to a CNN to classify digits. The parsed 9x9 matrix is then solved by a bitmask backtracking engine.",
+        systemDesign: "OpenCV detects the puzzle quadrilateral and applies a perspective transform. Individual cells are fed to a CNN to classify digits. The parsed 9x9 matrix is then solved by a bitmask backtracking engine, and solved digits are drawn back onto empty grid spaces.",
         keyAchievements: [
           "Sub-millisecond puzzle solving with bitwise candidate tracking",
           "Reliable grid detection and perspective correction from mobile photo angles",
-          "Clean separation between image extraction and algorithmic solving"
+          "Visual solution rendering printing solved numbers directly into empty cells onto the original image",
+          "Clean separation between image extraction, algorithmic solving, and image drawing"
         ],
         dataFlowSteps: [
           { step: 1, title: "Contour Detection", desc: "OpenCV identifies the largest polygonal contour representing the Sudoku board." },
           { step: 2, title: "Perspective Rectification", desc: "Four-point transform warps the board into a normalized 450x450 square image." },
           { step: 3, title: "Digit Recognition", desc: "Each 50x50 cell is evaluated by the TensorFlow CNN model to identify starting numbers." },
-          { step: 4, title: "Backtracking Search", desc: "Bitwise candidate tracking searches and prunes the solution tree in under 1ms." }
+          { step: 4, title: "Backtracking Search", desc: "Bitwise candidate tracking searches and prunes the solution tree in under 1ms." },
+          { step: 5, title: "Solution Overlay", desc: "Draws and renders the solved numbers into empty grid spaces using OpenCV drawing libraries, warping them back onto the board image." }
         ]
       }
     },
@@ -580,7 +583,7 @@ export const PORTFOLIO_DATA = {
     systemsAndRealtime: [
       { name: "WebRTC & PeerJS", level: "Advanced", tags: ["DataChannels", "STUN/TURN", "ICE NAT Traversal", "Mesh Topology"], proof: "Kaali Tirri P2P Engine" },
       { name: "WebSockets & LiveKit SFU", level: "Advanced", tags: ["Selective Forwarding", "Adaptive Bitrate", "Presence Pub/Sub", "Socket.io"], proof: "Discord Real-Time Platform" },
-      { name: "Host Migration & Failover", level: "Advanced", tags: ["Leader Election", "Heartbeat Ping", "JSON Snapshot Recovery", "Zero Downtime"], proof: "Kaali Tirri Lobby Architecture" },
+      { name: "P2P Host Migration", level: "Advanced", tags: ["State Serialization", "Graceful Handover", "Tab Close Handshake", "WebRTC Mesh"], proof: "Kaali Tirri Lobby Architecture" },
       { name: "Inter-Process Comm (IPC)", level: "Proficient", tags: ["BroadcastChannel API", "Window Screen Mapping", "LocalStorage Bus", "Matrix Math"], proof: "3D Scene Multi-Window" },
       { name: "Network Security & Concurrency", level: "Proficient", tags: ["Sliding-Window Rate Limiting", "State Checksums", "Packet Sanitization", "Memory Safety"], proof: "Anti-Exploit Invariant Engine" },
     ],

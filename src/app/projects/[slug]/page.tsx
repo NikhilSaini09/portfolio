@@ -249,7 +249,13 @@ async function CaseStudyContent({
           Step-by-Step Data Flow
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+        <div
+          className={`grid grid-cols-1 sm:grid-cols-2 ${
+            project.architectureOverview.dataFlowSteps.length === 5
+              ? "lg:grid-cols-5"
+              : "lg:grid-cols-4"
+          } gap-4 relative`}
+        >
           {project.architectureOverview.dataFlowSteps.map((step) => (
             <div
               key={step.step}

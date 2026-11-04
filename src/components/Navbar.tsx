@@ -29,14 +29,21 @@ export function Navbar() {
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
+    setMobileMenuOpen(false);
     if (href.startsWith("/#")) {
       const targetId = href.replace("/#", "");
-      const elem = document.getElementById(targetId);
-      if (elem) {
-        e.preventDefault();
-        window.history.pushState(null, "", href);
-        elem.scrollIntoView({ behavior: "smooth" });
-        setMobileMenuOpen(false);
+      if (typeof window !== "undefined") {
+        if (window.location.pathname === "/") {
+          const elem = document.getElementById(targetId);
+          if (elem) {
+            e.preventDefault();
+            window.history.pushState(null, "", href);
+            elem.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          e.preventDefault();
+          window.location.assign(href);
+        }
       }
     }
   };

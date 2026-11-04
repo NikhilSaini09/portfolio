@@ -303,37 +303,37 @@ export function ProjectMediaShowcase({
               <div className="flex items-center gap-2">
                 <button
                   onClick={togglePlay}
-                  className="p-1.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-white border border-white/10 transition-colors"
+                  className="h-7 w-7 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-white border border-white/10 transition-colors inline-flex items-center justify-center shrink-0"
                   title={isPlaying ? "Pause video" : "Play video"}
                 >
                   {isPlaying ? (
                     <Pause className="w-3.5 h-3.5" />
                   ) : (
-                    <Play className="w-3.5 h-3.5" />
+                    <Play className="w-3.5 h-3.5 ml-0.5" />
                   )}
                 </button>
 
                 <button
                   onClick={() => seekRelative(-10)}
-                  className="px-2 py-1 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 text-[11px] font-mono transition-colors flex items-center gap-1"
+                  className="h-7 px-2.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 text-xs font-mono transition-colors inline-flex items-center justify-center gap-1.5 leading-none shrink-0"
                   title="Rewind 10 seconds"
                 >
-                  <RotateCcw className="w-3 h-3 text-zinc-400" />
-                  <span>-10s</span>
+                  <RotateCcw className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
+                  <span className="leading-none translate-y-[1px] select-none tabular-nums">-10s</span>
                 </button>
 
                 <button
                   onClick={() => seekRelative(10)}
-                  className="px-2 py-1 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 text-[11px] font-mono transition-colors flex items-center gap-1"
+                  className="h-7 px-2.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 text-xs font-mono transition-colors inline-flex items-center justify-center gap-1.5 leading-none shrink-0"
                   title="Forward 10 seconds"
                 >
-                  <span>+10s</span>
-                  <RotateCw className="w-3 h-3 text-zinc-400" />
+                  <span className="leading-none translate-y-[1px] select-none tabular-nums">+10s</span>
+                  <RotateCw className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
                 </button>
 
-                <div className="text-[11px] text-zinc-400 pl-1.5">
+                <div className="text-xs text-zinc-400 pl-1.5 flex items-center leading-none tabular-nums">
                   <span className="text-zinc-200">{formatTime(currentTime)}</span>
-                  {" / "}
+                  <span className="mx-1 text-zinc-600">/</span>
                   <span>{formatTime(duration)}</span>
                 </div>
               </div>
@@ -342,7 +342,7 @@ export function ProjectMediaShowcase({
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleMute}
-                  className="p-1.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 transition-colors"
+                  className="h-7 w-7 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 transition-colors inline-flex items-center justify-center shrink-0"
                   title={isMuted ? "Unmute audio" : "Mute audio"}
                 >
                   {isMuted ? (
@@ -354,7 +354,7 @@ export function ProjectMediaShowcase({
 
                 <button
                   onClick={toggleFullscreen}
-                  className="p-1.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 transition-colors"
+                  className="h-7 w-7 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 transition-colors inline-flex items-center justify-center shrink-0"
                   title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
                 >
                   {isFullscreen ? (
