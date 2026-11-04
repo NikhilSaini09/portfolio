@@ -36,7 +36,7 @@ export async function generateMetadata({
   if (!project) return { title: "Project Not Found | Nikhil Saini" };
 
   return {
-    title: `${project.title} — System Architecture & Case Study | Nikhil Saini`,
+    title: `${project.title} — Architecture & Deep-Dive | Nikhil Saini`,
     description: `${project.tagline}. Detailed architecture breakdown, real-time protocols, trade-offs, and benchmarks.`,
   };
 }
@@ -352,7 +352,7 @@ async function CaseStudyContent({
           >
             <div className="text-[11px] font-mono text-zinc-400 mb-1 flex items-center gap-1">
               <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
-              Previous Case Study
+              Previous Project
             </div>
             <div className="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors truncate">
               {prevProject.title}
@@ -368,7 +368,7 @@ async function CaseStudyContent({
             className="group p-4 rounded-xl bg-zinc-950/70 border border-white/[0.06] hover:border-emerald-500/30 transition-all flex flex-col items-end text-right justify-between"
           >
             <div className="text-[11px] font-mono text-zinc-400 mb-1 flex items-center gap-1">
-              Next Case Study
+              Next Project
               <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
             </div>
             <div className="text-sm font-semibold text-white group-hover:text-emerald-400 transition-colors truncate">

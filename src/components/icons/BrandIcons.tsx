@@ -55,3 +55,18 @@ export function CodeforcesIcon({ className = "w-4 h-4" }: { className?: string }
     </svg>
   );
 }
+
+export function CodeChefIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5a1.5 1.5 0 0 1-2 0V11a1.5 1.5 0 0 1 2 0zm-1-8a1.5 1.5 0 1 1 1.5-1.5A1.5 1.5 0 0 1 12 8.5z" />
+    </svg>
+  );
+}
+

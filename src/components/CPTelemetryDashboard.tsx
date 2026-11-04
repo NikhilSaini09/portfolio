@@ -17,7 +17,7 @@ export function CPTelemetryDashboard() {
   const cp = PORTFOLIO_DATA.cpAnalytics;
 
   return (
-    <section id="telemetry" className="py-20 relative">
+    <section id="competitive-programming" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

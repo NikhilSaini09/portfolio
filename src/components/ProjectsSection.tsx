@@ -319,7 +319,7 @@ export function ProjectsSection() {
                   onClick={() => setSelectedProject(null)}
                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-xs transition-colors shadow-lg shadow-emerald-950/40"
                 >
-                  <span>Open Full-Screen Case Study & Media</span>
+                  <span>Open Full Project & Media</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
 

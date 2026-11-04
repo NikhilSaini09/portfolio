@@ -10,7 +10,13 @@ import {
   MapPin,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
-import { GithubIcon, LinkedinIcon } from "@/components/icons/BrandIcons";
+import {
+  GithubIcon,
+  LinkedinIcon,
+  LeetCodeIcon,
+  CodeforcesIcon,
+  CodeChefIcon,
+} from "@/components/icons/BrandIcons";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -119,7 +125,7 @@ export function Hero() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
               >
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
+                <LeetCodeIcon className="w-3.5 h-3.5 text-zinc-400" />
                 <span>LeetCode 2315</span>
               </a>
 
@@ -129,7 +135,7 @@ export function Hero() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
               >
-                <span className="w-2 h-2 rounded-full bg-purple-400" />
+                <CodeforcesIcon className="w-3.5 h-3.5 text-zinc-400" />
                 <span>Codeforces 2043</span>
               </a>
 
@@ -139,7 +145,7 @@ export function Hero() {
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
               >
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                <CodeChefIcon className="w-3.5 h-3.5 text-zinc-400" />
                 <span>CodeChef 2047</span>
               </a>
             </div>

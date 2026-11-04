@@ -19,11 +19,27 @@ export function Navbar() {
 
   const navLinks = [
     { name: "Projects", href: "/#projects" },
-    { name: "Competitive Programming", href: "/#telemetry" },
+    { name: "Competitive Programming", href: "/#competitive-programming" },
     { name: "Skills", href: "/#skills" },
     { name: "Experience", href: "/#experience" },
     { name: "Contact", href: "/#contact" },
   ];
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("/#")) {
+      const targetId = href.replace("/#", "");
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        e.preventDefault();
+        window.history.pushState(null, "", href);
+        elem.scrollIntoView({ behavior: "smooth" });
+        setMobileMenuOpen(false);
+      }
+    }
+  };
 
   return (
     <header
@@ -34,16 +50,15 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand / Logo */}
+        {/* Brand / Logo - Clean monogram without artificial status dot */}
         <Link
           href="/"
           className="group flex items-center gap-3 focus:outline-none"
         >
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-zinc-900 border border-white/10 group-hover:border-emerald-500/50 transition-colors shadow-inner">
+          <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-zinc-900 border border-white/10 group-hover:border-emerald-500/50 transition-colors shadow-inner">
             <span className="text-sm font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors font-mono">
               NS
             </span>
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-500 border-2 border-zinc-950" />
           </div>
           <div className="hidden sm:flex flex-col">
             <span className="text-sm font-semibold text-zinc-100 group-hover:text-emerald-400 transition-colors">
@@ -61,6 +76,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] rounded-full transition-all"
             >
               {link.name}
@@ -98,7 +114,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="block px-3 py-2 text-sm text-zinc-300 hover:text-white hover:bg-zinc-900 rounded-lg transition-colors font-medium"
             >
               {link.name}
