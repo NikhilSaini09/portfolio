@@ -220,27 +220,33 @@ export function ContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-medium text-zinc-300">
+                      <label htmlFor="contact-name" className="text-xs font-medium text-zinc-300">
                         Your Name
                       </label>
                       <input
+                        id="contact-name"
+                        name="name"
                         type="text"
                         required
+                        autoComplete="name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Alex Morgan"
+                        placeholder="Aarav Sharma"
                         className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition-colors"
                       />
                     </div>
 
                     {/* Email */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-medium text-zinc-300">
+                      <label htmlFor="contact-email" className="text-xs font-medium text-zinc-300">
                         Your Email
                       </label>
                       <input
+                        id="contact-email"
+                        name="email"
                         type="email"
                         required
+                        autoComplete="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="recruiter@company.com"
@@ -251,11 +257,13 @@ export function ContactSection() {
 
                   {/* Opportunity / Role Focus */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-medium text-zinc-300">
+                    <label htmlFor="contact-role" className="text-xs font-medium text-zinc-300">
                       Inquiry / Role Focus
                     </label>
                     <div className="relative">
                       <select
+                        id="contact-role"
+                        name="roleType"
                         value={formData.roleType}
                         onChange={(e) => setFormData({ ...formData, roleType: e.target.value })}
                         className="w-full appearance-none px-3.5 py-2.5 pr-10 rounded-xl bg-zinc-900/90 border border-white/10 text-white text-xs focus:outline-none focus:border-emerald-500/60 transition-colors cursor-pointer"
@@ -282,10 +290,12 @@ export function ContactSection() {
 
                   {/* Message */}
                   <div className="space-y-1.5 flex-1 flex flex-col">
-                    <label className="text-xs font-medium text-zinc-300">
+                    <label htmlFor="contact-message" className="text-xs font-medium text-zinc-300">
                       Message
                     </label>
                     <textarea
+                      id="contact-message"
+                      name="message"
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}

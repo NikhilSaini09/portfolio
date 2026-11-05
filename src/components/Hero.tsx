@@ -7,7 +7,6 @@ import {
   Copy,
   Check,
   Download,
-  Eye,
   MapPin,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
@@ -195,9 +194,8 @@ export function Hero() {
                 <button
                   type="button"
                   onClick={() => setIsResumeModalOpen(true)}
-                  className="flex-1 py-3 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-sm font-semibold text-zinc-100 hover:text-white transition-all flex items-center justify-center gap-2 shadow-sm hover:border-emerald-500/40"
+                  className="flex-1 py-3 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-sm font-semibold text-zinc-100 hover:text-white transition-all flex items-center justify-center shadow-sm hover:border-emerald-500/40 cursor-pointer"
                 >
-                  <Eye className="w-4 h-4 text-emerald-400" />
                   <span>Preview Resume</span>
                 </button>
                 <a

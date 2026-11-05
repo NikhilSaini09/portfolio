@@ -135,8 +135,13 @@ export function SkillsMatrix() {
           
           {/* Quick Search */}
           <div className="w-full md:w-80 relative">
+            <label htmlFor="skills-search" className="sr-only">
+              Search skills or technologies
+            </label>
             <Search className="w-4 h-4 text-zinc-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
+              id="skills-search"
+              name="skillsSearch"
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}

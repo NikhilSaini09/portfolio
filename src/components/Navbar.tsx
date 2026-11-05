@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Download, Eye, Menu, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import { ResumeModal } from "@/components/ResumeModal";
 
@@ -51,13 +51,14 @@ export function Navbar() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "py-3 bg-zinc-950/90 backdrop-blur-xl border-b border-white/8 shadow-2xl shadow-black/50"
-          : "py-5 bg-transparent"
-      }`}
-    >
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "py-3 bg-zinc-950/90 backdrop-blur-xl border-b border-white/8 shadow-2xl shadow-black/50"
+            : "py-5 bg-transparent"
+        }`}
+      >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand / Logo - Clean monogram without artificial status dot */}
         <Link
@@ -99,9 +100,8 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setIsResumeModalOpen(true)}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-zinc-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-all shadow-sm hover:shadow-emerald-500/20 active:scale-95 cursor-pointer"
+            className="px-3.5 py-1.5 text-xs font-semibold text-zinc-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-all shadow-sm hover:shadow-emerald-500/20 active:scale-95 cursor-pointer"
           >
-            <Eye className="w-3.5 h-3.5" />
             <span>Resume</span>
           </button>
 
@@ -136,9 +136,8 @@ export function Navbar() {
                 setMobileMenuOpen(false);
                 setIsResumeModalOpen(true);
               }}
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-zinc-950 font-semibold text-xs transition-colors cursor-pointer"
+              className="flex-1 flex items-center justify-center py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-zinc-950 font-semibold text-xs transition-colors cursor-pointer"
             >
-              <Eye className="w-3.5 h-3.5" />
               <span>Preview Resume</span>
             </button>
             <a
@@ -154,11 +153,12 @@ export function Navbar() {
         </div>
       )}
 
-      {/* Resume Preview Modal */}
+      </header>
+      {/* Resume Preview Modal (rendered outside header to avoid backdrop-filter clipping) */}
       <ResumeModal
         isOpen={isResumeModalOpen}
         onClose={() => setIsResumeModalOpen(false)}
       />
-    </header>
+    </>
   );
 }
