@@ -218,7 +218,7 @@ export const PORTFOLIO_DATA = {
           { type: "image", url: "/projects/kaali-tirri/Screenshot3.png", caption: "In-Game Table Chat — Real-time peer messaging with reaction emojis" },
           { type: "image", url: "/projects/kaali-tirri/Screenshot4.png", caption: "Bidding Phase — Turn-based contract bidding with hand cards" },
           { type: "image", url: "/projects/kaali-tirri/Screenshot5.png", caption: "Trick Evaluation — Center table card battle with trump suit indicators" },
-          { type: "image", url: "/projects/kaali-tirri/Screenshot6.png", caption: "Multiplayer Bidding Round — UI for higher Number of players" },
+          { type: "image", url: "/projects/kaali-tirri/Screenshot6.png", caption: "Multiplayer Bidding Round — UI for higher number of players" },
         ]
       },
       keyMetrics: [
