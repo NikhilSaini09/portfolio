@@ -52,7 +52,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "py-3 bg-zinc-950/90 backdrop-blur-xl border-b border-white/[0.08] shadow-2xl shadow-black/50"
+          ? "py-3 bg-zinc-950/90 backdrop-blur-xl border-b border-white/8 shadow-2xl shadow-black/50"
           : "py-5 bg-transparent"
       }`}
     >
@@ -78,13 +78,13 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900/70 border border-white/[0.06] backdrop-blur-md">
+        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900/70 border border-white/6 backdrop-blur-md">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/[0.06] rounded-full transition-all"
+              className="px-3 py-1.5 text-xs font-medium text-zinc-300 hover:text-white hover:bg-white/6 rounded-full transition-all"
             >
               {link.name}
             </Link>
@@ -97,7 +97,7 @@ export function Navbar() {
           <a
             href={PORTFOLIO_DATA.personal.resumeUrl}
             download="Nikhil_Saini_Resume.pdf"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-zinc-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-all shadow-sm hover:shadow-emerald-500/20 active:scale-95 font-semibold"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-zinc-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-all shadow-sm hover:shadow-emerald-500/20 active:scale-95"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Resume</span>
@@ -106,7 +106,7 @@ export function Navbar() {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-zinc-400 hover:text-white rounded-lg bg-zinc-900 border border-white/[0.08]"
+            className="md:hidden p-2 text-zinc-400 hover:text-white rounded-lg bg-zinc-900 border border-white/8"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -116,7 +116,7 @@ export function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden px-4 pt-3 pb-6 bg-zinc-950 border-b border-white/[0.08] space-y-2 animate-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden px-4 pt-3 pb-6 bg-zinc-950 border-b border-white/8 space-y-2 animate-in slide-in-from-top-4 duration-200">
           {navLinks.map((link) => (
             <Link
               key={link.name}

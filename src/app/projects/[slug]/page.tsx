@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -50,7 +50,7 @@ function CaseStudySkeleton() {
         <div className="h-10 w-3/4 max-w-lg bg-zinc-900 rounded-xl" />
         <div className="h-4 w-full max-w-xl bg-zinc-900 rounded-lg" />
       </div>
-      <div className="aspect-[16/10] sm:aspect-[16/9] w-full bg-zinc-900/60 rounded-2xl border border-white/[0.06]" />
+      <div className="aspect-16/10 sm:aspect-video w-full bg-zinc-900/60 rounded-2xl border border-white/6" />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div className="h-20 bg-zinc-900 rounded-xl" />
         <div className="h-20 bg-zinc-900 rounded-xl" />
@@ -112,12 +112,12 @@ async function CaseStudyContent({
             .map((extraCat) => (
               <span
                 key={extraCat}
-                className="px-2.5 py-1 rounded-md text-xs font-mono bg-zinc-900 border border-white/[0.08] text-zinc-300"
+                className="px-2.5 py-1 rounded-md text-xs font-mono bg-zinc-900 border border-white/8 text-zinc-300"
               >
                 {extraCat}
               </span>
             ))}
-          <span className="text-xs font-mono text-zinc-400 px-2 py-0.5 rounded bg-zinc-900 border border-white/[0.06]">
+          <span className="text-xs font-mono text-zinc-400 px-2 py-0.5 rounded bg-zinc-900 border border-white/6">
             {project.period}
           </span>
           {project.featured && (
@@ -163,7 +163,7 @@ async function CaseStudyContent({
 
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono border border-white/[0.06] transition-colors ml-auto"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-zinc-900/60 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono border border-white/6 transition-colors ml-auto"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to Projects
@@ -176,7 +176,7 @@ async function CaseStudyContent({
         {project.keyMetrics.map((metric, idx) => (
           <div
             key={idx}
-            className="p-4 rounded-xl bg-zinc-950/80 border border-white/[0.08] flex flex-col justify-between"
+            className="p-4 rounded-xl bg-zinc-950/80 border border-white/8 flex flex-col justify-between"
           >
             <div className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider mb-1">
               {metric.label}
@@ -207,7 +207,7 @@ async function CaseStudyContent({
       {/* Architectural Deep-Dive Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         {/* Problem Statement */}
-        <div className="p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/[0.08] flex flex-col justify-between">
+        <div className="p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/8 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-amber-400 uppercase tracking-wider mb-3">
               <AlertTriangle className="w-4 h-4" />
@@ -223,7 +223,7 @@ async function CaseStudyContent({
         </div>
 
         {/* System Design */}
-        <div className="p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/[0.08] flex flex-col justify-between">
+        <div className="p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/8 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-wider mb-3">
               <Cpu className="w-4 h-4" />
@@ -240,7 +240,7 @@ async function CaseStudyContent({
       </div>
 
       {/* Visual Data Flow Pipeline */}
-      <div className="mb-14 p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/[0.08]">
+      <div className="mb-14 p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/8">
         <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-wider mb-2">
           <Zap className="w-4 h-4" />
           Execution Flow
@@ -259,7 +259,7 @@ async function CaseStudyContent({
           {project.architectureOverview.dataFlowSteps.map((step) => (
             <div
               key={step.step}
-              className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] flex flex-col justify-between space-y-3 relative group hover:border-emerald-500/30 transition-colors"
+              className="p-4 rounded-xl bg-zinc-900/60 border border-white/6 flex flex-col justify-between space-y-3 relative group hover:border-emerald-500/30 transition-colors"
             >
               <div className="flex items-center justify-between">
                 <span className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-bold flex items-center justify-center">
@@ -302,7 +302,7 @@ async function CaseStudyContent({
           {project.challengesAndTradeoffs.map((item, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-zinc-950/80 border border-white/[0.08] space-y-4"
+              className="p-6 rounded-2xl bg-zinc-950/80 border border-white/8 space-y-4"
             >
               <div className="flex items-start gap-3">
                 <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-rose-500/10 text-rose-400 border border-rose-500/20 shrink-0 mt-0.5">
@@ -333,7 +333,7 @@ async function CaseStudyContent({
       </div>
 
       {/* Technologies Stack */}
-      <div className="mb-14 p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/[0.08]">
+      <div className="mb-14 p-6 sm:p-7 rounded-2xl bg-zinc-950/80 border border-white/8">
         <div className="text-xs font-mono text-zinc-400 uppercase tracking-wider mb-3">
           Technologies Used
         </div>
@@ -341,7 +341,7 @@ async function CaseStudyContent({
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1.5 rounded-lg bg-zinc-900 text-xs font-mono text-zinc-300 border border-white/[0.06] hover:border-emerald-500/30 transition-colors"
+              className="px-3 py-1.5 rounded-lg bg-zinc-900 text-xs font-mono text-zinc-300 border border-white/6 hover:border-emerald-500/30 transition-colors"
             >
               {tech}
             </span>
@@ -350,11 +350,11 @@ async function CaseStudyContent({
       </div>
 
       {/* Next / Previous Project Navigation */}
-      <div className="pt-8 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="pt-8 border-t border-white/8 grid grid-cols-1 sm:grid-cols-2 gap-4">
         {prevProject ? (
           <Link
             href={`/projects/${prevProject.slug}`}
-            className="group p-4 rounded-xl bg-zinc-950/70 border border-white/[0.06] hover:border-emerald-500/30 transition-all flex flex-col justify-between"
+            className="group p-4 rounded-xl bg-zinc-950/70 border border-white/6 hover:border-emerald-500/30 transition-all flex flex-col justify-between"
           >
             <div className="text-[11px] font-mono text-zinc-400 mb-1 flex items-center gap-1">
               <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
@@ -371,7 +371,7 @@ async function CaseStudyContent({
         {nextProject ? (
           <Link
             href={`/projects/${nextProject.slug}`}
-            className="group p-4 rounded-xl bg-zinc-950/70 border border-white/[0.06] hover:border-emerald-500/30 transition-all flex flex-col items-end text-right justify-between"
+            className="group p-4 rounded-xl bg-zinc-950/70 border border-white/6 hover:border-emerald-500/30 transition-all flex flex-col items-end text-right justify-between"
           >
             <div className="text-[11px] font-mono text-zinc-400 mb-1 flex items-center gap-1">
               Next Project

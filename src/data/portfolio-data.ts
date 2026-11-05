@@ -200,7 +200,7 @@ export const PORTFOLIO_DATA = {
       period: "Sep 2026 - Oct 2026",
       category: "Systems & Real-Time",
       categories: ["Systems & Real-Time", "Full-Stack & Web"],
-      technologies: ["WebRTC", "PeerJS", "STUN/TURN", "Web Audio API", "TypeScript", "JavaScript"],
+      technologies: ["WebRTC", "PeerJS", "STUN/TURN", "Web Audio API", "TypeScript", "JavaScript", "CSS"],
       liveUrl: "https://nikhilsaini09.github.io/kaaliTirri/",
       githubUrl: "https://github.com/NikhilSaini09/kaaliTirri",
       featured: true,
@@ -212,13 +212,13 @@ export const PORTFOLIO_DATA = {
           caption: "Desktop P2P WebRTC multiplayer card gameplay with host migration"
         },
         gallery: [
-          { type: "video", url: "/projects/kaali-tirri/demo-mobile.mp4", posterUrl: "/projects/kaali-tirri/poster-mobile.png", caption: "Mobile Gameplay Demo (Cropped mobile responsive viewport)" },
+          { type: "video", url: "/projects/kaali-tirri/demo-mobile.mp4", posterUrl: "/projects/kaali-tirri/poster-mobile.png", caption: "Mobile Demo" },
           { type: "image", url: "/projects/kaali-tirri/Screenshot1.png", caption: "Lobby Interface — Create Room, Join Room, or Play Offline with Bots" },
           { type: "image", url: "/projects/kaali-tirri/Screenshot2.png", caption: "P2P Waiting Room — UUID room sharing, host controls, and bot slots" },
           { type: "image", url: "/projects/kaali-tirri/Screenshot3.png", caption: "In-Game Table Chat — Real-time peer messaging with reaction emojis" },
           { type: "image", url: "/projects/kaali-tirri/Screenshot4.png", caption: "Bidding Phase — Turn-based contract bidding with hand cards" },
           { type: "image", url: "/projects/kaali-tirri/Screenshot5.png", caption: "Trick Evaluation — Center table card battle with trump suit indicators" },
-          { type: "image", url: "/projects/kaali-tirri/Screenshot6.png", caption: "Multiplayer Bidding Round — High bid tracking and fold mechanics" },
+          { type: "image", url: "/projects/kaali-tirri/Screenshot6.png", caption: "Multiplayer Bidding Round — UI for higher Number of players" },
         ]
       },
       keyMetrics: [
@@ -280,7 +280,7 @@ export const PORTFOLIO_DATA = {
           caption: "Desktop Application Demo — Servers, channels, and real-time chat"
         },
         gallery: [
-          { type: "video", url: "/projects/discord-platform/demo-mobile.mp4", posterUrl: "/projects/discord-platform/poster-mobile.png", caption: "Mobile App Demo (Cropped mobile responsive viewport)" },
+          { type: "video", url: "/projects/discord-platform/demo-mobile.mp4", posterUrl: "/projects/discord-platform/poster-mobile.png", caption: "Mobile Demo" },
           { type: "image", url: "/projects/discord-platform/Screenshot1.png", caption: "Server Channels — Real-time text messaging, member roles, and live indicators" },
           { type: "image", url: "/projects/discord-platform/Screenshot2.png", caption: "Direct Messaging — 1-on-1 conversations with rich media (images, PDFs)" },
           { type: "image", url: "/projects/discord-platform/Screenshot3.png", caption: "Rich Media Uploads — Video attachment streaming and message deletion" },
@@ -329,7 +329,7 @@ export const PORTFOLIO_DATA = {
     {
       id: "ai-crm",
       slug: "ai-crm",
-      title: "AI-First CRM – Conversational Logger",
+      title: "AI-First CRM - Conversational Logger",
       tagline: "AI CRM assistant that parses meeting notes and conversation transcripts into structured database records using LangGraph and Llama 3.3.",
       period: "Jun 2026",
       category: "Applied AI",
@@ -388,12 +388,12 @@ export const PORTFOLIO_DATA = {
       slug: "3d-scene-sync",
       title: "3D Scene Multi-Window Synchronization",
       tagline: "Real-time 3D simulation synchronized across multiple browser windows and monitors using Three.js and BroadcastChannel.",
-      period: "2024",
+      period: "Jul 2024",
       category: "Systems & Real-Time",
       categories: ["Systems & Real-Time", "Algorithms & CV"],
       technologies: ["Three.js", "WebGL", "TypeScript", "BroadcastChannel API", "LocalStorage Event Loop"],
       githubUrl: "https://github.com/NikhilSaini09/3dSceneMulipleWindow",
-      featured: true,
+      featured: false,
       media: {
         primary: {
           type: "video",
@@ -407,7 +407,7 @@ export const PORTFOLIO_DATA = {
       },
       keyMetrics: [
         { label: "Rendering", value: "Three.js / WebGL", desc: "Hardware-accelerated 3D graphics locked at 60 FPS" },
-        { label: "Inter-Tab Sync", value: "BroadcastChannel API", desc: "Client-side message passing between browser tabs" },
+        { label: "Inter-Tab Sync", value: "Broadcast Channel API", desc: "Client-side message passing between browser tabs" },
         { label: "Display Setup", value: "Multi-Monitor", desc: "Maps physical monitor coordinates to a shared 3D space" },
         { label: "Network Overhead", value: "Zero (Client-Side)", desc: "Runs entirely in the browser without a backend server" }
       ],

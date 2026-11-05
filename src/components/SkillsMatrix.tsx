@@ -122,7 +122,7 @@ export function SkillsMatrix() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-white/[0.08] gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-4 border-b border-white/8 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
               <Code2 className="w-4 h-4" />
@@ -141,7 +141,7 @@ export function SkillsMatrix() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search (e.g. C++, WebRTC, AWS)..."
-              className="w-full pl-10 pr-9 py-2 bg-zinc-900/70 border border-white/[0.08] rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500/50 transition-colors font-mono"
+              className="w-full pl-10 pr-9 py-2 bg-zinc-900/70 border border-white/8 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-emerald-500/50 transition-colors font-mono"
             />
             {searchQuery && (
               <button
@@ -170,7 +170,7 @@ export function SkillsMatrix() {
                 className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-2 ${
                   isActive
                     ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm shadow-emerald-950"
-                    : "bg-zinc-900/60 text-zinc-400 border border-white/[0.06] hover:text-white hover:border-white/10"
+                    : "bg-zinc-900/60 text-zinc-400 border border-white/6 hover:text-white hover:border-white/10"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -189,7 +189,7 @@ export function SkillsMatrix() {
             className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-2 ${
               activeTab === "certifications" && !searchQuery
                 ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm shadow-emerald-950"
-                : "bg-zinc-900/60 text-zinc-400 border border-white/[0.06] hover:text-white hover:border-white/10"
+                : "bg-zinc-900/60 text-zinc-400 border border-white/6 hover:text-white hover:border-white/10"
             }`}
           >
             <Award className="w-3.5 h-3.5" />
@@ -206,7 +206,7 @@ export function SkillsMatrix() {
             className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-2 ${
               activeTab === "all" && !searchQuery
                 ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm shadow-emerald-950"
-                : "bg-zinc-900/60 text-zinc-400 border border-white/[0.06] hover:text-white hover:border-white/10"
+                : "bg-zinc-900/60 text-zinc-400 border border-white/6 hover:text-white hover:border-white/10"
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
@@ -216,11 +216,11 @@ export function SkillsMatrix() {
         </div>
 
         {/* Tab / Results Contents */}
-        <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/80 border border-white/[0.08] shadow-2xl">
+        <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/80 border border-white/8 shadow-2xl">
           {/* Active Search Results */}
           {searchResults !== null ? (
             <div className="space-y-6">
-              <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+              <div className="flex items-center justify-between pb-3 border-b border-white/6">
                 <div className="text-xs font-mono text-zinc-400">
                   Found{" "}
                   <span className="text-emerald-400 font-semibold">
@@ -255,7 +255,7 @@ export function SkillsMatrix() {
                     {searchResults.matchedCerts.map((cert, idx) => (
                       <div
                         key={idx}
-                        className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] flex items-center gap-3 hover:border-emerald-500/30 transition-all"
+                        className="p-4 rounded-xl bg-zinc-900/60 border border-white/6 flex items-center gap-3 hover:border-emerald-500/30 transition-all"
                       >
                         <Award className="w-5 h-5 text-emerald-400 shrink-0" />
                         <span className="text-xs font-mono text-zinc-200">{cert}</span>
@@ -279,7 +279,7 @@ export function SkillsMatrix() {
                 const Icon = domain.icon;
                 return (
                   <div key={domain.id} className="space-y-4">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-white/[0.06]">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-2 border-b border-white/6">
                       <div className="flex items-center gap-2.5">
                         <Icon className="w-4 h-4 text-emerald-400" />
                         <h3 className="text-sm sm:text-base font-semibold text-white">
@@ -304,8 +304,8 @@ export function SkillsMatrix() {
               })}
 
               {/* Certifications in All View */}
-              <div className="space-y-4 pt-4 border-t border-white/[0.06]">
-                <div className="flex items-center gap-2.5 pb-2 border-b border-white/[0.06]">
+              <div className="space-y-4 pt-4 border-t border-white/6">
+                <div className="flex items-center gap-2.5 pb-2 border-b border-white/6">
                   <Award className="w-4 h-4 text-emerald-400" />
                   <h3 className="text-sm sm:text-base font-semibold text-white">
                     Certifications
@@ -319,7 +319,7 @@ export function SkillsMatrix() {
                   {certifications.map((cert, cIdx) => (
                     <div
                       key={cIdx}
-                      className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] flex items-center gap-3 hover:border-emerald-500/30 transition-all"
+                      className="p-4 rounded-xl bg-zinc-900/60 border border-white/6 flex items-center gap-3 hover:border-emerald-500/30 transition-all"
                     >
                       <Award className="w-5 h-5 text-emerald-400 shrink-0" />
                       <span className="text-xs font-mono text-zinc-200">{cert}</span>
@@ -331,7 +331,7 @@ export function SkillsMatrix() {
           ) : activeTab === "certifications" ? (
             /* Certifications Tab */
             <div className="space-y-6">
-              <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+              <div className="flex items-center justify-between pb-3 border-b border-white/6">
                 <div className="flex items-center gap-2.5">
                   <Award className="w-4 h-4 text-emerald-400" />
                   <h3 className="text-base font-semibold text-white">
@@ -347,7 +347,7 @@ export function SkillsMatrix() {
                 {certifications.map((cert, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] flex items-center gap-3 hover:border-emerald-500/30 transition-all"
+                    className="p-4 rounded-xl bg-zinc-900/60 border border-white/6 flex items-center gap-3 hover:border-emerald-500/30 transition-all"
                   >
                     <Award className="w-5 h-5 text-emerald-400 shrink-0" />
                     <span className="text-xs font-mono text-zinc-200">{cert}</span>
@@ -358,7 +358,7 @@ export function SkillsMatrix() {
           ) : currentDomain ? (
             /* Single Domain Active */
             <div className="space-y-6">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-white/[0.06]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-white/6">
                 <div className="flex items-center gap-2.5">
                   <currentDomain.icon className="w-4 h-4 text-emerald-400" />
                   <h3 className="text-base font-semibold text-white">
@@ -394,7 +394,7 @@ function SkillCard({
   domainLabel?: string;
 }) {
   return (
-    <div className="p-5 rounded-xl bg-zinc-900/60 border border-white/[0.06] hover:border-emerald-500/30 transition-all flex flex-col justify-between group">
+    <div className="p-5 rounded-xl bg-zinc-900/60 border border-white/6 hover:border-emerald-500/30 transition-all flex flex-col justify-between group">
       <div>
         {domainLabel && (
           <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1.5">
@@ -405,7 +405,7 @@ function SkillCard({
           <h4 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
             {skill.name}
           </h4>
-          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-emerald-400 shrink-0 border border-white/[0.04]">
+          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-emerald-400 shrink-0 border border-white/4">
             {skill.level}
           </span>
         </div>
@@ -415,11 +415,11 @@ function SkillCard({
           </p>
         )}
       </div>
-      <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.04]">
+      <div className="mt-4 flex flex-wrap gap-1.5 pt-3 border-t border-white/4">
         {skill.tags.map((tag) => (
           <span
             key={tag}
-            className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-950 text-zinc-400 border border-white/[0.04]"
+            className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-950 text-zinc-400 border border-white/4"
           >
             {tag}
           </span>

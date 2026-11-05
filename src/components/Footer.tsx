@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
@@ -13,10 +12,10 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-white/[0.08] bg-zinc-950/90 py-12 relative">
+    <footer className="border-t border-white/8 bg-zinc-950/90 py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/[0.06]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-white/6">
           
           {/* Brand & Status */}
           <div className="flex items-center gap-3">
@@ -36,7 +35,7 @@ export function Footer() {
 
           {/* Location & Relocation Status */}
           <div className="flex items-center gap-4 text-xs font-mono text-zinc-400">
-            <div className="flex items-center px-3.5 py-1.5 rounded-lg bg-zinc-900/80 border border-white/[0.06] text-zinc-300">
+            <div className="flex items-center px-3.5 py-1.5 rounded-lg bg-zinc-900/80 border border-white/6 text-zinc-300">
               <span>Based in Mumbai, India • Open to Relocation & Remote</span>
             </div>
             <button

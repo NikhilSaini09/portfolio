@@ -1,5 +1,3 @@
-import React from "react";
-
 export function GithubIcon({ className = "w-4 h-4" }: { className?: string }) {
   return (
     <svg
@@ -69,4 +67,3 @@ export function CodeChefIcon({ className = "w-4 h-4" }: { className?: string }) 
     </svg>
   );
 }
-

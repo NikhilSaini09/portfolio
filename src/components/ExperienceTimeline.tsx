@@ -9,7 +9,7 @@ export function ExperienceTimeline() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/8">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
               <Briefcase className="w-4 h-4" />
@@ -36,7 +36,7 @@ export function ExperienceTimeline() {
             {PORTFOLIO_DATA.experience.map((exp, idx) => (
               <div
                 key={idx}
-                className="relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-emerald-500/30 p-6 transition-all duration-300"
+                className="relative rounded-2xl bg-zinc-950/80 border border-white/8 hover:border-emerald-500/30 p-6 transition-all duration-300"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
                   <h4 className="text-base font-bold text-white">{exp.role}</h4>
@@ -69,7 +69,7 @@ export function ExperienceTimeline() {
               Academic Pedigree
             </h3>
 
-            <div className="rounded-2xl bg-zinc-950/80 border border-white/[0.08] p-6 space-y-6">
+            <div className="rounded-2xl bg-zinc-950/80 border border-white/8 p-6 space-y-6">
               
               <div>
                 <div className="text-xs font-mono text-cyan-400 font-bold">
@@ -87,14 +87,14 @@ export function ExperienceTimeline() {
               </div>
 
               {/* Highlights */}
-              <div className="pt-4 border-t border-white/[0.06] space-y-3">
+              <div className="pt-4 border-t border-white/6 space-y-3">
                 <div className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   Key Academic Honors
                 </div>
                 {PORTFOLIO_DATA.education.highlights.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-3 rounded-xl bg-zinc-900/60 border border-white/[0.04] text-xs text-zinc-300 leading-relaxed"
+                    className="flex items-start gap-2.5 p-3 rounded-xl bg-zinc-900/60 border border-white/4 text-xs text-zinc-300 leading-relaxed"
                   >
                     <Award className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                     <span>{item}</span>

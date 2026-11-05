@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -36,7 +36,7 @@ export function Hero() {
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start space-y-6">
             
             {/* Status indicator */}
-            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-white/[0.08] text-zinc-300 text-xs font-mono">
+            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-white/8 text-zinc-300 text-xs font-mono">
               <span>Available for Full-Stack, Backend, Systems & SWE Roles</span>
             </div>
 
@@ -79,7 +79,7 @@ export function Hero() {
 
               <button
                 onClick={copyEmail}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 text-sm font-mono border border-white/[0.08] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-zinc-900/80 hover:bg-zinc-800 text-zinc-300 text-sm font-mono border border-white/8 transition-colors"
                 title="Copy email to clipboard"
               >
                 {copied ? (
@@ -102,7 +102,7 @@ export function Hero() {
                 href={PORTFOLIO_DATA.personal.socialLinks.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/6 hover:text-white transition-colors"
               >
                 <GithubIcon className="w-4 h-4" />
                 <span>GitHub</span>
@@ -112,7 +112,7 @@ export function Hero() {
                 href={PORTFOLIO_DATA.personal.socialLinks.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/6 hover:text-white transition-colors"
               >
                 <LinkedinIcon className="w-4 h-4 text-blue-400" />
                 <span>LinkedIn</span>
@@ -122,7 +122,7 @@ export function Hero() {
                 href={PORTFOLIO_DATA.personal.socialLinks.leetcode}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/6 hover:text-white transition-colors"
               >
                 <LeetCodeIcon className="w-3.5 h-3.5 text-zinc-400" />
                 <span>LeetCode 2315</span>
@@ -132,7 +132,7 @@ export function Hero() {
                 href={PORTFOLIO_DATA.personal.socialLinks.codeforces}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/6 hover:text-white transition-colors"
               >
                 <CodeforcesIcon className="w-3.5 h-3.5 text-zinc-400" />
                 <span>Codeforces 2043</span>
@@ -142,7 +142,7 @@ export function Hero() {
                 href={PORTFOLIO_DATA.personal.socialLinks.codechef}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/[0.06] hover:text-white transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-white/6 hover:text-white transition-colors"
               >
                 <CodeChefIcon className="w-3.5 h-3.5 text-zinc-400" />
                 <span>CodeChef 2047</span>
@@ -153,11 +153,11 @@ export function Hero() {
 
           {/* Right Column: Confident, Generously Sized Photo Card */}
           <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end">
-            <div className="w-full max-w-sm rounded-3xl bg-zinc-950/90 border border-white/[0.1] p-6 sm:p-7 shadow-2xl flex flex-col items-center">
+            <div className="w-full max-w-sm rounded-3xl bg-zinc-950/90 border border-white/10 p-6 sm:p-7 shadow-2xl flex flex-col items-center">
               
               {/* Photo Box with comfortable, generous aspect ratio */}
               <div
-                className="relative w-full max-w-[280px] aspect-[4/5] rounded-2xl overflow-hidden bg-zinc-900 border border-white/[0.1] shadow-xl"
+                className="relative w-full max-w-70 aspect-4/5 rounded-2xl overflow-hidden bg-zinc-900 border border-white/10 shadow-xl"
               >
                 <Image
                   src="/profile.jpeg"
@@ -180,7 +180,7 @@ export function Hero() {
                 </p>
               </div>
 
-              <div className="w-full mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-center text-sm font-medium text-zinc-300">
+              <div className="w-full mt-5 pt-4 border-t border-white/8 flex items-center justify-center text-sm font-medium text-zinc-300">
                 <span className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-emerald-400" />
                   Mumbai, India

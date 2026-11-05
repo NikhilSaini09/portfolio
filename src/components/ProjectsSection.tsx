@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   ExternalLink,
@@ -51,7 +51,7 @@ export function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/8">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
               <Layers className="w-4 h-4" />
@@ -76,7 +76,7 @@ export function ProjectsSection() {
               className={`px-4 py-2 rounded-xl text-xs font-medium transition-all ${
                 activeCategory === cat
                   ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm shadow-emerald-950"
-                  : "bg-zinc-900/60 text-zinc-400 border border-white/[0.06] hover:text-white hover:bg-zinc-800/80"
+                  : "bg-zinc-900/60 text-zinc-400 border border-white/6 hover:text-white hover:bg-zinc-800/80"
               }`}
             >
               {cat}
@@ -89,7 +89,7 @@ export function ProjectsSection() {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="group relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-emerald-500/40 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-950/20"
+              className="group relative rounded-2xl bg-zinc-950/80 border border-white/8 hover:border-emerald-500/40 p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-950/20"
             >
               <div className="space-y-4">
                 {/* Header with categories and period */}
@@ -103,7 +103,7 @@ export function ProjectsSection() {
                       .map((extraCat) => (
                         <span
                           key={extraCat}
-                          className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-900/60 border border-white/[0.06] text-zinc-400"
+                          className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-900/60 border border-white/6 text-zinc-400"
                         >
                           {extraCat}
                         </span>
@@ -131,7 +131,7 @@ export function ProjectsSection() {
                   {project.keyMetrics.map((m, idx) => (
                     <div
                       key={idx}
-                      className="p-2 rounded-lg bg-zinc-900/60 border border-white/[0.06]"
+                      className="p-2 rounded-lg bg-zinc-900/60 border border-white/6"
                     >
                       <div className="text-[10px] font-mono text-zinc-400 truncate">
                         {m.label}
@@ -158,7 +158,7 @@ export function ProjectsSection() {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 rounded-md bg-zinc-900/90 border border-white/[0.06] text-[11px] font-mono text-zinc-400 group-hover:border-white/10"
+                      className="px-2.5 py-1 rounded-md bg-zinc-900/90 border border-white/6 text-[11px] font-mono text-zinc-400 group-hover:border-white/10"
                     >
                       {tech}
                     </span>
@@ -167,7 +167,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Bottom Actions */}
-              <div className="mt-8 pt-5 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
+              <div className="mt-8 pt-5 border-t border-white/6 flex flex-wrap items-center justify-between gap-3">
                 <Link
                   href={`/projects/${project.slug}`}
                   className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300 group/link"
@@ -180,7 +180,7 @@ export function ProjectsSection() {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-medium border border-white/[0.06] transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-medium border border-white/6 transition-colors"
                   >
                     <span>Quick Specs</span>
                   </button>
@@ -202,7 +202,7 @@ export function ProjectsSection() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/[0.08] transition-colors"
+                      className="p-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/8 transition-colors"
                       title="GitHub Source"
                     >
                       <GithubIcon className="w-3.5 h-3.5" />
@@ -247,7 +247,7 @@ export function ProjectsSection() {
 
               {/* Problem vs System Design */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] space-y-2">
+                <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/6 space-y-2">
                   <div className="text-xs font-mono text-rose-400 uppercase">
                     The Problem
                   </div>
@@ -255,7 +255,7 @@ export function ProjectsSection() {
                     {selectedProject.architectureOverview.problem}
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/[0.06] space-y-2">
+                <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/6 space-y-2">
                   <div className="text-xs font-mono text-emerald-400 uppercase">
                     System Design
                   </div>
@@ -274,7 +274,7 @@ export function ProjectsSection() {
                   {selectedProject.architectureOverview.dataFlowSteps.map((step) => (
                     <div
                       key={step.step}
-                      className="p-3 rounded-lg bg-zinc-900/40 border border-white/[0.04] space-y-1"
+                      className="p-3 rounded-lg bg-zinc-900/40 border border-white/4 space-y-1"
                     >
                       <div className="flex items-center gap-2">
                         <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-mono font-bold flex items-center justify-center">
@@ -293,7 +293,7 @@ export function ProjectsSection() {
               </div>
 
               {/* Key Achievements */}
-              <div className="space-y-2 pt-2 border-t border-white/[0.06]">
+              <div className="space-y-2 pt-2 border-t border-white/6">
                 <div className="text-xs font-mono text-zinc-400 uppercase">
                   Verified Engineering Achievements
                 </div>

@@ -50,12 +50,11 @@ export function ContactSection() {
     <section id="contact" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-4 border-b border-white/8">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
               <MessageSquare className="w-4 h-4" />
-              Direct Communication Channel
+              Direct Communication
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
               Let&apos;s Connect & Build
@@ -68,11 +67,10 @@ export function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Left Column: Direct Outreach Channels & Details */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
             
             {/* Email Card with 1-click copy */}
-            <div className="p-5 rounded-2xl bg-zinc-950/90 border border-white/[0.08] hover:border-emerald-500/30 transition-all flex flex-col justify-between space-y-3">
+            <div className="p-5 rounded-2xl bg-zinc-950/90 border border-white/8 hover:border-emerald-500/30 transition-all flex flex-col justify-between space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-xl bg-emerald-950/60 border border-emerald-500/20 text-emerald-400">
@@ -119,7 +117,7 @@ export function ContactSection() {
               href={PORTFOLIO_DATA.personal.socialLinks.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="p-5 rounded-2xl bg-zinc-950/90 border border-white/[0.08] hover:border-blue-500/40 transition-all flex items-center justify-between group"
+              className="p-5 rounded-2xl bg-zinc-950/90 border border-white/8 hover:border-blue-500/40 transition-all flex items-center justify-between group"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2.5 rounded-xl bg-blue-950/60 border border-blue-500/20 text-blue-400">
@@ -140,7 +138,7 @@ export function ContactSection() {
               href={PORTFOLIO_DATA.personal.socialLinks.github}
               target="_blank"
               rel="noreferrer"
-              className="p-5 rounded-2xl bg-zinc-950/90 border border-white/[0.08] hover:border-white/20 transition-all flex items-center justify-between group"
+              className="p-5 rounded-2xl bg-zinc-950/90 border border-white/8 hover:border-white/20 transition-all flex items-center justify-between group"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2.5 rounded-xl bg-zinc-900 border border-white/10 text-white">
@@ -157,7 +155,7 @@ export function ContactSection() {
             </a>
 
             {/* Location & Phone Details */}
-            <div className="p-5 rounded-2xl bg-zinc-950/90 border border-white/[0.08] space-y-4">
+            <div className="p-5 rounded-2xl bg-zinc-950/90 border border-white/8 space-y-4">
               <div className="flex items-center gap-3.5 text-sm text-zinc-200">
                 <div className="p-2.5 rounded-xl bg-zinc-900 border border-white/10 text-emerald-400 shrink-0">
                   <Phone className="w-4 h-4" />
@@ -167,7 +165,7 @@ export function ContactSection() {
                   <div className="text-sm font-semibold text-white tracking-wide">{PORTFOLIO_DATA.personal.phone}</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3.5 text-sm text-zinc-200 pt-2.5 border-t border-white/[0.06]">
+              <div className="flex items-center gap-3.5 text-sm text-zinc-200 pt-2.5 border-t border-white/6">
                 <div className="p-2.5 rounded-xl bg-zinc-900 border border-white/10 text-emerald-400 shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
@@ -182,7 +180,7 @@ export function ContactSection() {
 
           {/* Right Column: Interactive Contact Form */}
           <div className="lg:col-span-7 flex flex-col h-full">
-            <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/[0.08] shadow-2xl relative h-full flex flex-col justify-between">
+            <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/8 shadow-2xl relative h-full flex flex-col justify-between">
               
               {submitted ? (
                 <div className="py-12 my-auto flex flex-col items-center justify-center text-center space-y-4">
@@ -266,10 +264,10 @@ export function ContactSection() {
                           Distributed Systems / Backend Real-Time Role
                         </option>
                         <option value="Full-Stack Product Engineering">
-                          Full-Stack Product Engineering (Next.js / FastAPI)
+                          Full-Stack Product Engineering
                         </option>
                         <option value="Quant / Algorithmic Engineering">
-                          Quant / Algorithmic Engineering (C++, DSA)
+                          Quant / Algorithmic Engineering
                         </option>
                         <option value="Freelance / Consulting Project">
                           Project Consultation / Engineering Advice
@@ -292,7 +290,7 @@ export function ContactSection() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Hi Nikhil, we saw your work on real-time WebRTC engines and competitive programming rank and would love to chat..."
-                      className="w-full flex-1 min-h-[130px] px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition-colors resize-none"
+                      className="w-full flex-1 min-h-32.5 px-3.5 py-2.5 rounded-xl bg-zinc-900/90 border border-white/10 text-white placeholder-zinc-500 text-xs focus:outline-none focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 transition-colors resize-none"
                     />
                   </div>
 

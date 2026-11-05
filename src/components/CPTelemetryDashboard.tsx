@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Flame,
   Trophy,
@@ -21,7 +21,7 @@ export function CPTelemetryDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/[0.08]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-white/8">
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-emerald-400 mb-2">
               <Brain className="w-4 h-4" />
@@ -45,7 +45,7 @@ export function CPTelemetryDashboard() {
             className={`px-4 py-2 rounded-xl text-xs font-medium transition-all ${
               activeTab === "overview"
                 ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
-                : "bg-zinc-900/60 text-zinc-400 border border-white/[0.06] hover:text-white"
+                : "bg-zinc-900/60 text-zinc-400 border border-white/6 hover:text-white"
             }`}
           >
             All Platforms Overview
@@ -55,7 +55,7 @@ export function CPTelemetryDashboard() {
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium transition-all ${
               activeTab === "codeforces"
                 ? "bg-purple-500/20 text-purple-300 border border-purple-500/40"
-                : "bg-zinc-900/60 text-zinc-400 border border-white/[0.06] hover:text-white"
+                : "bg-zinc-900/60 text-zinc-400 border border-white/6 hover:text-white"
             }`}
           >
             <CodeforcesIcon className="w-3.5 h-3.5 text-purple-400" />
@@ -66,7 +66,7 @@ export function CPTelemetryDashboard() {
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium transition-all ${
               activeTab === "leetcode"
                 ? "bg-amber-500/20 text-amber-300 border border-amber-500/40"
-                : "bg-zinc-900/60 text-zinc-400 border border-white/[0.06] hover:text-white"
+                : "bg-zinc-900/60 text-zinc-400 border border-white/6 hover:text-white"
             }`}
           >
             <LeetCodeIcon className="w-3.5 h-3.5 text-amber-400" />
@@ -77,7 +77,7 @@ export function CPTelemetryDashboard() {
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium transition-all ${
               activeTab === "codechef"
                 ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
-                : "bg-zinc-900/60 text-zinc-400 border border-white/[0.06] hover:text-white"
+                : "bg-zinc-900/60 text-zinc-400 border border-white/6 hover:text-white"
             }`}
           >
             <Award className="w-3.5 h-3.5 text-emerald-400" />
@@ -97,7 +97,7 @@ export function CPTelemetryDashboard() {
                 href={cp.platforms.codeforces.profileUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="group p-6 rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-purple-500/50 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-950/20 flex flex-col justify-between"
+                className="group p-6 rounded-2xl bg-zinc-950/80 border border-white/8 hover:border-purple-500/50 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-950/20 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -119,7 +119,7 @@ export function CPTelemetryDashboard() {
                     {cp.platforms.codeforces.problemsSolved}+ Contest & Practice Problems
                   </p>
                 </div>
-                <div className="mt-6 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-zinc-400">
+                <div className="mt-6 pt-3 border-t border-white/6 flex items-center justify-between text-xs font-mono text-zinc-400">
                   <span>Handle: @{cp.platforms.codeforces.handle}</span>
                   <span className="text-purple-400 font-semibold">Division 1+2</span>
                 </div>
@@ -130,7 +130,7 @@ export function CPTelemetryDashboard() {
                 href={cp.platforms.leetcode.profileUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="group p-6 rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-amber-500/50 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-950/20 flex flex-col justify-between"
+                className="group p-6 rounded-2xl bg-zinc-950/80 border border-white/8 hover:border-amber-500/50 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-950/20 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -152,7 +152,7 @@ export function CPTelemetryDashboard() {
                     {cp.platforms.leetcode.problemsSolved}+ Problems Solved Worldwide
                   </p>
                 </div>
-                <div className="mt-6 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-zinc-400">
+                <div className="mt-6 pt-3 border-t border-white/6 flex items-center justify-between text-xs font-mono text-zinc-400">
                   <span>Handle: @{cp.platforms.leetcode.handle}</span>
                   <span className="text-amber-400 font-semibold">Top 1% Global</span>
                 </div>
@@ -163,7 +163,7 @@ export function CPTelemetryDashboard() {
                 href={cp.platforms.codechef.profileUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="group p-6 rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-emerald-500/50 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-950/20 flex flex-col justify-between"
+                className="group p-6 rounded-2xl bg-zinc-950/80 border border-white/8 hover:border-emerald-500/50 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-950/20 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -185,7 +185,7 @@ export function CPTelemetryDashboard() {
                     {cp.platforms.codechef.problemsSolved}+ Problems Solved in Division 1
                   </p>
                 </div>
-                <div className="mt-6 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-zinc-400">
+                <div className="mt-6 pt-3 border-t border-white/6 flex items-center justify-between text-xs font-mono text-zinc-400">
                   <span>Handle: @{cp.platforms.codechef.handle}</span>
                   <span className="text-emerald-400 font-semibold">5-Star Tier</span>
                 </div>
@@ -194,7 +194,7 @@ export function CPTelemetryDashboard() {
             </div>
 
             {/* Clean Editorial Summary Strip */}
-            <div className="p-5 rounded-2xl bg-zinc-950/80 border border-white/[0.08] flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+            <div className="p-5 rounded-2xl bg-zinc-950/80 border border-white/8 flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-zinc-400">
               <div className="flex items-center gap-2">
                 <span>{cp.totalProblemsSolved} algorithmic problems solved across platforms</span>
               </div>
@@ -212,7 +212,7 @@ export function CPTelemetryDashboard() {
 
         {/* Detailed Platform Views (Codeforces, LeetCode, CodeChef) */}
         {activeTab !== "overview" && (
-          <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/[0.08] space-y-6">
+          <div className="p-6 sm:p-8 rounded-2xl bg-zinc-950/90 border border-white/8 space-y-6">
             {activeTab === "codeforces" && (
               <div>
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
@@ -241,7 +241,7 @@ export function CPTelemetryDashboard() {
                 {/* Milestones */}
                 <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                   {cp.platforms.codeforces.history.map((h, i) => (
-                    <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/[0.06] flex flex-col justify-between">
+                    <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/6 flex flex-col justify-between">
                       <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-1">
                         <span>{h.date}</span>
                         {h.rank && <span className="text-purple-400 font-medium">#{h.rank}</span>}
@@ -282,7 +282,7 @@ export function CPTelemetryDashboard() {
                 {/* Milestones */}
                 <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {cp.platforms.leetcode.history.map((h, i) => (
-                    <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/[0.06] flex flex-col justify-between">
+                    <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/6 flex flex-col justify-between">
                       <span className="text-[11px] font-mono text-zinc-500 mb-1">{h.date}</span>
                       <div className="text-xl font-mono font-bold text-amber-300 my-1">{h.rating}</div>
                       <span className="text-[11px] font-semibold text-zinc-300 truncate" title={h.contest}>{h.contest}</span>
@@ -320,7 +320,7 @@ export function CPTelemetryDashboard() {
                 {/* Milestones */}
                 <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3">
                   {cp.platforms.codechef.history.map((h, i) => (
-                    <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/[0.06] flex flex-col justify-between">
+                    <div key={i} className="p-3.5 rounded-xl bg-zinc-900/70 border border-white/6 flex flex-col justify-between">
                       <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 mb-1">
                         <span>{h.date}</span>
                         {h.rank && <span className="text-emerald-400 font-medium">#{h.rank}</span>}

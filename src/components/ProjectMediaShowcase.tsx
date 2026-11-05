@@ -131,23 +131,23 @@ export function ProjectMediaShowcase({
       {/* Primary Media Display Window */}
       <div
         ref={containerRef}
-        className={`relative overflow-hidden rounded-2xl bg-zinc-950 border border-white/[0.08] group ${
-          isHero ? "aspect-[16/10] sm:aspect-[16/9]" : "aspect-[16/10]"
+        className={`relative overflow-hidden rounded-2xl bg-zinc-950 border border-white/8 group ${
+          isHero ? "aspect-16/10 sm:aspect-video" : "aspect-16/10"
         }`}
       >
         {/* Top Window Bar */}
-        <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-4 py-2.5 bg-zinc-950/85 backdrop-blur-md border-b border-white/[0.06]">
+        <div className="absolute top-0 inset-x-0 z-20 flex items-center justify-between px-4 py-2.5 bg-zinc-950/85 backdrop-blur-md border-b border-white/6">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block" />
             <span className="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block" />
             <span className="w-2.5 h-2.5 rounded-full bg-zinc-700 inline-block" />
-            <span className="ml-2 text-xs font-mono text-zinc-400 truncate max-w-[200px] sm:max-w-none">
+            <span className="ml-2 text-xs font-mono text-zinc-400 truncate max-w-50 sm:max-w-none">
               showcase / {project.slug}
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-zinc-900 text-zinc-400 border border-white/[0.06]">
+            <span className="px-2 py-0.5 rounded text-[11px] font-mono bg-zinc-900 text-zinc-400 border border-white/6">
               {selectedMedia.type === "video"
                 ? isMobileMedia
                   ? "Mobile Demo Video"
@@ -199,7 +199,7 @@ export function ProjectMediaShowcase({
             </div>
           ) : (
             /* High-Tech Architectural Visualization Fallback */
-            <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-8 bg-gradient-to-br from-zinc-900/90 via-zinc-950 to-black overflow-hidden select-none">
+            <div className="relative w-full h-full flex flex-col justify-between p-6 sm:p-8 bg-linear-to-br from-zinc-900/90 via-zinc-950 to-black overflow-hidden select-none">
               <div className="absolute inset-0 grid-background opacity-50" />
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -left-20 -bottom-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -244,7 +244,7 @@ export function ProjectMediaShowcase({
                   {project.keyMetrics.map((metric, idx) => (
                     <div
                       key={idx}
-                      className="p-2 rounded-lg bg-zinc-900/70 border border-white/[0.06] text-left"
+                      className="p-2 rounded-lg bg-zinc-900/70 border border-white/6 text-left"
                     >
                       <div className="text-[10px] font-mono text-zinc-400 truncate">
                         {metric.label}
@@ -257,7 +257,7 @@ export function ProjectMediaShowcase({
                 </div>
               </div>
 
-              <div className="relative z-10 flex items-center justify-between text-[11px] font-mono text-zinc-400 border-t border-white/[0.06] pt-3">
+              <div className="relative z-10 flex items-center justify-between text-[11px] font-mono text-zinc-400 border-t border-white/6 pt-3">
                 <div className="flex items-center gap-1.5 text-zinc-400">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Production verified • {project.category}</span>
@@ -269,7 +269,7 @@ export function ProjectMediaShowcase({
 
         {/* Full Interactive Video Control Bar */}
         {!mediaError && selectedMedia.type === "video" && (
-          <div className="absolute bottom-0 inset-x-0 z-20 px-3.5 py-2.5 bg-gradient-to-t from-black/95 via-black/80 to-transparent flex flex-col gap-2">
+          <div className="absolute bottom-0 inset-x-0 z-20 px-3.5 py-2.5 bg-linear-to-t from-black/95 via-black/80 to-transparent flex flex-col gap-2">
             {/* Scrubber / Progress Bar */}
             <div
               ref={progressBarRef}
@@ -319,7 +319,7 @@ export function ProjectMediaShowcase({
                   title="Rewind 10 seconds"
                 >
                   <RotateCcw className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
-                  <span className="leading-none translate-y-[1px] select-none tabular-nums">-10s</span>
+                  <span className="leading-none translate-y-px select-none tabular-nums">-10s</span>
                 </button>
 
                 <button
@@ -327,7 +327,7 @@ export function ProjectMediaShowcase({
                   className="h-7 px-2.5 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 text-zinc-300 hover:text-white border border-white/10 text-xs font-mono transition-colors inline-flex items-center justify-center gap-1.5 leading-none shrink-0"
                   title="Forward 10 seconds"
                 >
-                  <span className="leading-none translate-y-[1px] select-none tabular-nums">+10s</span>
+                  <span className="leading-none translate-y-px select-none tabular-nums">+10s</span>
                   <RotateCw className="w-3.5 h-3.5 text-zinc-400 shrink-0" />
                 </button>
 
@@ -371,7 +371,7 @@ export function ProjectMediaShowcase({
 
       {/* Active Media Caption */}
       {selectedMedia.caption && (
-        <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-zinc-900/40 border border-white/[0.04] text-xs font-mono text-zinc-300">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-zinc-900/40 border border-white/4 text-xs font-mono text-zinc-300">
           <span className="text-zinc-200 font-semibold shrink-0">
             {selectedMedia.type === "video"
               ? isMobileMedia
@@ -391,7 +391,7 @@ export function ProjectMediaShowcase({
             className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
               selectedMedia.url === project.media.primary.url
                 ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm shadow-emerald-950"
-                : "bg-zinc-900/70 text-zinc-400 border border-white/[0.06] hover:text-zinc-200"
+                : "bg-zinc-900/70 text-zinc-400 border border-white/6 hover:text-zinc-200"
             }`}
           >
             <Monitor className="w-3.5 h-3.5 text-emerald-400" />
@@ -412,7 +412,7 @@ export function ProjectMediaShowcase({
                 className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0 ${
                   selectedMedia.url === mediaItem.url
                     ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm shadow-emerald-950"
-                    : "bg-zinc-900/70 text-zinc-400 border border-white/[0.06] hover:text-zinc-200"
+                    : "bg-zinc-900/70 text-zinc-400 border border-white/6 hover:text-zinc-200"
                 }`}
               >
                 {isItemMobile ? (
