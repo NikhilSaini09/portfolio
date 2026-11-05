@@ -6,7 +6,8 @@ import {
   ArrowRight,
   Copy,
   Check,
-  ExternalLink,
+  Download,
+  Eye,
   MapPin,
 } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
@@ -17,9 +18,11 @@ import {
   CodeforcesIcon,
   CodeChefIcon,
 } from "@/components/icons/BrandIcons";
+import { ResumeModal } from "@/components/ResumeModal";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   const copyEmail = () => {
     navigator.clipboard.writeText(PORTFOLIO_DATA.personal.email);
@@ -187,21 +190,38 @@ export function Hero() {
                 </span>
               </div>
 
-              {/* Download CV */}
-              <a
-                href={PORTFOLIO_DATA.personal.resumeUrl}
-                download="Nikhil_Saini_Resume.pdf"
-                className="w-full mt-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-sm font-semibold text-zinc-100 hover:text-white text-center transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md"
-              >
-                <span>Download Resume (PDF)</span>
-                <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
-              </a>
+              {/* Resume Actions: Preview & Quick Download */}
+              <div className="w-full mt-5 flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIsResumeModalOpen(true)}
+                  className="flex-1 py-3 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-sm font-semibold text-zinc-100 hover:text-white transition-all flex items-center justify-center gap-2 shadow-sm hover:border-emerald-500/40"
+                >
+                  <Eye className="w-4 h-4 text-emerald-400" />
+                  <span>Preview Resume</span>
+                </button>
+                <a
+                  href={PORTFOLIO_DATA.personal.resumeUrl}
+                  download="Nikhil_Saini_Resume.pdf"
+                  className="py-3 px-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/10 text-zinc-400 hover:text-white transition-all flex items-center justify-center shadow-sm hover:border-emerald-500/40"
+                  title="Direct Download (PDF)"
+                  aria-label="Direct Download Resume PDF"
+                >
+                  <Download className="w-4 h-4" />
+                </a>
+              </div>
 
             </div>
           </div>
 
         </div>
       </div>
+
+      {/* Interactive Resume Preview Modal */}
+      <ResumeModal
+        isOpen={isResumeModalOpen}
+        onClose={() => setIsResumeModalOpen(false)}
+      />
     </section>
   );
 }

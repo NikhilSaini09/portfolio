@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Download, Menu, X } from "lucide-react";
+import { Download, Eye, Menu, X } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
+import { ResumeModal } from "@/components/ResumeModal";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,15 +95,15 @@ export function Navbar() {
 
         {/* Right Action Buttons */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Resume Download */}
-          <a
-            href={PORTFOLIO_DATA.personal.resumeUrl}
-            download="Nikhil_Saini_Resume.pdf"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-zinc-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-all shadow-sm hover:shadow-emerald-500/20 active:scale-95"
+          {/* Resume Preview & Download */}
+          <button
+            type="button"
+            onClick={() => setIsResumeModalOpen(true)}
+            className="flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-zinc-950 bg-emerald-400 hover:bg-emerald-300 rounded-lg transition-all shadow-sm hover:shadow-emerald-500/20 active:scale-95 cursor-pointer"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Eye className="w-3.5 h-3.5" />
             <span>Resume</span>
-          </a>
+          </button>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -127,18 +129,36 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <div className="pt-2">
+          <div className="pt-2 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setIsResumeModalOpen(true);
+              }}
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-zinc-950 font-semibold text-xs transition-colors cursor-pointer"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              <span>Preview Resume</span>
+            </button>
             <a
               href={PORTFOLIO_DATA.personal.resumeUrl}
               download="Nikhil_Saini_Resume.pdf"
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-400 text-zinc-950 font-semibold text-xs"
+              className="p-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-white/8 text-zinc-300 hover:text-white flex items-center justify-center transition-colors"
+              title="Download PDF directly"
+              aria-label="Download Resume PDF directly"
             >
-              <Download className="w-3.5 h-3.5" />
-              <span>Download Resume (PDF)</span>
+              <Download className="w-4 h-4" />
             </a>
           </div>
         </div>
       )}
+
+      {/* Resume Preview Modal */}
+      <ResumeModal
+        isOpen={isResumeModalOpen}
+        onClose={() => setIsResumeModalOpen(false)}
+      />
     </header>
   );
 }
